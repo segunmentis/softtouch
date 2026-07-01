@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="py-12">
     <v-row justify="center">
       <v-col cols="12" md="8">
         <h1 class="text-h3 font-weight-bold mb-4">About Us</h1>
