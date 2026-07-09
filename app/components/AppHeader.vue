@@ -1,95 +1,95 @@
 <template>
   <!-- Top info bar -->
-  <div class="header-topbar bg-primary py-2 d-none d-md-block">
-    <v-container>
-      <div class="d-flex justify-space-between align-center">
-        <div class="d-flex align-center gap-4">
-          <span class="text-white text-body-2">
-            <v-icon icon="mdi-phone" size="14" class="me-1" />
-            +01 123 5641 231
-          </span>
-          <span class="text-white text-body-2">
-            <v-icon icon="mdi-email-outline" size="14" class="me-1" />
-            hello@softtouch.com
-          </span>
-        </div>
-        <span class="text-white text-body-2">
-          Mon – Fri: 9:00am – 6:00pm
+  <div class="hidden bg-primary py-2 md:block">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center text-sm text-white">
+          <svg class="mr-1 h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372a1.125 1.125 0 00-.852-1.09l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293a11.25 11.25 0 01-5.62-5.62l1.293-.97a1.125 1.125 0 00.417-1.173L8.964 3.102a1.125 1.125 0 00-1.09-.852H6.5A2.25 2.25 0 004.25 4.5v.75z" />
+          </svg>
+          +01 123 5641 231
+        </span>
+        <span class="flex items-center text-sm text-white">
+          <svg class="mr-1 h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          hello@softtouch.com
         </span>
       </div>
-    </v-container>
+      <span class="text-sm text-white">Mon – Fri: 9:00am – 6:00pm</span>
+    </div>
   </div>
 
   <!-- Main header -->
-  <v-app-bar color="white" elevation="1" height="72">
-    <v-container class="d-flex align-center h-100 pa-0">
+  <header class="h-[72px] bg-white shadow">
+    <div class="mx-auto flex h-full max-w-7xl items-center px-6">
       <!-- Logo -->
-      <NuxtLink to="/" class="text-decoration-none d-flex align-center me-8">
-        <v-icon icon="mdi-layers-triple" color="primary" size="32" class="me-2" />
-        <span class="text-h6 font-weight-bold text-grey-darken-4">
-          Soft<span class="text-primary">Touch</span>
-        </span>
+      <NuxtLink to="/" class="mr-8 flex items-center no-underline">
+        <img src="/images/logo-arc.png" alt="Soft Touch Aesthetics Studio" class="h-14 w-auto object-contain" />
       </NuxtLink>
 
-      <v-spacer />
+      <div class="flex-1" />
 
       <!-- Nav links (desktop) -->
-      <nav class="d-none d-md-flex align-center ga-1">
-        <v-btn
+      <nav class="hidden items-center gap-1 md:flex">
+        <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          variant="text"
-          color="grey-darken-3"
-          class="nav-link text-body-2 font-weight-medium"
-          rounded="0"
+          class="nav-link px-3 py-2 text-base font-medium"
         >
           {{ link.label }}
-        </v-btn>
+        </NuxtLink>
       </nav>
 
-      <v-spacer />
+      <div class="flex-1" />
 
       <!-- CTA -->
-      <v-btn
+      <NuxtLink
         to="/contact"
-        color="primary"
-        variant="elevated"
-        class="d-none d-md-flex ms-4 text-white"
-        rounded="pill"
-        elevation="0"
+        class="ms-4 hidden items-center rounded-full bg-primary px-5 py-2 text-white no-underline md:flex"
       >
         Book Appointment
-        <v-icon icon="mdi-calendar-check" end />
-      </v-btn>
+        <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0V11.25a2.25 2.25 0 012.25-2.25h13.5a2.25 2.25 0 012.25 2.25v7.5" />
+        </svg>
+      </NuxtLink>
 
       <!-- Mobile hamburger -->
-      <v-app-bar-nav-icon
-        class="d-flex d-md-none"
+      <button
+        class="flex items-center justify-center p-2 text-gray-700 md:hidden"
+        aria-label="Toggle menu"
         @click="drawer = !drawer"
-        color="grey-darken-3"
-      />
-    </v-container>
-  </v-app-bar>
+      >
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path v-if="!drawer" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          <path v-else stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </header>
 
   <!-- Mobile drawer -->
-  <v-navigation-drawer v-model="drawer" location="end" temporary>
-    <v-list>
-      <v-list-item
-        v-for="link in navLinks"
-        :key="link.to"
-        :to="link.to"
-        :title="link.label"
+  <div v-if="drawer" class="border-t border-gray-200 bg-white md:hidden">
+    <NuxtLink
+      v-for="link in navLinks"
+      :key="link.to"
+      :to="link.to"
+      class="block px-6 py-3 text-gray-800 no-underline"
+      @click="drawer = false"
+    >
+      {{ link.label }}
+    </NuxtLink>
+    <div class="px-6 py-3">
+      <NuxtLink
+        to="/contact"
+        class="block rounded-full bg-primary px-5 py-2 text-center text-white no-underline"
         @click="drawer = false"
-      />
-      <v-divider class="my-2" />
-      <v-list-item>
-        <v-btn to="/contact" color="primary" block rounded="pill" elevation="0">
-          Book Appointment
-        </v-btn>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+      >
+        Book Appointment
+      </NuxtLink>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -105,10 +105,11 @@ const navLinks = [
 
 <style scoped>
 .nav-link {
-  letter-spacing: 0;
-  transition: color 0.2s;
+  letter-spacing: 0.05em;
+  color: #696740;
+  transition: opacity 0.2s;
 }
 .nav-link:hover {
-  color: rgb(var(--v-theme-primary)) !important;
+  opacity: 0.75;
 }
 </style>

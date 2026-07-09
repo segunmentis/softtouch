@@ -1,39 +1,44 @@
 <template>
-  <v-container class="py-12">
-    <v-row justify="center">
-      <v-col cols="12" md="6">
-        <h1 class="text-h3 font-weight-bold mb-6">Contact Us</h1>
-        <v-form @submit.prevent="submit">
-          <v-text-field
+  <div class="mx-auto max-w-7xl px-6 py-12">
+    <div class="mx-auto max-w-2xl">
+      <h1 class="mb-6 text-4xl font-bold">Contact Us</h1>
+      <form @submit.prevent="submit">
+        <div class="mb-3">
+          <label class="mb-1 block text-sm font-medium">Name</label>
+          <input
             v-model="form.name"
-            label="Name"
-            variant="outlined"
-            class="mb-3"
+            type="text"
             required
+            class="w-full rounded border border-gray-300 px-3 py-2 focus:border-primary focus:outline-none"
           />
-          <v-text-field
+        </div>
+        <div class="mb-3">
+          <label class="mb-1 block text-sm font-medium">Email</label>
+          <input
             v-model="form.email"
-            label="Email"
             type="email"
-            variant="outlined"
-            class="mb-3"
             required
+            class="w-full rounded border border-gray-300 px-3 py-2 focus:border-primary focus:outline-none"
           />
-          <v-textarea
+        </div>
+        <div class="mb-4">
+          <label class="mb-1 block text-sm font-medium">Message</label>
+          <textarea
             v-model="form.message"
-            label="Message"
-            variant="outlined"
             rows="5"
-            class="mb-4"
             required
+            class="w-full rounded border border-gray-300 px-3 py-2 focus:border-primary focus:outline-none"
           />
-          <v-btn type="submit" color="primary" size="large" block
-            >Send Message</v-btn
-          >
-        </v-form>
-      </v-col>
-    </v-row>
-  </v-container>
+        </div>
+        <button
+          type="submit"
+          class="w-full rounded bg-primary px-6 py-3 text-white"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

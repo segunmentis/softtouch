@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand font */
+* {
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+}
