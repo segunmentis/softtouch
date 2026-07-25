@@ -1,50 +1,77 @@
 <template>
-  <div class="mx-auto max-w-7xl px-6 py-12">
-    <div class="mx-auto max-w-5xl">
-      <h1 class="mb-6 text-4xl font-bold">Our Services</h1>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div
-          v-for="service in services"
-          :key="service.title"
-          class="flex h-full flex-col rounded-lg border border-gray-200 p-6 shadow-sm"
-        >
-          <svg
-            class="mb-2 h-9 w-9 text-primary"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            v-html="service.iconPath"
-          />
-          <h2 class="mb-2 text-xl font-semibold">{{ service.title }}</h2>
-          <p class="text-sm text-gray-600">{{ service.description }}</p>
+  <div>
+    <PageBanner :kicker="t('pages.services.kicker')" :title="t('pages.services.title')" />
+
+    <div class="mx-auto max-w-7xl px-6 py-16">
+    <div class="mx-auto mb-12 max-w-2xl text-center">
+      <p class="mb-6 text-base leading-relaxed text-gray-700">
+        {{ t('pages.services.intro') }}
+      </p>
+      <a
+        :href="FRESHA_BOOKING_URL"
+        target="_blank"
+        rel="noopener"
+        class="inline-block rounded-full bg-gold px-6 py-3 font-medium text-ink no-underline"
+      >
+        {{ t('pages.services.viewFullMenu') }}
+      </a>
+    </div>
+
+    <div class="mx-auto max-w-5xl space-y-14">
+      <div v-for="category in categories" :id="category.anchor" :key="category.key" class="scroll-mt-24">
+        <h2 class="mb-6 border-b border-gray-200 pb-3 text-2xl italic">
+          {{ t(`pages.services.categories.${category.key}`) }}
+        </h2>
+
+        <div v-if="category.items.length" class="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div
+            v-for="item in category.items"
+            :key="item.key"
+            class="relative flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <span
+              v-if="item.hasBadge"
+              class="absolute right-4 top-4 rounded-full bg-cream px-2.5 py-1 text-xs font-semibold text-primary"
+            >
+              {{ t(`pages.services.items.${item.key}.badge`) }}
+            </span>
+            <h3 class="mb-3 text-xl italic">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
+            <div class="mt-auto flex items-center justify-between text-sm text-gray-500">
+              <span>{{ t(`pages.services.items.${item.key}.duration`) }}</span>
+              <span class="text-base font-bold text-gold">{{ t(`pages.services.items.${item.key}.price`) }}</span>
+            </div>
+          </div>
         </div>
+
+        <p v-else class="text-sm text-gray-500">
+          {{ t('pages.services.moreOnFresha') }}
+          <a :href="FRESHA_BOOKING_URL" target="_blank" rel="noopener" class="font-medium text-gold no-underline">
+            {{ t('pages.services.viewFullMenu') }}
+          </a>
+        </p>
       </div>
+    </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const services = [
+const { t } = useI18n();
+
+type ServiceItem = { key: string; hasBadge: boolean };
+
+const categories: { key: string; anchor: string; items: ServiceItem[] }[] = [
+  { key: "mensSugaring", anchor: "mens-sugaring", items: [] },
+  { key: "intimate", anchor: "intimate", items: [{ key: "brazilian", hasBadge: false }] },
+  { key: "body", anchor: "body", items: [{ key: "underarms", hasBadge: false }] },
+  { key: "face", anchor: "face", items: [] },
   {
-    title: "Web Development",
-    iconPath:
-      '<path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" /><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M12 3c2.5 2.5 3.75 5.5 3.75 9s-1.25 6.5-3.75 9c-2.5-2.5-3.75-5.5-3.75-9S9.5 5.5 12 3z" />',
-    description:
-      "Modern, responsive web applications built with the latest technologies.",
-  },
-  {
-    title: "Mobile Apps",
-    iconPath:
-      '<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />',
-    description: "Cross-platform mobile applications for iOS and Android.",
-  },
-  {
-    title: "Consulting",
-    iconPath:
-      '<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />',
-    description:
-      "Expert technology consulting to help guide your digital strategy.",
+    key: "bundles",
+    anchor: "bundles",
+    items: [
+      { key: "faceRefresh", hasBadge: true },
+      { key: "summerReady", hasBadge: true },
+    ],
   },
 ];
 </script>

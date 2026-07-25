@@ -17,10 +17,21 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
 
   tailwindcss: {
     cssPath: "~/assets/css/main.css",
+  },
+
+  i18n: {
+    strategy: "no_prefix",
+    defaultLocale: "en",
+    locales: [
+      { code: "en", name: "English" },
+      { code: "fr", name: "Français" },
+    ],
+    // We handle persistence ourselves via localStorage (see app/plugins/i18n-locale.client.ts)
+    detectBrowserLanguage: false,
   },
 
   vite: {

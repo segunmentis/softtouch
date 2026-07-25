@@ -1,0 +1,106 @@
+{
+  "header": {
+    "address": "410 Duchess Street, Saskatoon, SK",
+    "hours": "Ouvert tous les jours · 12h–18h",
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "cta": "Prendre rendez-vous",
+    "toggleMenu": "Basculer le menu"
+  },
+  "footer": {
+    "brandBlurb": "Un studio privé d'épilation au sucre au cœur de Saskatoon. Une épilation faite uniquement de sucre, de citron et d'eau.",
+    "address": "410 Duchess Street, M2, Saskatoon, SK S7K 0R2",
+    "hours": "Ouvert tous les jours, de 12h00 à 18h00",
+    "bookOnFresha": "Prendre rendez-vous",
+    "companyHeading": "Studio",
+    "companyLinks": {
+      "about": "À propos de nous",
+      "services": "Services",
+      "contact": "Contact",
+      "privacy": "Politique de confidentialité"
+    },
+    "quickLinksHeading": "Traitements",
+    "quickLinks": {
+      "mensSugaring": "Épilation homme",
+      "intimate": "Intime",
+      "body": "Corps",
+      "face": "Visage"
+    },
+    "newsletter": {
+      "heading": "Restez informé",
+      "description": "Recevez nos offres saisonnières et conseils d'épilation au sucre.",
+      "placeholder": "Votre adresse e-mail",
+      "subscribe": "S'abonner"
+    },
+    "copyright": "Copyright © {year}",
+    "brandName": "Soft Touch Aesthetics Studio",
+    "allRightsReserved": "Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfUse": "Conditions d'utilisation"
+  },
+  "pages": {
+    "home": {
+      "kicker": "Studio d'épilation au sucre · Saskatoon",
+      "title": "La douceur commence ici",
+      "subtitle": "Épilation au sucre du corps, du visage et intime dans un studio privé de la rue Duchess — douce pour la peau, bien faite dès la première fois.",
+      "cta": "Prendre rendez-vous",
+      "featuredHeading": "Soins populaires",
+      "viewAll": "Voir le menu complet",
+      "whyHeading": "Pourquoi le sucre",
+      "why1Title": "Pâte 100 % naturelle",
+      "why1Body": "Seulement du sucre, du citron et de l'eau — aucune résine synthétique, aucun produit chimique agressif sur votre peau.",
+      "why2Title": "Retirée dans le sens du poil",
+      "why2Body": "Appliquée à contre-sens et retirée dans le sens de la pousse, pour moins de casse et une repousse plus fine.",
+      "why3Title": "Jamais deux fois la même pâte",
+      "why3Body": "Une nouvelle portion de pâte à chaque passage, dans un studio propre, privé et personnalisé."
+    },
+    "about": {
+      "kicker": "À propos du studio",
+      "title": "Une épilation plus douce",
+      "paragraph1": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre situé rue Duchess à Saskatoon, proposant une épilation faite uniquement de sucre, de citron et d'eau.",
+      "paragraph2": "La pâte de sucre est appliquée à contre-sens de la pousse du poil puis retirée dans le sens de la pousse — plus douce pour la peau que la cire traditionnelle, avec moins de casse et moins de poils incarnés avec le temps.",
+      "paragraph3": "Le studio est dirigé par une femme, propre et privé, et chaque rendez-vous reçoit une attention complète et sans précipitation du début à la fin.",
+      "ctaHeading": "Prêt à réserver ?",
+      "ctaBody": "Consultez le menu complet des soins ou réservez votre rendez-vous directement en ligne.",
+      "cta": "Prendre rendez-vous"
+    },
+    "services": {
+      "kicker": "Menu des soins",
+      "title": "L'épilation au sucre, bien faite",
+      "intro": "Voici quelques-uns de nos soins les plus réservés. Consultez le menu complet et les prix à jour lors de votre réservation en ligne.",
+      "viewFullMenu": "Voir le menu complet et réserver",
+      "moreOnFresha": "Consultez les prix complets lors de la réservation.",
+      "categories": {
+        "mensSugaring": "Épilation homme",
+        "intimate": "Intime",
+        "body": "Corps",
+        "face": "Visage",
+        "bundles": "Forfaits"
+      },
+      "items": {
+        "underarms": { "name": "Aisselles", "duration": "15 min", "price": "20 $" },
+        "brazilian": { "name": "Brésilien", "duration": "45 min", "price": "60 $" },
+        "faceRefresh": { "name": "Visage Éclat", "duration": "35 min · 3 soins", "price": "40 $", "badge": "Économisez 15 %" },
+        "summerReady": { "name": "Prêt pour l'été", "duration": "1 h 45 · 2 soins", "price": "120 $", "badge": "Économisez 11 %" }
+      }
+    },
+    "contact": {
+      "kicker": "Visitez-nous ou réservez",
+      "title": "Venez nous voir sur la rue Duchess",
+      "addressHeading": "Adresse du studio",
+      "hoursHeading": "Heures d'ouverture",
+      "bookOnFresha": "Prendre rendez-vous",
+      "formHeading": "Envoyer un message",
+      "formIntro": "Une question avant de réserver ? Envoyez-nous un message et nous vous répondrons rapidement.",
+      "name": "Nom",
+      "email": "E-mail",
+      "message": "Message",
+      "send": "Envoyer le message",
+      "thanks": "Merci {name}, nous vous recontacterons bientôt !"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "header": {
+    "address": "410 Duchess Street, Saskatoon, SK",
+    "hours": "Open Daily · 12–6pm",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "cta": "Book Appointment",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "brandBlurb": "A private body sugaring studio in the heart of Saskatoon. Hair removal made from nothing more than sugar, lemon and water.",
+    "address": "410 Duchess Street, M2, Saskatoon, SK S7K 0R2",
+    "hours": "Open daily, 12:00pm – 6:00pm",
+    "bookOnFresha": "Book Appointment",
+    "companyHeading": "Studio",
+    "companyLinks": {
+      "about": "About Us",
+      "services": "Services",
+      "contact": "Contact",
+      "privacy": "Privacy Policy"
+    },
+    "quickLinksHeading": "Treatments",
+    "quickLinks": {
+      "mensSugaring": "Men's Sugaring",
+      "intimate": "Intimate",
+      "body": "Body",
+      "face": "Face"
+    },
+    "newsletter": {
+      "heading": "Stay Sweet",
+      "description": "Get seasonal offers and sugaring tips in your inbox.",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "Copyright © {year}",
+    "brandName": "Soft Touch Aesthetics Studio",
+    "allRightsReserved": "All Rights Reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use"
+  },
+  "pages": {
+    "home": {
+      "kicker": "Body Sugaring Studio · Saskatoon",
+      "title": "Soft skin starts here",
+      "subtitle": "Body, face and intimate sugaring in a private Duchess Street studio — gentle on skin, done right the first time.",
+      "cta": "Book Appointment",
+      "featuredHeading": "Popular Treatments",
+      "viewAll": "View Full Menu",
+      "whyHeading": "Why sugaring",
+      "why1Title": "All-natural paste",
+      "why1Body": "Just sugar, lemon and water — no synthetic resins, no harsh chemicals against your skin.",
+      "why2Title": "Pulled with the grain",
+      "why2Body": "Applied against hair growth and removed with it, so hair breaks less and grows back finer.",
+      "why3Title": "Never double-dipped",
+      "why3Body": "A fresh scoop of paste for every pass, in a clean, private one-on-one studio."
+    },
+    "about": {
+      "kicker": "About The Studio",
+      "title": "A gentler way to remove hair",
+      "paragraph1": "Soft Touch Aesthetics Studio is a private body sugaring studio on Duchess Street in Saskatoon, offering hair removal made from nothing more than sugar, lemon and water.",
+      "paragraph2": "Sugar paste is applied against the direction of hair growth and lifted away with it — gentler on skin than traditional waxing, with less breakage and fewer ingrown hairs over time.",
+      "paragraph3": "The studio is woman-owned, clean and private, with every appointment given full, unhurried attention from start to finish.",
+      "ctaHeading": "Ready to book?",
+      "ctaBody": "See the full treatment menu or book your appointment directly online.",
+      "cta": "Book Appointment"
+    },
+    "services": {
+      "kicker": "Treatment Menu",
+      "title": "Sugaring, done right",
+      "intro": "A few of our most-booked treatments below. See the full, up-to-date menu and pricing when you book your appointment online.",
+      "viewFullMenu": "View Full Menu & Book",
+      "moreOnFresha": "See full pricing when you book your appointment.",
+      "categories": {
+        "mensSugaring": "Men's Sugaring",
+        "intimate": "Intimate",
+        "body": "Body",
+        "face": "Face",
+        "bundles": "Bundles"
+      },
+      "items": {
+        "underarms": { "name": "Underarms", "duration": "15 min", "price": "$20" },
+        "brazilian": { "name": "Brazilian", "duration": "45 min", "price": "$60" },
+        "faceRefresh": { "name": "Face Refresh", "duration": "35 min · 3 services", "price": "$40", "badge": "Save 15%" },
+        "summerReady": { "name": "Summer Ready", "duration": "1 hr 45 min · 2 services", "price": "$120", "badge": "Save 11%" }
+      }
+    },
+    "contact": {
+      "kicker": "Visit Or Book",
+      "title": "Come see us on Duchess Street",
+      "addressHeading": "Studio Address",
+      "hoursHeading": "Hours",
+      "bookOnFresha": "Book Appointment",
+      "formHeading": "Send a message",
+      "formIntro": "Have a question before you book? Send us a note and we'll get back to you.",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "thanks": "Thanks {name}, we'll be in touch!"
+    }
+  }
+}

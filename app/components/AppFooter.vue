@@ -1,7 +1,7 @@
 <template>
   <footer>
     <!-- Main footer body -->
-    <div class="bg-gray-900 py-12">
+    <div class="bg-[#211e14] py-12">
       <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 md:grid-cols-10">
         <!-- Column 1: Brand -->
         <div class="md:col-span-4">
@@ -15,31 +15,31 @@
             </div>
           </NuxtLink>
           <p class="mb-5 text-sm text-gray-300">
-            We build elegant, modern software solutions tailored to your
-            business. Helping companies grow through technology since 2018.
+            {{ t('footer.brandBlurb') }}
           </p>
           <ul class="list-none space-y-3 p-0">
             <li class="flex items-start">
-              <svg class="mr-3 mt-1 h-[18px] w-[18px] flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <svg class="mr-3 mt-1 h-[18px] w-[18px] flex-shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
               </svg>
-              <span class="text-sm text-gray-300">70-80 Upper St, Lagos, NG</span>
+              <span class="text-sm text-gray-300">{{ t('footer.address') }}</span>
             </li>
             <li class="flex items-start">
-              <svg class="mr-3 mt-1 h-[18px] w-[18px] flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372a1.125 1.125 0 00-.852-1.09l-4.423-1.106a1.125 1.125 0 00-1.173.417l-.97 1.293a11.25 11.25 0 01-5.62-5.62l1.293-.97a1.125 1.125 0 00.417-1.173L8.964 3.102a1.125 1.125 0 00-1.09-.852H6.5A2.25 2.25 0 004.25 4.5v.75z" />
+              <svg class="mr-3 mt-1 h-[18px] w-[18px] flex-shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <a href="tel:+011235641231" class="footer-link text-sm text-gray-300 no-underline">
-                +01 123 5641 231
-              </a>
+              <span class="text-sm text-gray-300">{{ t('footer.hours') }}</span>
             </li>
             <li class="flex items-start">
-              <svg class="mr-3 mt-1 h-[18px] w-[18px] flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-              <a href="mailto:hello@softtouch.com" class="footer-link text-sm text-gray-300 no-underline">
-                hello@softtouch.com
+              <a
+                :href="FRESHA_BOOKING_URL"
+                target="_blank"
+                rel="noopener"
+                class="footer-link text-sm font-medium text-gold no-underline"
+              >
+                {{ t('footer.bookOnFresha') }} →
               </a>
             </li>
           </ul>
@@ -47,11 +47,11 @@
 
         <!-- Column 2: Company -->
         <div class="md:col-span-2 md:col-start-6">
-          <h6 class="mb-5 text-base font-bold text-white">Company</h6>
+          <h6 class="mb-5 text-base font-bold text-white">{{ t('footer.companyHeading') }}</h6>
           <ul class="list-none space-y-3 p-0">
             <li v-for="link in companyLinks" :key="link.to">
               <NuxtLink :to="link.to" class="footer-link text-sm text-gray-300 no-underline">
-                {{ link.label }}
+                {{ t(link.labelKey) }}
               </NuxtLink>
             </li>
           </ul>
@@ -59,11 +59,11 @@
 
         <!-- Column 3: Quick Links -->
         <div class="md:col-span-2">
-          <h6 class="mb-5 text-base font-bold text-white">Quick Links</h6>
+          <h6 class="mb-5 text-base font-bold text-white">{{ t('footer.quickLinksHeading') }}</h6>
           <ul class="list-none space-y-3 p-0">
             <li v-for="link in quickLinks" :key="link.to">
               <NuxtLink :to="link.to" class="footer-link text-sm text-gray-300 no-underline">
-                {{ link.label }}
+                {{ t(link.labelKey) }}
               </NuxtLink>
             </li>
           </ul>
@@ -71,22 +71,22 @@
 
         <!-- Column 4: Newsletter -->
         <div class="md:col-span-3">
-          <h6 class="mb-3 text-base font-bold text-white">Stay Updated</h6>
+          <h6 class="mb-3 text-base font-bold text-white">{{ t('footer.newsletter.heading') }}</h6>
           <p class="mb-4 text-sm text-gray-300">
-            Enter your email to subscribe to our newsletter.
+            {{ t('footer.newsletter.description') }}
           </p>
           <div class="mb-6 flex">
             <input
               v-model="email"
               type="email"
-              placeholder="Your email address"
-              class="min-w-0 flex-1 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none"
+              :placeholder="t('footer.newsletter.placeholder')"
+              class="min-w-0 flex-1 bg-[#332c1c] px-3 py-2 text-sm text-white placeholder-gray-400 focus:outline-none"
             />
             <button
               class="flex items-center bg-primary px-4 py-2 text-sm text-white"
               @click="subscribe"
             >
-              Subscribe
+              {{ t('footer.newsletter.subscribe') }}
               <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
@@ -111,19 +111,19 @@
     </div>
 
     <!-- Footer bottom bar -->
-    <div class="border-t border-gray-800 bg-gray-900">
+    <div class="border-t border-[#3a3320] bg-[#211e14]">
       <div class="mx-auto max-w-7xl px-6">
-        <hr class="border-gray-800" />
+        <hr class="border-[#3a3320]" />
         <div class="flex flex-col items-center justify-between gap-2 py-4 md:flex-row">
           <span class="text-sm text-gray-400">
-            Copyright © {{ year }}
+            {{ t('footer.copyright', { year }) }}
             <NuxtLink to="/" class="font-medium no-underline" style="color: #f3eed8">
-              Soft Touch Aesthetics Studio</NuxtLink
-            >. All Rights Reserved.
+              {{ t('footer.brandName') }}</NuxtLink
+            >. {{ t('footer.allRightsReserved') }}
           </span>
           <div class="flex gap-4">
-            <NuxtLink to="/contact" class="footer-link text-sm text-gray-400 no-underline">Privacy Policy</NuxtLink>
-            <NuxtLink to="/contact" class="footer-link text-sm text-gray-400 no-underline">Terms of Use</NuxtLink>
+            <NuxtLink to="/contact" class="footer-link text-sm text-gray-400 no-underline">{{ t('footer.privacyPolicy') }}</NuxtLink>
+            <NuxtLink to="/contact" class="footer-link text-sm text-gray-400 no-underline">{{ t('footer.termsOfUse') }}</NuxtLink>
           </div>
         </div>
       </div>
@@ -132,21 +132,23 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const email = ref("");
 const year = new Date().getFullYear();
 
 const companyLinks = [
-  { label: "About Us", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Contact", to: "/contact" },
-  { label: "Privacy Policy", to: "/contact" },
+  { labelKey: "footer.companyLinks.about", to: "/about" },
+  { labelKey: "footer.companyLinks.services", to: "/services" },
+  { labelKey: "footer.companyLinks.contact", to: "/contact" },
+  { labelKey: "footer.companyLinks.privacy", to: "/contact" },
 ];
 
 const quickLinks = [
-  { label: "Home", to: "/" },
-  { label: "Web Development", to: "/services" },
-  { label: "Mobile Apps", to: "/services" },
-  { label: "Consulting", to: "/services" },
+  { labelKey: "footer.quickLinks.mensSugaring", to: "/services#mens-sugaring" },
+  { labelKey: "footer.quickLinks.intimate", to: "/services#intimate" },
+  { labelKey: "footer.quickLinks.body", to: "/services#body" },
+  { labelKey: "footer.quickLinks.face", to: "/services#face" },
 ];
 
 const socials = [
@@ -174,7 +176,7 @@ function subscribe() {
   transition: color 0.2s;
 }
 .footer-link:hover {
-  color: #696740;
+  color: #c1892f;
 }
 .social-btn {
   transition:
@@ -182,8 +184,8 @@ function subscribe() {
     color 0.2s;
 }
 .social-btn:hover {
-  background-color: #696740;
+  background-color: #c1892f;
   color: white;
-  border-color: #696740;
+  border-color: #c1892f;
 }
 </style>
