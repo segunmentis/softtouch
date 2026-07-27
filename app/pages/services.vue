@@ -27,19 +27,13 @@
           <div
             v-for="item in category.items"
             :key="item.key"
-            class="relative flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+            class="flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
           >
-            <span
-              v-if="item.hasBadge"
-              class="absolute right-4 top-4 rounded-full bg-cream px-2.5 py-1 text-xs font-semibold text-primary"
-            >
-              {{ t(`pages.services.items.${item.key}.badge`) }}
-            </span>
-            <h3 class="mb-3 text-xl italic">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
-            <div class="mt-auto flex items-center justify-between text-sm text-gray-500">
-              <span>{{ t(`pages.services.items.${item.key}.duration`) }}</span>
-              <span class="text-base font-bold text-gold">{{ t(`pages.services.items.${item.key}.price`) }}</span>
-            </div>
+            <h3 class="mb-2 text-xl italic">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
+            <p class="text-sm text-gray-500">{{ t(`pages.services.items.${item.key}.duration`) }}</p>
+            <p v-if="item.hasNote" class="mt-2 text-sm text-gray-600">
+              {{ t(`pages.services.items.${item.key}.note`) }}
+            </p>
           </div>
         </div>
 
@@ -58,19 +52,19 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
-type ServiceItem = { key: string; hasBadge: boolean };
+type ServiceItem = { key: string; hasNote: boolean };
 
 const categories: { key: string; anchor: string; items: ServiceItem[] }[] = [
   { key: "mensSugaring", anchor: "mens-sugaring", items: [] },
-  { key: "intimate", anchor: "intimate", items: [{ key: "brazilian", hasBadge: false }] },
-  { key: "body", anchor: "body", items: [{ key: "underarms", hasBadge: false }] },
+  { key: "intimate", anchor: "intimate", items: [{ key: "brazilian", hasNote: false }] },
+  { key: "body", anchor: "body", items: [{ key: "underarms", hasNote: false }] },
   { key: "face", anchor: "face", items: [] },
   {
     key: "bundles",
     anchor: "bundles",
     items: [
-      { key: "faceRefresh", hasBadge: true },
-      { key: "summerReady", hasBadge: true },
+      { key: "faceRefresh", hasNote: true },
+      { key: "summerReady", hasNote: true },
     ],
   },
 ];

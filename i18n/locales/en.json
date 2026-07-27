@@ -30,12 +30,6 @@
       "body": "Body",
       "face": "Face"
     },
-    "newsletter": {
-      "heading": "Stay Sweet",
-      "description": "Get seasonal offers and sugaring tips in your inbox.",
-      "placeholder": "Your email address",
-      "subscribe": "Subscribe"
-    },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
     "allRightsReserved": "All Rights Reserved.",
@@ -56,7 +50,51 @@
       "why2Title": "Pulled with the grain",
       "why2Body": "Applied against hair growth and removed with it, so hair breaks less and grows back finer.",
       "why3Title": "Never double-dipped",
-      "why3Body": "A fresh scoop of paste for every pass, in a clean, private one-on-one studio."
+      "why3Body": "A fresh scoop of paste for every pass, in a clean, private one-on-one studio.",
+      "trust1": "Certified Sugaring Practitioner",
+      "trust2": "Woman-Owned Studio",
+      "trust3": "100% Natural Ingredients",
+      "trust4": "Saskatoon, SK",
+      "howHeading": "How it works",
+      "step1Title": "Book online",
+      "step1Body": "Choose your treatment and pick a time that works for you — confirmed instantly.",
+      "step2Title": "We prep your skin",
+      "step2Body": "Your practitioner cleans and preps the area, then warms a fresh batch of all-natural sugar paste to just body temperature.",
+      "step3Title": "Gentle removal",
+      "step3Body": "The paste is applied against the grain and removed with it — hair lifts out, dead skin sloughs away, and live skin is left alone.",
+      "step4Title": "Aftercare & you're set",
+      "step4Body": "A calming finish smooths the skin, with results that typically last four to five weeks.",
+      "prepHeading": "Before your appointment",
+      "prep1": "Let hair grow to about a quarter inch — roughly one to two weeks after shaving.",
+      "prep2": "Exfoliate gently the day before your appointment, not the day of.",
+      "prep3": "Skip retinol products and sunless tanner for 48 hours beforehand.",
+      "prep4": "Arrive with clean skin, free of lotion or makeup on the treatment area.",
+      "aftercareHeading": "After your appointment",
+      "aftercare1": "Avoid hot showers, saunas and swimming for 24 hours.",
+      "aftercare2": "Wear loose, breathable clothing over treated areas.",
+      "aftercare3": "Skip the gym and heavy sweating for a day.",
+      "aftercare4": "Moisturize daily to keep new skin soft and support results.",
+      "faqHeading": "Common questions",
+      "faq1Q": "Does sugaring hurt less than waxing?",
+      "faq1A": "Most clients find it noticeably more comfortable. The paste only grips hair, not live skin, and it's removed in the direction hair grows rather than against it.",
+      "faq2Q": "How long does my hair need to be?",
+      "faq2A": "About a quarter inch — roughly one to two weeks of growth after shaving is usually enough.",
+      "faq3Q": "Is it hygienic?",
+      "faq3A": "Yes. Each portion of paste is used once, on one client, then discarded — nothing is double-dipped or reused between clients.",
+      "faq4Q": "How long do results last?",
+      "faq4A": "Most clients stay smooth for four to five weeks before hair returns.",
+      "finalCtaHeading": "Ready for softer skin?",
+      "finalCtaBody": "Book your appointment online in a few taps — confirmed instantly.",
+      "galleryKicker": "The Experience",
+      "galleryHeading": "Gentle, private, done right",
+      "galleryBody": "A feel for the studio's approach — calm, natural, and unhurried.",
+      "gallery1": "All-natural sugar paste",
+      "gallery2": "Just sugar, lemon and water",
+      "gallery3": "Smooth, healthy skin",
+      "gallery4": "Hands-on, gentle care",
+      "gallery5": "Results that last",
+      "readyKicker": "Getting Ready",
+      "readyHeading": "Before & after your appointment"
     },
     "about": {
       "kicker": "About The Studio",
@@ -71,9 +109,9 @@
     "services": {
       "kicker": "Treatment Menu",
       "title": "Sugaring, done right",
-      "intro": "A few of our most-booked treatments below. See the full, up-to-date menu and pricing when you book your appointment online.",
+      "intro": "A few of our most-booked treatments below. See the full, up-to-date menu when you book your appointment online.",
       "viewFullMenu": "View Full Menu & Book",
-      "moreOnFresha": "See full pricing when you book your appointment.",
+      "moreOnFresha": "Full details for this category are available when you book.",
       "categories": {
         "mensSugaring": "Men's Sugaring",
         "intimate": "Intimate",
@@ -82,10 +120,10 @@
         "bundles": "Bundles"
       },
       "items": {
-        "underarms": { "name": "Underarms", "duration": "15 min", "price": "$20" },
-        "brazilian": { "name": "Brazilian", "duration": "45 min", "price": "$60" },
-        "faceRefresh": { "name": "Face Refresh", "duration": "35 min · 3 services", "price": "$40", "badge": "Save 15%" },
-        "summerReady": { "name": "Summer Ready", "duration": "1 hr 45 min · 2 services", "price": "$120", "badge": "Save 11%" }
+        "underarms": { "name": "Underarms", "duration": "15 min" },
+        "brazilian": { "name": "Brazilian", "duration": "45 min" },
+        "faceRefresh": { "name": "Face Refresh", "duration": "35 min · 3 treatments", "note": "Three treatments in one visit." },
+        "summerReady": { "name": "Summer Ready", "duration": "1 hr 45 min · 2 treatments", "note": "Two treatments bundled for the season." }
       }
     },
     "contact": {

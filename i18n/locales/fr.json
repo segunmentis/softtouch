@@ -30,12 +30,6 @@
       "body": "Corps",
       "face": "Visage"
     },
-    "newsletter": {
-      "heading": "Restez informé",
-      "description": "Recevez nos offres saisonnières et conseils d'épilation au sucre.",
-      "placeholder": "Votre adresse e-mail",
-      "subscribe": "S'abonner"
-    },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
     "allRightsReserved": "Tous droits réservés.",
@@ -56,7 +50,51 @@
       "why2Title": "Retirée dans le sens du poil",
       "why2Body": "Appliquée à contre-sens et retirée dans le sens de la pousse, pour moins de casse et une repousse plus fine.",
       "why3Title": "Jamais deux fois la même pâte",
-      "why3Body": "Une nouvelle portion de pâte à chaque passage, dans un studio propre, privé et personnalisé."
+      "why3Body": "Une nouvelle portion de pâte à chaque passage, dans un studio propre, privé et personnalisé.",
+      "trust1": "Praticienne certifiée en épilation au sucre",
+      "trust2": "Studio dirigé par une femme",
+      "trust3": "Ingrédients 100 % naturels",
+      "trust4": "Saskatoon, SK",
+      "howHeading": "Comment ça se passe",
+      "step1Title": "Réservez en ligne",
+      "step1Body": "Choisissez votre soin et un créneau qui vous convient — confirmé instantanément.",
+      "step2Title": "Préparation de la peau",
+      "step2Body": "Votre praticienne nettoie et prépare la zone, puis chauffe une pâte de sucre fraîche et 100 % naturelle à la température du corps.",
+      "step3Title": "Épilation en douceur",
+      "step3Body": "La pâte est appliquée à contre-sens du poil puis retirée dans le sens de la pousse — le poil est retiré, les peaux mortes s'enlèvent, et la peau vivante reste intacte.",
+      "step4Title": "Finitions et c'est prêt",
+      "step4Body": "Une finition apaisante adoucit la peau, avec des résultats qui durent généralement de quatre à cinq semaines.",
+      "prepHeading": "Avant votre rendez-vous",
+      "prep1": "Laissez le poil pousser à environ 0,5 cm — une à deux semaines après un rasage.",
+      "prep2": "Exfoliez délicatement la veille de votre rendez-vous, pas le jour même.",
+      "prep3": "Évitez le rétinol et l'autobronzant pendant les 48 heures précédentes.",
+      "prep4": "Arrivez avec une peau propre, sans lotion ni maquillage sur la zone traitée.",
+      "aftercareHeading": "Après votre rendez-vous",
+      "aftercare1": "Évitez les douches chaudes, saunas et la baignade pendant 24 heures.",
+      "aftercare2": "Portez des vêtements amples et respirants sur les zones traitées.",
+      "aftercare3": "Évitez le sport intense et la transpiration pendant un jour.",
+      "aftercare4": "Hydratez votre peau chaque jour pour la garder douce et prolonger les résultats.",
+      "faqHeading": "Questions fréquentes",
+      "faq1Q": "L'épilation au sucre fait-elle moins mal que la cire ?",
+      "faq1A": "La plupart des clientes la trouvent nettement plus confortable. La pâte n'adhère qu'au poil, pas à la peau vivante, et elle est retirée dans le sens de la pousse plutôt qu'à contre-sens.",
+      "faq2Q": "Quelle longueur de poil est nécessaire ?",
+      "faq2A": "Environ 0,5 cm — une à deux semaines de pousse après un rasage suffisent généralement.",
+      "faq3Q": "Est-ce hygiénique ?",
+      "faq3A": "Oui. Chaque portion de pâte est utilisée une seule fois, pour une seule cliente, puis jetée — rien n'est réutilisé entre les clientes.",
+      "faq4Q": "Combien de temps durent les résultats ?",
+      "faq4A": "La plupart des clientes restent lisses pendant quatre à cinq semaines avant que le poil ne revienne.",
+      "finalCtaHeading": "Prête pour une peau plus douce ?",
+      "finalCtaBody": "Réservez votre rendez-vous en ligne en quelques clics — confirmé instantanément.",
+      "galleryKicker": "L'expérience",
+      "galleryHeading": "Douceur, intimité, bien fait",
+      "galleryBody": "Un aperçu de l'approche du studio — calme, naturelle et sans précipitation.",
+      "gallery1": "Pâte de sucre 100 % naturelle",
+      "gallery2": "Seulement du sucre, du citron et de l'eau",
+      "gallery3": "Une peau douce et saine",
+      "gallery4": "Des soins attentifs, faits à la main",
+      "gallery5": "Des résultats qui durent",
+      "readyKicker": "Se préparer",
+      "readyHeading": "Avant et après votre rendez-vous"
     },
     "about": {
       "kicker": "À propos du studio",
@@ -71,9 +109,9 @@
     "services": {
       "kicker": "Menu des soins",
       "title": "L'épilation au sucre, bien faite",
-      "intro": "Voici quelques-uns de nos soins les plus réservés. Consultez le menu complet et les prix à jour lors de votre réservation en ligne.",
+      "intro": "Voici quelques-uns de nos soins les plus réservés. Consultez le menu complet et à jour lors de votre réservation en ligne.",
       "viewFullMenu": "Voir le menu complet et réserver",
-      "moreOnFresha": "Consultez les prix complets lors de la réservation.",
+      "moreOnFresha": "Tous les détails de cette catégorie sont disponibles lors de la réservation.",
       "categories": {
         "mensSugaring": "Épilation homme",
         "intimate": "Intime",
@@ -82,10 +120,10 @@
         "bundles": "Forfaits"
       },
       "items": {
-        "underarms": { "name": "Aisselles", "duration": "15 min", "price": "20 $" },
-        "brazilian": { "name": "Brésilien", "duration": "45 min", "price": "60 $" },
-        "faceRefresh": { "name": "Visage Éclat", "duration": "35 min · 3 soins", "price": "40 $", "badge": "Économisez 15 %" },
-        "summerReady": { "name": "Prêt pour l'été", "duration": "1 h 45 · 2 soins", "price": "120 $", "badge": "Économisez 11 %" }
+        "underarms": { "name": "Aisselles", "duration": "15 min" },
+        "brazilian": { "name": "Brésilien", "duration": "45 min" },
+        "faceRefresh": { "name": "Visage Éclat", "duration": "35 min · 3 soins", "note": "Trois soins en une seule visite." },
+        "summerReady": { "name": "Prêt pour l'été", "duration": "1 h 45 · 2 soins", "note": "Deux soins réunis pour la saison." }
       }
     },
     "contact": {
