@@ -3,7 +3,13 @@
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-14 md:grid-cols-[1.6fr_1fr_1fr]">
       <!-- Column 1: Brand -->
       <div>
-        <p class="mb-3 text-xl text-cream">{{ t('footer.brandName') }}</p>
+        <img
+          src="/images/logo-stacked.png"
+          :alt="t('footer.brandName')"
+          width="440"
+          height="565"
+          class="mb-5 h-auto w-[168px]"
+        />
         <p class="mb-4 max-w-[42ch] text-sm leading-relaxed text-gray-300">
           {{ t('footer.brandBlurb') }}
         </p>

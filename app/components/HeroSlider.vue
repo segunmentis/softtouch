@@ -11,8 +11,16 @@
       <div class="absolute inset-0 overlay" />
     </div>
 
-    <button type="button" class="arrow prev" aria-label="Previous slide" @click="prev">‹</button>
-    <button type="button" class="arrow next" aria-label="Next slide" @click="next">›</button>
+    <button type="button" class="arrow prev" aria-label="Previous slide" @click="prev">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 5l-6 7 6 7" />
+      </svg>
+    </button>
+    <button type="button" class="arrow next" aria-label="Next slide" @click="next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 5l6 7-6 7" />
+      </svg>
+    </button>
 
     <div class="relative z-10 mx-auto max-w-3xl px-6 py-24 md:py-32">
       <p class="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
@@ -98,9 +106,11 @@ onUnmounted(() => {
   }
 }
 .overlay {
+  /* Matches the DarkHero ramp on /about and /services: type sits on solid
+     ground and the section resolves into the page background at the bottom. */
   background:
-    radial-gradient(60% 55% at 50% 50%, rgba(20, 18, 10, 0.55) 0%, rgba(20, 18, 10, 0.15) 70%, rgba(20, 18, 10, 0) 100%),
-    linear-gradient(165deg, rgba(42, 40, 24, 0.55) 0%, rgba(105, 103, 64, 0.4) 45%, rgba(193, 137, 47, 0.32) 80%, rgba(161, 91, 40, 0.4) 100%);
+    radial-gradient(65% 60% at 50% 45%, rgba(16, 15, 10, 0.55) 0%, rgba(16, 15, 10, 0.2) 70%, rgba(16, 15, 10, 0) 100%),
+    linear-gradient(180deg, rgba(16, 15, 10, 0.4) 0%, rgba(16, 15, 10, 0.62) 55%, #100f0a 100%);
 }
 .hero-title {
   font-weight: 600;
@@ -112,6 +122,9 @@ onUnmounted(() => {
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
@@ -119,9 +132,15 @@ onUnmounted(() => {
   height: 44px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 18px;
   backdrop-filter: blur(4px);
   transition: background 0.2s;
+}
+/* An SVG chevron rather than a text glyph: text sits on a baseline, so its
+   ink lands off-centre in the circle no matter how the line box is aligned. */
+.arrow svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 .arrow:hover {
   background: rgba(255, 255, 255, 0.3);

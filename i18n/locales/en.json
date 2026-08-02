@@ -9,7 +9,8 @@
       "contact": "Contact"
     },
     "cta": "Book Appointment",
-    "toggleMenu": "Toggle menu"
+    "toggleMenu": "Toggle menu",
+    "brandName": "Soft Touch"
   },
   "footer": {
     "brandBlurb": "A private body sugaring studio in the heart of Saskatoon. Hair removal made from nothing more than sugar, lemon and water.",
@@ -104,7 +105,23 @@
       "paragraph3": "The studio is woman-owned, clean and private, with every appointment given full, unhurried attention from start to finish.",
       "ctaHeading": "Ready to book?",
       "ctaBody": "See the full treatment menu or book your appointment directly online.",
-      "cta": "Book Appointment"
+      "cta": "Book Appointment",
+      "heroSub": "Private body sugaring on Duchess Street, Saskatoon.",
+      "gallery1": "The treatment room",
+      "gallery2": "Paste, made fresh",
+      "gallery3": "Duchess Street",
+      "noteCard": "Sugar, lemon, water — that's the whole recipe. Nothing artificial, ever.",
+      "visitKicker": "Your appointment",
+      "visitHeading": "What an appointment is like",
+      "visitBody": "No surprises. Here is every step, start to finish.",
+      "step1Title": "You arrive",
+      "step1Body": "A private entrance and one client at a time. No waiting room, no overlap with anyone else.",
+      "step2Title": "We talk it through",
+      "step2Body": "Your skin, any sensitivities, and what you want done. If it is your first time, say so — it is welcome and completely normal.",
+      "step3Title": "The treatment",
+      "step3Body": "Warm paste at body temperature, worked in sections against the direction of growth. You set the pace and we stop whenever you ask.",
+      "step4Title": "Aftercare",
+      "step4Body": "Written aftercare to take with you, and rebooking whenever you are ready — never before."
     },
     "services": {
       "kicker": "Treatment Menu",
@@ -120,11 +137,33 @@
         "bundles": "Bundles"
       },
       "items": {
-        "underarms": { "name": "Underarms", "duration": "15 min" },
-        "brazilian": { "name": "Brazilian", "duration": "45 min" },
-        "faceRefresh": { "name": "Face Refresh", "duration": "35 min · 3 treatments", "note": "Three treatments in one visit." },
-        "summerReady": { "name": "Summer Ready", "duration": "1 hr 45 min · 2 treatments", "note": "Two treatments bundled for the season." }
-      }
+        "underarms": {
+          "name": "Underarms",
+          "duration": "15 min"
+        },
+        "brazilian": {
+          "name": "Brazilian",
+          "duration": "45 min"
+        },
+        "faceRefresh": {
+          "name": "Face Refresh",
+          "duration": "35 min · 3 treatments",
+          "note": "Three treatments in one visit."
+        },
+        "summerReady": {
+          "name": "Summer Ready",
+          "duration": "1 hr 45 min · 2 treatments",
+          "note": "Two treatments bundled for the season."
+        }
+      },
+      "filterAll": "All treatments",
+      "book": "Book",
+      "bundlesHeading": "Bundles",
+      "bundlesBody": "Treatments grouped into a single visit.",
+      "emptyHeading": "This category lives on Fresha",
+      "livePricing": "Live pricing and full availability are always on Fresha.",
+      "showingAll": "Showing every treatment",
+      "showingCategory": "Showing {category}"
     },
     "contact": {
       "kicker": "Visit Or Book",
@@ -138,7 +177,14 @@
       "email": "Email",
       "message": "Message",
       "send": "Send Message",
-      "thanks": "Thanks {name}, we'll be in touch!"
+      "thanks": "Thanks {name}, we'll be in touch!",
+      "heroSub": "A private studio, one client at a time, by appointment.",
+      "emailHeading": "Email",
+      "mapLink": "Open in Maps",
+      "socialHeading": "Follow the studio",
+      "formKicker": "Questions first?",
+      "sending": "Sending…",
+      "error": "Your message could not be sent. Please email or message us instead."
     }
   }
 }

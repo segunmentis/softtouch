@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-[#100f0a]">
     <!-- Hero -->
     <HeroSlider :slides="heroImages">
       <template #kicker>{{ t('pages.home.kicker') }}</template>
@@ -11,7 +11,7 @@
             :href="FRESHA_BOOKING_URL"
             target="_blank"
             rel="noopener"
-            class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm"
+            class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm"
           >
             {{ t('pages.home.cta') }}
           </a>
@@ -26,8 +26,8 @@
     </HeroSlider>
 
     <!-- Trust strip -->
-    <section class="border-b border-gray-100 bg-white py-6">
-      <Reveal class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-sm font-medium text-gray-600">
+    <section class="border-b border-cream/10 bg-[#100f0a] py-6">
+      <Reveal class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-sm font-medium text-cream/70">
         <span v-for="n in [1, 2, 3, 4]" :key="n" class="flex items-center gap-2">
           <span class="h-1.5 w-1.5 rounded-full bg-gold" />
           {{ t(`pages.home.trust${n}`) }}
@@ -40,9 +40,9 @@
       <Reveal class="mb-10 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.services.kicker') }}</p>
-          <h2 class="text-3xl italic">{{ t('pages.home.featuredHeading') }}</h2>
+          <h2 class="text-3xl italic text-cream">{{ t('pages.home.featuredHeading') }}</h2>
         </div>
-        <NuxtLink to="/services" class="text-sm font-semibold uppercase tracking-wide text-primary no-underline">
+        <NuxtLink to="/services" class="text-sm font-semibold uppercase tracking-wide text-gold no-underline">
           {{ t('pages.home.viewAll') }} →
         </NuxtLink>
       </Reveal>
@@ -50,36 +50,36 @@
         <div
           v-for="item in featured"
           :key="item.key"
-          class="t-card w-[320px] flex-shrink-0 snap-start flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
+          class="t-card w-[320px] flex-shrink-0 snap-start flex flex-col overflow-hidden rounded-xl border border-cream/10 bg-[#191710]"
         >
           <div class="t-img h-48 overflow-hidden">
             <img :src="item.image" alt="" class="h-full w-full object-cover" />
           </div>
           <div class="flex flex-col p-5">
-            <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-primary">
+            <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gold">
               {{ t(`pages.services.categories.${item.category}`) }}
             </p>
-            <h3 class="mb-1 text-xl italic">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
-            <p class="text-sm text-gray-500">{{ t(`pages.services.items.${item.key}.duration`) }}</p>
+            <h3 class="mb-1 text-xl italic text-cream">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
+            <p class="text-sm text-cream/50">{{ t(`pages.services.items.${item.key}.duration`) }}</p>
           </div>
         </div>
       </TreatmentCarousel>
     </section>
 
     <!-- Why sugaring -->
-    <section class="bg-cream py-16">
+    <section class="border-y border-cream/10 bg-[#191710] py-16">
       <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
         <Reveal class="h-[420px] overflow-hidden rounded-2xl">
           <img src="/images/hero/hero-3.jpg" alt="" class="h-full w-full object-cover" />
         </Reveal>
         <div>
           <Reveal tag="p" class="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.services.kicker') }}</Reveal>
-          <Reveal tag="h2" class="mb-6 text-3xl italic">{{ t('pages.home.whyHeading') }}</Reveal>
-          <Reveal v-for="n in [1, 2, 3]" :key="n" class="flex gap-4 border-b border-gray-200 py-4 last:border-none">
-            <span class="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white text-gold">✓</span>
+          <Reveal tag="h2" class="mb-6 text-3xl italic text-cream">{{ t('pages.home.whyHeading') }}</Reveal>
+          <Reveal v-for="n in [1, 2, 3]" :key="n" class="flex gap-4 border-b border-cream/10 py-4 last:border-none">
+            <span class="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-gold/50 text-gold">✓</span>
             <div>
-              <h3 class="mb-1 font-semibold">{{ t(`pages.home.why${n}Title`) }}</h3>
-              <p class="text-sm text-gray-700">{{ t(`pages.home.why${n}Body`) }}</p>
+              <h3 class="mb-1 font-semibold text-cream">{{ t(`pages.home.why${n}Title`) }}</h3>
+              <p class="text-sm text-cream/70">{{ t(`pages.home.why${n}Body`) }}</p>
             </div>
           </Reveal>
         </div>
@@ -105,35 +105,39 @@
 
     <!-- How it works -->
     <section class="mx-auto max-w-7xl px-6 py-16">
-      <Reveal tag="h2" class="mb-10 text-3xl italic">{{ t('pages.home.howHeading') }}</Reveal>
+      <Reveal tag="h2" class="mb-10 text-3xl italic text-cream">{{ t('pages.home.howHeading') }}</Reveal>
       <div ref="stepsWrap" class="relative grid grid-cols-1 gap-8 md:grid-cols-4">
-        <div class="steps-line absolute left-[60px] right-[60px] top-[22px] hidden h-0.5 bg-gray-200 md:block">
+        <div class="steps-line absolute left-[60px] right-[60px] top-[22px] hidden h-0.5 bg-cream/15 md:block">
           <div class="steps-line-fill h-full bg-gold transition-all duration-700" :style="{ width: lineFillPct + '%' }" />
         </div>
         <div v-for="n in [1, 2, 3, 4]" :key="n" ref="stepRefs" class="step relative text-center">
           <div
-            class="step-num relative z-10 mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full border-2 bg-white font-semibold text-ink transition-colors"
-            :class="activeStep >= n - 1 ? 'border-gold bg-cream text-gold' : 'border-gray-300'"
+            class="step-num relative z-10 mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full border-2 font-semibold transition-colors"
+            :class="
+              activeStep >= n - 1
+                ? 'border-gold bg-[#26200f] text-gold'
+                : 'border-cream/25 bg-[#100f0a] text-cream/60'
+            "
           >
             {{ String(n).padStart(2, "0") }}
           </div>
-          <h3 class="mb-2 text-lg font-semibold italic">{{ t(`pages.home.step${n}Title`) }}</h3>
-          <p class="text-sm text-gray-700">{{ t(`pages.home.step${n}Body`) }}</p>
+          <h3 class="mb-2 text-lg font-semibold italic text-cream">{{ t(`pages.home.step${n}Title`) }}</h3>
+          <p class="text-sm text-cream/70">{{ t(`pages.home.step${n}Body`) }}</p>
         </div>
       </div>
     </section>
 
     <!-- Prep & Aftercare tabs -->
-    <section class="bg-cream py-16">
+    <section class="border-y border-cream/10 bg-[#191710] py-16">
       <div class="mx-auto max-w-4xl px-6">
-        <Reveal class="rounded-2xl bg-white p-8 shadow-sm md:p-12">
+        <Reveal class="rounded-2xl border border-cream/10 bg-[#100f0a] p-8 md:p-12">
           <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.home.readyKicker') }}</p>
-          <h2 class="mb-6 text-2xl italic">{{ t('pages.home.readyHeading') }}</h2>
+          <h2 class="mb-6 text-2xl italic text-cream">{{ t('pages.home.readyHeading') }}</h2>
           <div class="mb-8 flex gap-2">
             <button
               type="button"
               class="rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
-              :class="activeTab === 'before' ? 'bg-primary text-white' : 'border border-gray-200 text-gray-500'"
+              :class="activeTab === 'before' ? 'bg-gold text-ink' : 'border border-cream/20 text-cream/60'"
               @click="activeTab = 'before'"
             >
               {{ t('pages.home.prepHeading') }}
@@ -141,20 +145,20 @@
             <button
               type="button"
               class="rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
-              :class="activeTab === 'after' ? 'bg-primary text-white' : 'border border-gray-200 text-gray-500'"
+              :class="activeTab === 'after' ? 'bg-gold text-ink' : 'border border-cream/20 text-cream/60'"
               @click="activeTab = 'after'"
             >
               {{ t('pages.home.aftercareHeading') }}
             </button>
           </div>
           <ul v-if="activeTab === 'before'" class="space-y-3">
-            <li v-for="n in [1, 2, 3, 4]" :key="n" class="flex gap-3 border-b border-dashed border-gray-200 pb-3 text-sm text-gray-700 last:border-none">
+            <li v-for="n in [1, 2, 3, 4]" :key="n" class="flex gap-3 border-b border-dashed border-cream/15 pb-3 text-sm text-cream/75 last:border-none">
               <span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
               {{ t(`pages.home.prep${n}`) }}
             </li>
           </ul>
           <ul v-else class="space-y-3">
-            <li v-for="n in [1, 2, 3, 4]" :key="n" class="flex gap-3 border-b border-dashed border-gray-200 pb-3 text-sm text-gray-700 last:border-none">
+            <li v-for="n in [1, 2, 3, 4]" :key="n" class="flex gap-3 border-b border-dashed border-cream/15 pb-3 text-sm text-cream/75 last:border-none">
               <span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
               {{ t(`pages.home.aftercare${n}`) }}
             </li>
@@ -165,18 +169,21 @@
 
     <!-- FAQ accordion -->
     <section class="mx-auto max-w-3xl px-6 py-16">
-      <Reveal tag="h2" class="mb-10 text-center text-3xl italic">{{ t('pages.home.faqHeading') }}</Reveal>
-      <Reveal v-for="n in [1, 2, 3, 4]" :key="n" class="border-b border-gray-200">
+      <Reveal tag="h2" class="mb-10 text-center text-3xl italic text-cream">{{ t('pages.home.faqHeading') }}</Reveal>
+      <Reveal v-for="n in [1, 2, 3, 4]" :key="n" class="border-b border-cream/12">
         <button
           type="button"
-          class="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-semibold"
+          class="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-semibold text-cream"
           @click="openFaq = openFaq === n ? null : n"
         >
           {{ t(`pages.home.faq${n}Q`) }}
           <span class="flex-shrink-0 text-xl text-gold transition-transform" :class="{ 'rotate-45': openFaq === n }">+</span>
         </button>
         <div class="grid overflow-hidden transition-all duration-300" :style="{ gridTemplateRows: openFaq === n ? '1fr' : '0fr' }">
-          <p class="min-h-0 pb-5 text-sm text-gray-700">{{ t(`pages.home.faq${n}A`) }}</p>
+          <!-- Padding lives on the inner element so the row collapses fully to 0 -->
+          <div class="min-h-0">
+            <p class="pb-5 text-sm text-cream/70">{{ t(`pages.home.faq${n}A`) }}</p>
+          </div>
         </div>
       </Reveal>
     </section>
@@ -190,7 +197,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm"
         >
           {{ t('pages.home.cta') }}
         </a>
@@ -257,6 +264,28 @@ const openFaq = ref<number | null>(null);
 }
 .g-cap {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+}
+/* Matches the treatment rows on /services */
+.t-card {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.t-card:hover {
+  border-color: rgba(217, 163, 77, 0.55);
+  transform: translateY(-3px);
+}
+.t-img img {
+  filter: grayscale(0.55);
+  transition: filter 0.3s ease, transform 0.5s ease;
+}
+.t-card:hover .t-img img {
+  filter: none;
+  transform: scale(1.05);
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-card,
+  .t-img img {
+    transition: none;
+  }
 }
 .marquee {
   overflow: hidden;

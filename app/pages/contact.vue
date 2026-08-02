@@ -1,86 +1,264 @@
 <template>
-  <div>
-    <PageBanner :kicker="t('pages.contact.kicker')" :title="t('pages.contact.title')" />
+  <div class="bg-[#100f0a]">
+    <DarkHero
+      :image="heroImage"
+      :kicker="t('pages.contact.kicker')"
+      :title="t('pages.contact.title')"
+      :sub="t('pages.contact.heroSub')"
+    />
 
-    <div class="mx-auto max-w-7xl px-6 py-16">
-    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-12 md:grid-cols-2">
-      <div>
-        <div class="mb-8">
-          <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
-            {{ t('pages.contact.addressHeading') }}
-          </h2>
-          <p class="text-base text-gray-700">{{ t('footer.address') }}</p>
+    <section class="mx-auto max-w-7xl px-6 py-14 md:py-20">
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-[0.85fr_1fr] md:gap-14">
+        <!-- Studio details -->
+        <Reveal class="flex flex-col gap-6">
+          <div v-for="detail in details" :key="detail.key" class="flex gap-4 border-b border-cream/10 pb-5">
+            <span
+              class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-gold/45 text-sm text-gold"
+              aria-hidden="true"
+            >
+              {{ detail.icon }}
+            </span>
+            <div>
+              <h2 class="mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-gold">
+                {{ t(detail.headingKey) }}
+              </h2>
+              <a
+                v-if="detail.href"
+                :href="detail.href"
+                class="text-base text-cream/80 no-underline transition-colors hover:text-cream"
+              >
+                {{ detail.value }}
+              </a>
+              <p v-else class="text-base leading-relaxed text-cream/80">{{ detail.value }}</p>
+            </div>
+          </div>
+
+          <a
+            v-if="MAP_URL"
+            :href="MAP_URL"
+            target="_blank"
+            rel="noopener"
+            class="map relative flex h-36 items-end overflow-hidden rounded-xl no-underline"
+          >
+            <img src="/images/hero/hero-1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <span class="map-scrim absolute inset-0" />
+            <span class="relative flex w-full items-center justify-between gap-3 p-4">
+              <span class="text-sm text-cream/85">{{ t('footer.address') }}</span>
+              <span class="flex-shrink-0 text-[11px] font-semibold uppercase tracking-wider text-gold">
+                {{ t('pages.contact.mapLink') }} →
+              </span>
+            </span>
+          </a>
+        </Reveal>
+
+        <!-- Message form -->
+        <Reveal>
+          <div class="rounded-2xl border border-cream/10 bg-[#191710] p-6 md:p-8">
+            <p class="mb-1 text-sm font-semibold uppercase tracking-widest text-gold">
+              {{ t('pages.contact.formKicker') }}
+            </p>
+            <h2 class="mb-2 text-2xl italic text-cream">{{ t('pages.contact.formHeading') }}</h2>
+            <p class="mb-6 text-sm text-cream/60">{{ t('pages.contact.formIntro') }}</p>
+
+            <form novalidate @submit.prevent="submit">
+              <div class="mb-4">
+                <label for="contact-name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
+                  {{ t('pages.contact.name') }}
+                </label>
+                <input id="contact-name" v-model="form.name" type="text" required class="field" />
+              </div>
+              <div class="mb-4">
+                <label for="contact-email" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
+                  {{ t('pages.contact.email') }}
+                </label>
+                <input id="contact-email" v-model="form.email" type="email" required class="field" />
+              </div>
+              <div class="mb-5">
+                <label for="contact-message" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
+                  {{ t('pages.contact.message') }}
+                </label>
+                <textarea id="contact-message" v-model="form.message" rows="5" required class="field" />
+              </div>
+
+              <button
+                type="submit"
+                :disabled="status === 'sending'"
+                class="w-full rounded-full bg-gold px-6 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60"
+              >
+                {{ status === 'sending' ? t('pages.contact.sending') : t('pages.contact.send') }}
+              </button>
+
+              <p
+                v-if="status === 'sent'"
+                role="status"
+                class="mt-4 rounded-lg border border-gold/40 bg-gold/10 px-4 py-3 text-sm text-cream"
+              >
+                {{ t('pages.contact.thanks', { name: sentName }) }}
+              </p>
+              <p
+                v-else-if="status === 'error'"
+                role="alert"
+                class="mt-4 rounded-lg border border-ember/50 bg-ember/10 px-4 py-3 text-sm text-cream"
+              >
+                {{ t('pages.contact.error') }}
+              </p>
+            </form>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    <!-- Socials -->
+    <section v-if="socials.length" class="border-t border-cream/10 bg-[#191710] py-14">
+      <div class="mx-auto max-w-7xl px-6">
+        <Reveal tag="p" class="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
+          {{ t('pages.contact.socialHeading') }}
+        </Reveal>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <Reveal v-for="social in socials" :key="social.key">
+            <a
+              :href="social.url"
+              target="_blank"
+              rel="noopener"
+              class="social block h-full rounded-xl border border-cream/10 bg-[#100f0a] p-5 no-underline"
+            >
+              <span class="mb-0.5 block text-xl italic text-cream">{{ social.label }}</span>
+              <span v-if="social.handle" class="block text-sm text-cream/60">{{ social.handle }}</span>
+            </a>
+          </Reveal>
         </div>
-        <div class="mb-8">
-          <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
-            {{ t('pages.contact.hoursHeading') }}
-          </h2>
-          <p class="text-base text-gray-700">{{ t('footer.hours') }}</p>
-        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta px-6 py-16 text-center">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="mb-4 text-3xl italic text-cream">{{ t('pages.home.finalCtaHeading') }}</h2>
+        <p class="mx-auto mb-8 max-w-lg text-cream/85">{{ t('pages.home.finalCtaBody') }}</p>
         <a
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-6 py-3 font-medium text-ink no-underline"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
           {{ t('pages.contact.bookOnFresha') }}
         </a>
       </div>
-
-      <div>
-        <h2 class="mb-2 text-xl italic">{{ t('pages.contact.formHeading') }}</h2>
-        <p class="mb-5 text-sm text-gray-600">{{ t('pages.contact.formIntro') }}</p>
-        <form @submit.prevent="submit">
-          <div class="mb-3">
-            <label class="mb-1 block text-sm font-medium">{{ t('pages.contact.name') }}</label>
-            <input
-              v-model="form.name"
-              type="text"
-              required
-              class="w-full rounded border border-gray-300 px-3 py-2 focus:border-gold focus:outline-none"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="mb-1 block text-sm font-medium">{{ t('pages.contact.email') }}</label>
-            <input
-              v-model="form.email"
-              type="email"
-              required
-              class="w-full rounded border border-gray-300 px-3 py-2 focus:border-gold focus:outline-none"
-            />
-          </div>
-          <div class="mb-4">
-            <label class="mb-1 block text-sm font-medium">{{ t('pages.contact.message') }}</label>
-            <textarea
-              v-model="form.message"
-              rows="5"
-              required
-              class="w-full rounded border border-gray-300 px-3 py-2 focus:border-gold focus:outline-none"
-            />
-          </div>
-          <button
-            type="submit"
-            class="w-full rounded bg-primary px-6 py-3 text-white"
-          >
-            {{ t('pages.contact.send') }}
-          </button>
-        </form>
-      </div>
-    </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 const { t } = useI18n();
 
-const form = reactive({
-  name: "",
-  email: "",
-  message: "",
-});
+const heroImage = "/images/home/table.jpg";
 
-function submit() {
-  alert(t("pages.contact.thanks", { name: form.name }));
+const details = computed(() =>
+  [
+    { key: "address", icon: "◎", headingKey: "pages.contact.addressHeading", value: t("footer.address"), href: "" },
+    { key: "hours", icon: "◷", headingKey: "pages.contact.hoursHeading", value: t("footer.hours"), href: "" },
+    CONTACT_EMAIL
+      ? {
+          key: "email",
+          icon: "✉",
+          headingKey: "pages.contact.emailHeading",
+          value: CONTACT_EMAIL,
+          href: `mailto:${CONTACT_EMAIL}`,
+        }
+      : null,
+  ].filter((d): d is NonNullable<typeof d> => d !== null)
+);
+
+// Entries without a URL are omitted rather than rendered as dead links.
+const socials = computed(() => SOCIAL_LINKS.filter((s) => s.url));
+
+const form = reactive({ name: "", email: "", message: "" });
+const status = ref<"idle" | "sending" | "sent" | "error">("idle");
+const sentName = ref("");
+
+async function submit() {
+  status.value = "sending";
+  sentName.value = form.name;
+
+  // Hosted form endpoint, when configured.
+  if (CONTACT_FORM_ENDPOINT) {
+    try {
+      await $fetch(CONTACT_FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: { ...form },
+      });
+      status.value = "sent";
+      Object.assign(form, { name: "", email: "", message: "" });
+    } catch {
+      status.value = "error";
+    }
+    return;
+  }
+
+  // Otherwise hand off to the visitor's mail client.
+  if (CONTACT_EMAIL) {
+    const subject = encodeURIComponent(`${t("pages.contact.formHeading")} — ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\n${form.name}\n${form.email}`);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    status.value = "sent";
+    return;
+  }
+
+  // Nothing is configured yet: fail honestly rather than claiming it sent.
+  status.value = "error";
 }
 </script>
+
+<style scoped>
+.final-cta {
+  background: linear-gradient(165deg, #2a2818 0%, #696740 45%, #c1892f 80%, #a15b28 100%);
+}
+.map-scrim {
+  background: linear-gradient(0deg, rgba(16, 15, 10, 0.92) 10%, rgba(16, 15, 10, 0.1) 75%);
+}
+.map img {
+  filter: grayscale(0.7) brightness(0.65);
+  transition: filter 0.35s ease, transform 0.6s ease;
+}
+.map:hover img {
+  filter: grayscale(0.35) brightness(0.75);
+  transform: scale(1.05);
+}
+.social {
+  transition: border-color 0.22s ease, transform 0.22s ease;
+}
+.social:hover {
+  border-color: rgba(217, 163, 77, 0.5);
+  transform: translateY(-2px);
+}
+.field {
+  width: 100%;
+  border-radius: 7px;
+  border: 1px solid rgba(243, 238, 216, 0.18);
+  background: #100f0a;
+  padding: 0.625rem 0.75rem;
+  color: rgba(243, 238, 216, 0.9);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field:hover {
+  border-color: rgba(243, 238, 216, 0.32);
+}
+.field:focus {
+  outline: none;
+  border-color: #c1892f;
+  box-shadow: 0 0 0 3px rgba(193, 137, 47, 0.22);
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #c1892f;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .map img,
+  .social,
+  .field {
+    transition: none;
+  }
+}
+</style>

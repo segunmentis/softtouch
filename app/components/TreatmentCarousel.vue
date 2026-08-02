@@ -1,10 +1,18 @@
 <template>
   <div class="relative">
-    <button type="button" class="tc-arrow tc-prev" aria-label="Scroll left" @click="scroll(-1)">‹</button>
+    <button type="button" class="tc-arrow tc-prev" aria-label="Scroll left" @click="scroll(-1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 5l-6 7 6 7" />
+      </svg>
+    </button>
     <div ref="track" class="carousel" :class="{ dragging }" @mousedown="onDown">
       <slot />
     </div>
-    <button type="button" class="tc-arrow tc-next" aria-label="Scroll right" @click="scroll(1)">›</button>
+    <button type="button" class="tc-arrow tc-next" aria-label="Scroll right" @click="scroll(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 5l6 7-6 7" />
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -56,17 +64,32 @@ function scroll(dir: number) {
 }
 .tc-arrow {
   position: absolute;
-  top: 40%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1px solid #ddd6c9;
-  background: #fff;
+  border: 1px solid rgba(243, 238, 216, 0.22);
+  background: #191710;
   cursor: pointer;
-  font-size: 16px;
-  color: #211d18;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  color: #f3eed8;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
   z-index: 2;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tc-arrow:hover {
+  border-color: rgba(217, 163, 77, 0.6);
+  background: #221f14;
+}
+/* See HeroSlider: SVG rather than a text glyph so the chevron is
+   geometrically centred in the circle. */
+.tc-arrow svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 .tc-prev {
   left: -20px;

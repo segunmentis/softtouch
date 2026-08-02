@@ -23,8 +23,15 @@
     <header class="h-[72px]">
       <div class="mx-auto flex h-full max-w-7xl items-center px-6">
         <!-- Logo -->
-        <NuxtLink to="/" class="mr-8 flex items-center no-underline">
-          <img src="/images/logo-arc.png" alt="Soft Touch Aesthetics Studio" class="logo h-14 w-auto object-contain" />
+        <NuxtLink to="/" class="mr-8 flex items-center gap-3 no-underline">
+          <img
+            src="/images/logo-badge.png"
+            alt="Soft Touch Aesthetics Studio"
+            width="256"
+            height="258"
+            class="h-12 w-auto object-contain"
+          />
+          <span class="wordmark text-xl leading-none text-cream">{{ t('header.brandName') }}</span>
         </NuxtLink>
 
         <div class="flex-1" />
@@ -35,6 +42,7 @@
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
+            exact-active-class="nav-link-active"
             class="nav-link px-3 py-2 text-base font-medium"
           >
             {{ t(link.labelKey) }}
@@ -48,7 +56,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="ms-4 hidden items-center rounded-full bg-gold px-5 py-2 font-medium text-ink no-underline md:flex"
+          class="ms-4 hidden items-center rounded-full bg-gold px-5 py-2 font-medium text-white no-underline md:flex"
         >
           {{ t('header.cta') }}
           <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -76,7 +84,8 @@
         v-for="link in navLinks"
         :key="link.to"
         :to="link.to"
-        class="block px-6 py-3 text-cream no-underline"
+        exact-active-class="drawer-link-active"
+        class="drawer-link block border-l-2 border-transparent px-6 py-3 no-underline"
         @click="drawer = false"
       >
         {{ t(link.labelKey) }}
@@ -86,7 +95,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="block rounded-full bg-gold px-5 py-2 text-center font-medium text-ink no-underline"
+          class="block rounded-full bg-gold px-5 py-2 text-center font-medium text-white no-underline"
           @click="drawer = false"
         >
           {{ t('header.cta') }}
@@ -116,15 +125,40 @@ const navLinks = [
 .dusk-header {
   background: linear-gradient(120deg, #2a2818 0%, #696740 45%, #c1892f 80%, #a15b28 100%);
 }
-.logo {
-  filter: brightness(0) invert(1);
+/* The logo is two-tone by design (olive ring, cream monogram) — no colour
+   filter here, or both tones collapse into one flat silhouette. */
+.wordmark {
+  letter-spacing: 0.015em;
+  white-space: nowrap;
 }
+/* The current page is marked by colour alone. Inactive links sit back at
+   65% cream; the active one is full-strength cream. A separate accent hue
+   was not viable here — the header gradient runs olive → gold → ember
+   directly behind the nav, so gold or ember text loses contrast against it. */
 .nav-link {
   letter-spacing: 0.05em;
-  color: #f3eed8;
-  transition: opacity 0.2s;
+  color: rgba(243, 238, 216, 0.65);
+  transition: color 0.2s;
 }
 .nav-link:hover {
-  opacity: 0.75;
+  color: #f3eed8;
+}
+.nav-link-active {
+  color: #f3eed8;
+  font-weight: 600;
+}
+
+.drawer-link {
+  color: rgba(243, 238, 216, 0.65);
+  transition: color 0.2s;
+}
+.drawer-link:hover {
+  color: #f3eed8;
+}
+.drawer-link-active {
+  color: #f3eed8;
+  border-left-color: #c1892f;
+  background: rgba(255, 255, 255, 0.07);
+  font-weight: 600;
 }
 </style>

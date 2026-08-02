@@ -9,7 +9,8 @@
       "contact": "Contact"
     },
     "cta": "Prendre rendez-vous",
-    "toggleMenu": "Basculer le menu"
+    "toggleMenu": "Basculer le menu",
+    "brandName": "Soft Touch"
   },
   "footer": {
     "brandBlurb": "Un studio privé d'épilation au sucre au cœur de Saskatoon. Une épilation faite uniquement de sucre, de citron et d'eau.",
@@ -104,7 +105,23 @@
       "paragraph3": "Le studio est dirigé par une femme, propre et privé, et chaque rendez-vous reçoit une attention complète et sans précipitation du début à la fin.",
       "ctaHeading": "Prêt à réserver ?",
       "ctaBody": "Consultez le menu complet des soins ou réservez votre rendez-vous directement en ligne.",
-      "cta": "Prendre rendez-vous"
+      "cta": "Prendre rendez-vous",
+      "heroSub": "Épilation au sucre en studio privé, rue Duchess, Saskatoon.",
+      "gallery1": "La salle de soin",
+      "gallery2": "La pâte, préparée fraîche",
+      "gallery3": "Rue Duchess",
+      "noteCard": "Sucre, citron, eau — voilà toute la recette. Rien d'artificiel, jamais.",
+      "visitKicker": "Votre rendez-vous",
+      "visitHeading": "Comment se déroule un rendez-vous",
+      "visitBody": "Aucune surprise. Voici chaque étape, du début à la fin.",
+      "step1Title": "Vous arrivez",
+      "step1Body": "Une entrée privée et une seule cliente à la fois. Pas de salle d'attente, aucun croisement avec qui que ce soit.",
+      "step2Title": "On en discute",
+      "step2Body": "Votre peau, vos sensibilités et ce que vous souhaitez. Si c'est votre première fois, dites-le — c'est bienvenu et tout à fait normal.",
+      "step3Title": "Le soin",
+      "step3Body": "Une pâte tiède à température corporelle, travaillée par sections à contre-sens de la pousse. Vous donnez le rythme et on s'arrête dès que vous le demandez.",
+      "step4Title": "Les soins après",
+      "step4Body": "Des conseils d'après-soin à emporter, et une prochaine réservation quand vous serez prête — jamais avant."
     },
     "services": {
       "kicker": "Menu des soins",
@@ -120,11 +137,33 @@
         "bundles": "Forfaits"
       },
       "items": {
-        "underarms": { "name": "Aisselles", "duration": "15 min" },
-        "brazilian": { "name": "Brésilien", "duration": "45 min" },
-        "faceRefresh": { "name": "Visage Éclat", "duration": "35 min · 3 soins", "note": "Trois soins en une seule visite." },
-        "summerReady": { "name": "Prêt pour l'été", "duration": "1 h 45 · 2 soins", "note": "Deux soins réunis pour la saison." }
-      }
+        "underarms": {
+          "name": "Aisselles",
+          "duration": "15 min"
+        },
+        "brazilian": {
+          "name": "Brésilien",
+          "duration": "45 min"
+        },
+        "faceRefresh": {
+          "name": "Visage Éclat",
+          "duration": "35 min · 3 soins",
+          "note": "Trois soins en une seule visite."
+        },
+        "summerReady": {
+          "name": "Prêt pour l'été",
+          "duration": "1 h 45 · 2 soins",
+          "note": "Deux soins réunis pour la saison."
+        }
+      },
+      "filterAll": "Tous les soins",
+      "book": "Réserver",
+      "bundlesHeading": "Forfaits",
+      "bundlesBody": "Des soins réunis en une seule visite.",
+      "emptyHeading": "Cette catégorie se trouve sur Fresha",
+      "livePricing": "Les tarifs à jour et les disponibilités sont toujours sur Fresha.",
+      "showingAll": "Tous les soins affichés",
+      "showingCategory": "Affichage : {category}"
     },
     "contact": {
       "kicker": "Visitez-nous ou réservez",
@@ -138,7 +177,14 @@
       "email": "E-mail",
       "message": "Message",
       "send": "Envoyer le message",
-      "thanks": "Merci {name}, nous vous recontacterons bientôt !"
+      "thanks": "Merci {name}, nous vous recontacterons bientôt !",
+      "heroSub": "Un studio privé, une cliente à la fois, sur rendez-vous.",
+      "emailHeading": "Courriel",
+      "mapLink": "Ouvrir dans Maps",
+      "socialHeading": "Suivez le studio",
+      "formKicker": "Une question d'abord ?",
+      "sending": "Envoi en cours…",
+      "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux."
     }
   }
 }
