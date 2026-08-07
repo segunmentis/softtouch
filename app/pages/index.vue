@@ -140,7 +140,7 @@
               :class="activeTab === 'before' ? 'bg-gold text-ink' : 'border border-cream/20 text-cream/60'"
               @click="activeTab = 'before'"
             >
-              {{ t('pages.home.prepHeading') }}
+              {{ t('prepare.beforeHeading') }}
             </button>
             <button
               type="button"
@@ -148,21 +148,36 @@
               :class="activeTab === 'after' ? 'bg-gold text-ink' : 'border border-cream/20 text-cream/60'"
               @click="activeTab = 'after'"
             >
-              {{ t('pages.home.aftercareHeading') }}
+              {{ t('prepare.afterHeading') }}
             </button>
           </div>
-          <ul v-if="activeTab === 'before'" class="space-y-3">
-            <li v-for="n in [1, 2, 3, 4]" :key="n" class="flex gap-3 border-b border-dashed border-cream/15 pb-3 text-sm text-cream/75 last:border-none">
-              <span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-              {{ t(`pages.home.prep${n}`) }}
-            </li>
-          </ul>
-          <ul v-else class="space-y-3">
-            <li v-for="n in [1, 2, 3, 4]" :key="n" class="flex gap-3 border-b border-dashed border-cream/15 pb-3 text-sm text-cream/75 last:border-none">
-              <span class="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-              {{ t(`pages.home.aftercare${n}`) }}
-            </li>
-          </ul>
+
+          <!-- Both tabs read from the shared `prepare` namespace, so this and the
+               Services page can never give conflicting advice. -->
+          <template v-if="activeTab === 'before'">
+            <p class="mb-2 text-sm text-cream/60">{{ t('prepare.beforeIntro') }}</p>
+            <ul class="space-y-3">
+              <li v-for="n in 5" :key="n" class="flex gap-3 border-b border-dashed border-cream/15 pb-3 text-sm text-cream/75 last:border-none">
+                <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                {{ t(`prepare.before${n}`) }}
+              </li>
+            </ul>
+          </template>
+          <template v-else>
+            <p class="text-sm text-cream/60">{{ t('prepare.afterIntro') }}</p>
+            <p class="mb-2 mt-3 text-[11px] font-bold uppercase tracking-[0.1em] text-cream/45">
+              {{ t('prepare.avoidIntro') }}
+            </p>
+            <ul class="space-y-3">
+              <li v-for="n in 5" :key="n" class="flex gap-3 border-b border-dashed border-cream/15 pb-3 text-sm text-cream/75 last:border-none">
+                <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cream/35" />
+                {{ t(`prepare.avoid${n}`) }}
+              </li>
+            </ul>
+            <p class="mt-4 rounded-lg border border-gold/25 bg-gold/[0.08] px-3.5 py-2.5 text-sm leading-relaxed text-cream/75">
+              {{ t('prepare.afterTip') }}
+            </p>
+          </template>
         </Reveal>
       </div>
     </section>
@@ -170,21 +185,30 @@
     <!-- FAQ accordion -->
     <section class="mx-auto max-w-3xl px-6 py-16">
       <Reveal tag="h2" class="mb-10 text-center text-3xl italic text-cream">{{ t('pages.home.faqHeading') }}</Reveal>
-      <Reveal v-for="n in [1, 2, 3, 4]" :key="n" class="border-b border-cream/12">
+      <!-- A teaser only: the first three of the shared `faq` set, full list at /faq -->
+      <Reveal v-for="n in 3" :key="n" class="border-b border-cream/12">
         <button
           type="button"
           class="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-semibold text-cream"
           @click="openFaq = openFaq === n ? null : n"
         >
-          {{ t(`pages.home.faq${n}Q`) }}
+          {{ t(`faq.q${n}`) }}
           <span class="flex-shrink-0 text-xl text-gold transition-transform" :class="{ 'rotate-45': openFaq === n }">+</span>
         </button>
         <div class="grid overflow-hidden transition-all duration-300" :style="{ gridTemplateRows: openFaq === n ? '1fr' : '0fr' }">
           <!-- Padding lives on the inner element so the row collapses fully to 0 -->
           <div class="min-h-0">
-            <p class="pb-5 text-sm text-cream/70">{{ t(`pages.home.faq${n}A`) }}</p>
+            <p class="pb-5 text-sm text-cream/70">{{ t(`faq.a${n}`) }}</p>
           </div>
         </div>
+      </Reveal>
+      <Reveal class="mt-8 text-center">
+        <NuxtLink
+          to="/faq"
+          class="text-sm font-semibold uppercase tracking-wide text-gold no-underline"
+        >
+          {{ t('faq.seeAll') }} →
+        </NuxtLink>
       </Reveal>
     </section>
 

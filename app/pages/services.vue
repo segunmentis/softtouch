@@ -119,6 +119,92 @@
       </div>
     </section>
 
+    <!-- Why choose sugaring — always shown, unlike the conditional bundles above -->
+    <section class="mx-auto max-w-7xl px-6 py-12 md:py-14">
+      <div class="grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
+        <Reveal>
+          <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
+            {{ t('pages.services.whyKicker') }}
+          </p>
+          <h2 class="mb-3 text-3xl italic text-cream">{{ t('pages.services.whyHeading') }}</h2>
+          <p class="mb-4 text-base leading-relaxed text-cream/75">{{ t('pages.services.whyIntro') }}</p>
+          <p class="text-sm leading-relaxed text-cream/55">{{ t('pages.services.whyClosing') }}</p>
+        </Reveal>
+
+        <Reveal>
+          <p class="mb-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cream/50">
+            {{ t('pages.services.whyUnlike') }}
+          </p>
+          <ul class="list-none p-0">
+            <li
+              v-for="n in 5"
+              :key="n"
+              class="flex gap-3 border-b border-cream/10 py-3 text-sm leading-relaxed text-cream/80 last:border-none"
+            >
+              <span
+                class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-gold/50 text-[10px] text-gold"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
+              {{ t(`pages.services.whyPoint${n}`) }}
+            </li>
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+
+    <!-- Before / after your appointment — shared with the homepage via the `prepare` namespace -->
+    <section class="border-y border-cream/10 bg-[#191710] py-14 md:py-16">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 md:grid-cols-2 md:gap-8">
+        <Reveal class="rounded-2xl border border-cream/10 bg-[#100f0a] p-6 md:p-8">
+          <span
+            class="mb-3 inline-flex items-center gap-1.5 rounded-full border border-gold/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-gold"
+          >
+            <span aria-hidden="true">✓</span>{{ t('prepare.doLabel') }}
+          </span>
+          <h2 class="text-2xl italic text-cream">{{ t('prepare.beforeHeading') }}</h2>
+          <p class="mt-1 text-sm text-cream/60">{{ t('prepare.beforeIntro') }}</p>
+          <ul class="mt-3 list-none p-0">
+            <li
+              v-for="n in 5"
+              :key="n"
+              class="flex gap-3 border-b border-dashed border-cream/15 py-2.5 text-sm leading-relaxed text-cream/80 last:border-none"
+            >
+              <span class="mt-0.5 flex-shrink-0 text-xs text-gold" aria-hidden="true">✓</span>
+              {{ t(`prepare.before${n}`) }}
+            </li>
+          </ul>
+        </Reveal>
+
+        <Reveal class="rounded-2xl border border-cream/10 bg-[#100f0a] p-6 md:p-8">
+          <span
+            class="mb-3 inline-flex items-center gap-1.5 rounded-full border border-cream/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-cream/50"
+          >
+            <span aria-hidden="true">✕</span>{{ t('prepare.avoidLabel') }}
+          </span>
+          <h2 class="text-2xl italic text-cream">{{ t('prepare.afterHeading') }}</h2>
+          <p class="mt-1 text-sm text-cream/60">{{ t('prepare.afterIntro') }}</p>
+          <p class="mt-3 text-[11px] font-bold uppercase tracking-[0.1em] text-cream/45">
+            {{ t('prepare.avoidIntro') }}
+          </p>
+          <ul class="mt-1 list-none p-0">
+            <li
+              v-for="n in 5"
+              :key="n"
+              class="flex gap-3 border-b border-dashed border-cream/15 py-2.5 text-sm leading-relaxed text-cream/80 last:border-none"
+            >
+              <span class="mt-0.5 flex-shrink-0 text-xs text-cream/35" aria-hidden="true">✕</span>
+              {{ t(`prepare.avoid${n}`) }}
+            </li>
+          </ul>
+          <p class="mt-4 rounded-lg border border-gold/25 bg-gold/[0.08] px-3.5 py-2.5 text-sm leading-relaxed text-cream/75">
+            {{ t('prepare.afterTip') }}
+          </p>
+        </Reveal>
+      </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta px-6 py-16 text-center">
       <div class="mx-auto max-w-2xl">

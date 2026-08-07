@@ -76,6 +76,7 @@ const year = new Date().getFullYear();
 const companyLinks = [
   { labelKey: "footer.companyLinks.about", to: "/about" },
   { labelKey: "footer.companyLinks.services", to: "/services" },
+  { labelKey: "footer.companyLinks.faq", to: "/faq" },
   { labelKey: "footer.companyLinks.contact", to: "/contact" },
   { labelKey: "footer.companyLinks.privacy", to: "/contact" },
 ];
