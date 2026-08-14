@@ -1,5 +1,9 @@
 <template>
-  <section class="hero-slider relative overflow-hidden text-center">
+  <section
+    class="hero-slider relative overflow-hidden text-center"
+    @touchstart.passive="onTouchStart"
+    @touchend.passive="onTouchEnd"
+  >
     <div class="absolute inset-0">
       <div
         v-for="(slide, i) in slides"
@@ -68,6 +72,33 @@ function prev() {
   goTo((active.value - 1 + props.slides.length) % props.slides.length);
 }
 
+// Swipe. The arrows are hidden below md, so this is the primary control there.
+// Both listeners are passive and never call preventDefault, so vertical page
+// scrolling is left completely alone.
+const SWIPE_MIN_PX = 45;
+const HORIZONTAL_BIAS = 1.5;
+let startX = 0;
+let startY = 0;
+
+function onTouchStart(e: TouchEvent) {
+  const touch = e.changedTouches[0];
+  if (!touch) return;
+  startX = touch.clientX;
+  startY = touch.clientY;
+}
+
+function onTouchEnd(e: TouchEvent) {
+  const touch = e.changedTouches[0];
+  if (!touch) return;
+  const dx = touch.clientX - startX;
+  const dy = touch.clientY - startY;
+  // Ignore short drags, and any drag that is more vertical than horizontal —
+  // otherwise scrolling the page past the hero would flip slides.
+  if (Math.abs(dx) < SWIPE_MIN_PX || Math.abs(dx) < Math.abs(dy) * HORIZONTAL_BIAS) return;
+  if (dx < 0) next();
+  else prev();
+}
+
 function restart() {
   if (timer) clearInterval(timer);
   timer = setInterval(() => {
@@ -121,7 +152,8 @@ onUnmounted(() => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 3;
+  /* Above the hero copy (z-10), which spans the full width on small screens. */
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,6 +182,15 @@ onUnmounted(() => {
 }
 .arrow.next {
   right: 24px;
+}
+/* Below md the hero copy is full-bleed, so side-mounted arrows land behind it —
+   unreachable, with the subtitle running straight through them. Hide them there
+   and let the slider be swiped instead; the dots still give position and a tap
+   target. */
+@media (max-width: 767px) {
+  .arrow {
+    display: none;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .slide.active {
