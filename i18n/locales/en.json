@@ -40,7 +40,7 @@
   },
   "pages": {
     "home": {
-      "kicker": "City Park, Saskatoon",
+      "kicker": "Saskatoon, SK",
       "title": "Professional Body Sugaring in Saskatoon",
       "subtitle": "Soft skin starts here.",
       "cta": "Book Appointment",
@@ -79,12 +79,12 @@
       "gallery5": "Results that last",
       "readyKicker": "Getting Ready",
       "readyHeading": "Before & after your appointment",
-      "intro": "Soft Touch Aesthetics Studio is a private body sugaring studio in Saskatoon offering Brazilian sugaring, body sugaring, facial hair removal and select men's sugaring services. Located in City Park, we provide professional, comfortable hair removal using Alexandria Professional sugaring products."
+      "intro": "Soft Touch Aesthetics Studio is a private body sugaring studio in Saskatoon offering Brazilian sugaring, body sugaring, facial hair removal and select men's sugaring services. We provide professional, comfortable hair removal in a private, unrushed setting."
     },
     "about": {
       "kicker": "About The Studio",
       "title": "A gentler way to remove hair",
-      "paragraph1": "Soft Touch Aesthetics Studio is a private body sugaring studio in City Park, Saskatoon, specializing in professional hair removal for women and select men's services. From Brazilian and bikini sugaring to legs, underarms, arms, face, back and stomach, every appointment is designed to feel private, comfortable and unrushed.",
+      "paragraph1": "Soft Touch Aesthetics Studio is a private body sugaring studio in Saskatoon, specializing in professional hair removal for women and select men's services. From Brazilian and bikini sugaring to legs, underarms, arms, face, back and stomach, every appointment is designed to feel private, comfortable and unrushed.",
       "paragraph2": "Sugar paste is applied against the direction of hair growth and lifted away with it — gentler on skin than traditional waxing, with less breakage and fewer ingrown hairs over time.",
       "paragraph3": "The studio is woman-owned, clean and private, with every appointment given full, unhurried attention from start to finish.",
       "ctaHeading": "Ready to book?",
@@ -172,21 +172,20 @@
       "message": "Message",
       "send": "Send Message",
       "thanks": "Thanks {name}, we'll be in touch!",
-      "heroSub": "Located in City Park, Saskatoon. A private studio, one client at a time, by appointment.",
+      "heroSub": "Located in Saskatoon. A private studio, one client at a time, by appointment.",
       "emailHeading": "Email",
       "mapLink": "Open in Maps",
       "socialHeading": "Follow the studio",
       "formKicker": "Questions first?",
       "sending": "Sending…",
-      "error": "Your message could not be sent. Please email or message us instead.",
-      "cityPark": "Located in City Park, Saskatoon."
+      "error": "Your message could not be sent. Please email or message us instead."
     },
     "categoryPages": {
       "treatmentsHeading": "Treatments",
       "intimate": {
         "kicker": "Intimate sugaring",
         "title": "Brazilian Sugaring in Saskatoon",
-        "intro": "Professional Brazilian, bikini and extended bikini sugaring in Saskatoon. Soft Touch Aesthetics Studio provides private, comfortable and professional intimate sugaring appointments in our City Park studio."
+        "intro": "Professional Brazilian, bikini and extended bikini sugaring in Saskatoon. Soft Touch Aesthetics Studio provides private, comfortable and professional intimate sugaring appointments in our Saskatoon studio."
       },
       "body": {
         "kicker": "Body sugaring",
@@ -248,7 +247,7 @@
     "q7": "What is the difference between waxing and sugaring?",
     "a7": "Sugar paste is made from sugar, water and lemon, applied at body temperature and removed in the natural direction of hair growth. Wax is applied hot and pulled against the growth. Because the paste grips hair rather than skin, sugaring tends to be gentler and causes less breakage.",
     "q8": "Where is Soft Touch Aesthetics Studio located?",
-    "a8": "We are at 410 Duchess Street, M2, in City Park, Saskatoon. The studio is private — one client at a time, with no shared waiting room.",
+    "a8": "We are at 410 Duchess Street, M2, in Saskatoon. The studio is private — one client at a time, with no shared waiting room.",
     "q9": "Do you offer men's body sugaring?",
     "a9": "Yes. We offer select men's sugaring services in the same private studio. You can see what is currently available on our men's body sugaring page and book online."
   },
@@ -265,7 +264,7 @@
   "seo": {
     "home": {
       "title": "Body Sugaring Saskatoon {'|'} Soft Touch Aesthetics Studio",
-      "description": "Professional body sugaring in Saskatoon for Brazilian, bikini, underarms, legs, arms, face and select men's services. Private City Park studio. Book online."
+      "description": "Professional body sugaring in Saskatoon for Brazilian, bikini, underarms, legs, arms, face and select men's services. Private studio. Book online."
     },
     "intimate": {
       "title": "Brazilian Sugaring Saskatoon {'|'} Soft Touch Aesthetics Studio",
@@ -277,7 +276,7 @@
     },
     "mens": {
       "title": "Men's Body Sugaring Saskatoon {'|'} Soft Touch Aesthetics",
-      "description": "Professional men's body sugaring in Saskatoon in a private City Park studio. Explore available men's sugaring services and book online."
+      "description": "Professional men's body sugaring in Saskatoon in a private studio. Explore available men's sugaring services and book online."
     },
     "facial": {
       "title": "Facial Sugaring Saskatoon {'|'} Soft Touch Aesthetics",
@@ -285,15 +284,15 @@
     },
     "about": {
       "title": "About Soft Touch Aesthetics Studio {'|'} Saskatoon Sugarist",
-      "description": "Meet Soft Touch Aesthetics Studio, a private body sugaring studio in City Park, Saskatoon offering professional and comfortable hair removal services."
+      "description": "Meet Soft Touch Aesthetics Studio, a private body sugaring studio in Saskatoon offering professional and comfortable hair removal services."
     },
     "contact": {
       "title": "Contact Soft Touch Aesthetics Studio {'|'} Saskatoon",
-      "description": "Contact Soft Touch Aesthetics Studio in City Park, Saskatoon. Find our location, current business hours and online booking information."
+      "description": "Contact Soft Touch Aesthetics Studio in Saskatoon. Find our location, current business hours and online booking information."
     },
     "services": {
       "title": "Sugaring Menu Saskatoon {'|'} Soft Touch Aesthetics Studio",
-      "description": "The full sugaring menu at Soft Touch Aesthetics Studio in Saskatoon — Brazilian, body, facial and men's services in a private City Park studio."
+      "description": "The full sugaring menu at Soft Touch Aesthetics Studio in Saskatoon — Brazilian, body, facial and men's services in a private studio."
     },
     "faq": {
       "title": "Sugaring FAQ Saskatoon {'|'} Soft Touch Aesthetics Studio",

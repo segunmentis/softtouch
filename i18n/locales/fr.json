@@ -40,7 +40,7 @@
   },
   "pages": {
     "home": {
-      "kicker": "City Park, Saskatoon",
+      "kicker": "Saskatoon, SK",
       "title": "Épilation au sucre professionnelle à Saskatoon",
       "subtitle": "La douceur commence ici.",
       "cta": "Prendre rendez-vous",
@@ -79,12 +79,12 @@
       "gallery5": "Des résultats qui durent",
       "readyKicker": "Se préparer",
       "readyHeading": "Avant et après votre rendez-vous",
-      "intro": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre à Saskatoon offrant l'épilation brésilienne, l'épilation du corps, l'épilation du visage et une sélection de services pour hommes. Situé dans le quartier City Park, nous offrons une épilation professionnelle et confortable avec les produits Alexandria Professional."
+      "intro": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre à Saskatoon offrant l'épilation brésilienne, l'épilation du corps, l'épilation du visage et une sélection de services pour hommes. Nous offrons une épilation professionnelle et confortable dans un cadre privé et sans précipitation."
     },
     "about": {
       "kicker": "À propos du studio",
       "title": "Une épilation plus douce",
-      "paragraph1": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre situé dans le quartier City Park à Saskatoon, spécialisé dans l'épilation professionnelle pour femmes et une sélection de services pour hommes. Du brésilien et du maillot aux jambes, aisselles, bras, visage, dos et ventre, chaque rendez-vous est pensé pour être privé, confortable et sans précipitation.",
+      "paragraph1": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre situé à Saskatoon, spécialisé dans l'épilation professionnelle pour femmes et une sélection de services pour hommes. Du brésilien et du maillot aux jambes, aisselles, bras, visage, dos et ventre, chaque rendez-vous est pensé pour être privé, confortable et sans précipitation.",
       "paragraph2": "La pâte de sucre est appliquée à contre-sens de la pousse du poil puis retirée dans le sens de la pousse — plus douce pour la peau que la cire traditionnelle, avec moins de casse et moins de poils incarnés avec le temps.",
       "paragraph3": "Le studio est dirigé par une femme, propre et privé, et chaque rendez-vous reçoit une attention complète et sans précipitation du début à la fin.",
       "ctaHeading": "Prêt à réserver ?",
@@ -172,21 +172,20 @@
       "message": "Message",
       "send": "Envoyer le message",
       "thanks": "Merci {name}, nous vous recontacterons bientôt !",
-      "heroSub": "Situé dans le quartier City Park à Saskatoon. Un studio privé, une cliente à la fois, sur rendez-vous.",
+      "heroSub": "Situé à Saskatoon. Un studio privé, une cliente à la fois, sur rendez-vous.",
       "emailHeading": "Courriel",
       "mapLink": "Ouvrir dans Maps",
       "socialHeading": "Suivez le studio",
       "formKicker": "Une question d'abord ?",
       "sending": "Envoi en cours…",
-      "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux.",
-      "cityPark": "Situé dans le quartier City Park à Saskatoon."
+      "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux."
     },
     "categoryPages": {
       "treatmentsHeading": "Les soins",
       "intimate": {
         "kicker": "Épilation intime",
         "title": "Épilation brésilienne à Saskatoon",
-        "intro": "Épilation brésilienne, maillot et maillot intégral au sucre à Saskatoon. Soft Touch Aesthetics Studio offre des rendez-vous d'épilation intime privés, confortables et professionnels dans notre studio de City Park."
+        "intro": "Épilation brésilienne, maillot et maillot intégral au sucre à Saskatoon. Soft Touch Aesthetics Studio offre des rendez-vous d'épilation intime privés, confortables et professionnels dans notre studio de Saskatoon."
       },
       "body": {
         "kicker": "Épilation du corps",
@@ -248,7 +247,7 @@
     "q7": "Quelle est la différence entre la cire et le sucre ?",
     "a7": "La pâte de sucre est faite de sucre, d'eau et de citron, appliquée à température corporelle et retirée dans le sens de la pousse. La cire est appliquée chaude et arrachée à contre-sens. Comme la pâte adhère au poil plutôt qu'à la peau, l'épilation au sucre est plus douce et casse moins le poil.",
     "q8": "Où se trouve Soft Touch Aesthetics Studio ?",
-    "a8": "Nous sommes au 410 Duchess Street, M2, dans le quartier City Park à Saskatoon. Le studio est privé — une seule cliente à la fois, sans salle d'attente partagée.",
+    "a8": "Nous sommes au 410 Duchess Street, M2, à Saskatoon. Le studio est privé — une seule cliente à la fois, sans salle d'attente partagée.",
     "q9": "Proposez-vous l'épilation au sucre pour hommes ?",
     "a9": "Oui. Nous offrons une sélection de services pour hommes dans le même studio privé. Consultez notre page dédiée pour voir ce qui est disponible et réserver en ligne."
   },
@@ -265,7 +264,7 @@
   "seo": {
     "home": {
       "title": "Épilation au sucre Saskatoon {'|'} Soft Touch Aesthetics Studio",
-      "description": "Épilation au sucre professionnelle à Saskatoon : brésilien, maillot, aisselles, jambes, bras, visage et services pour hommes. Studio privé à City Park."
+      "description": "Épilation au sucre professionnelle à Saskatoon : brésilien, maillot, aisselles, jambes, bras, visage et services pour hommes. Studio privé."
     },
     "intimate": {
       "title": "Épilation brésilienne Saskatoon {'|'} Soft Touch Aesthetics Studio",
@@ -277,7 +276,7 @@
     },
     "mens": {
       "title": "Épilation au sucre homme Saskatoon {'|'} Soft Touch Aesthetics",
-      "description": "Épilation au sucre pour hommes à Saskatoon dans un studio privé à City Park. Découvrez les services disponibles et réservez en ligne."
+      "description": "Épilation au sucre pour hommes à Saskatoon dans un studio privé. Découvrez les services disponibles et réservez en ligne."
     },
     "facial": {
       "title": "Épilation du visage Saskatoon {'|'} Soft Touch Aesthetics",
@@ -285,11 +284,11 @@
     },
     "about": {
       "title": "À propos de Soft Touch Aesthetics Studio {'|'} Saskatoon",
-      "description": "Découvrez Soft Touch Aesthetics Studio, un studio privé d'épilation au sucre à City Park, Saskatoon, offrant une épilation professionnelle et confortable."
+      "description": "Découvrez Soft Touch Aesthetics Studio, un studio privé d'épilation au sucre à Saskatoon, offrant une épilation professionnelle et confortable."
     },
     "contact": {
       "title": "Contact Soft Touch Aesthetics Studio {'|'} Saskatoon",
-      "description": "Contactez Soft Touch Aesthetics Studio à City Park, Saskatoon. Adresse, heures d'ouverture actuelles et réservation en ligne."
+      "description": "Contactez Soft Touch Aesthetics Studio à Saskatoon. Adresse, heures d'ouverture actuelles et réservation en ligne."
     },
     "services": {
       "title": "Menu d'épilation au sucre {'|'} Soft Touch Aesthetics Studio",

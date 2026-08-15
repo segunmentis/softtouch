@@ -52,8 +52,6 @@
             </div>
           </div>
 
-          <p class="text-sm text-cream/60">{{ t('pages.contact.cityPark') }}</p>
-
           <a
             v-if="MAP_URL"
             :href="MAP_URL"

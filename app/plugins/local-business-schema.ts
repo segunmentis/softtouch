@@ -18,7 +18,7 @@ export default defineNuxtPlugin(() => {
     "@type": "HealthAndBeautyBusiness",
     name: STUDIO_NAME,
     description:
-      "Private body sugaring studio in City Park, Saskatoon offering Brazilian, body, facial and select men's sugaring services.",
+      "Private body sugaring studio in Saskatoon offering Brazilian, body, facial and select men's sugaring services.",
     address: {
       "@type": "PostalAddress",
       streetAddress: STUDIO_ADDRESS.street,

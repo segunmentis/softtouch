@@ -10,7 +10,6 @@ export const STUDIO_ADDRESS = {
   region: "SK",
   postalCode: "S7K 0R2",
   country: "CA",
-  neighbourhood: "City Park",
 };
 
 /** TODO: add the studio's public phone number — it is requested for the LocalBusiness schema. */
