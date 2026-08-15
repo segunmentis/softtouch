@@ -2,6 +2,7 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
+      :image-alt="t('alt.legs')"
       :kicker="t('pages.services.kicker')"
       :title="t('pages.services.title')"
       :sub="t('pages.services.intro')"
@@ -47,7 +48,7 @@
               rel="noopener"
               class="row grid grid-cols-[64px_1fr_auto] items-center gap-4 rounded-lg px-3 py-4 no-underline transition-colors hover:bg-cream/[0.06] md:gap-6"
             >
-              <img :src="item.image" alt="" class="thumb h-16 w-16 rounded-md object-cover" />
+              <img :src="item.image" :alt="t(item.altKey)" width="64" height="64" class="thumb h-16 w-16 rounded-md object-cover" />
               <div class="min-w-0">
                 <p class="text-[11px] font-semibold uppercase tracking-widest text-gold">
                   {{ t(`pages.services.categories.${item.category}`) }}
@@ -103,7 +104,7 @@
             rel="noopener"
             class="bundle relative flex h-64 items-end overflow-hidden rounded-xl no-underline"
           >
-            <img :src="bundle.image" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <img :src="bundle.image" :alt="t(bundle.altKey)" class="absolute inset-0 h-full w-full object-cover" />
             <span class="bundle-scrim absolute inset-0" />
             <span class="relative block p-5">
               <span class="mb-1 block text-[11px] font-semibold uppercase tracking-widest text-gold">
@@ -205,6 +206,27 @@
       </div>
     </section>
 
+    <!-- Links out to the standalone, crawlable category pages -->
+    <section class="border-t border-cream/10 bg-[#191710] py-12">
+      <div class="mx-auto max-w-7xl px-6">
+        <Reveal tag="p" class="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
+          {{ t('pages.services.kicker') }}
+        </Reveal>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal v-for="page in CATEGORY_PAGES" :key="page.path">
+            <NuxtLink
+              :to="page.path"
+              class="category block h-full rounded-xl border border-cream/10 bg-[#100f0a] p-5 no-underline"
+            >
+              <span class="block text-lg italic text-cream">
+                {{ t(`pages.categoryPages.${page.copyKey}.title`) }}
+              </span>
+            </NuxtLink>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta px-6 py-16 text-center">
       <div class="mx-auto max-w-2xl">
@@ -226,9 +248,9 @@
 const { t } = useI18n();
 const route = useRoute();
 
-const heroImage = "/images/hero/hero-2.jpg";
+usePageSeo({ path: "/services", titleKey: "seo.services.title", descriptionKey: "seo.services.description" });
 
-type ServiceItem = { key: string; category: string; hasNote: boolean; image: string };
+const heroImage = "/images/hero/hero-2.jpg";
 
 const categories = [
   { key: "mensSugaring", anchor: "mens-sugaring" },
@@ -238,13 +260,7 @@ const categories = [
   { key: "bundles", anchor: "bundles" },
 ];
 
-// Only treatments that exist in the locale files — nothing is invented here.
-const items: ServiceItem[] = [
-  { key: "brazilian", category: "intimate", hasNote: false, image: "/images/hero/hero-2.jpg" },
-  { key: "underarms", category: "body", hasNote: false, image: "/images/hero/hero-3.jpg" },
-  { key: "faceRefresh", category: "bundles", hasNote: true, image: "/images/home/portrait.jpg" },
-  { key: "summerReady", category: "bundles", hasNote: true, image: "/images/hero/hero-1.jpg" },
-];
+const items = TREATMENTS;
 
 const chips = [{ key: "all" }, ...categories.map((c) => ({ key: c.key }))];
 
@@ -278,6 +294,13 @@ watch(() => route.hash, syncFromHash);
 }
 .bundle-scrim {
   background: linear-gradient(0deg, rgba(16, 15, 10, 0.9) 15%, rgba(16, 15, 10, 0.05) 75%);
+}
+.category {
+  transition: border-color 0.22s ease, transform 0.22s ease;
+}
+.category:hover {
+  border-color: rgba(217, 163, 77, 0.5);
+  transform: translateY(-2px);
 }
 .thumb {
   filter: grayscale(0.6);

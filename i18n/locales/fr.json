@@ -1,7 +1,7 @@
 {
   "header": {
     "address": "410 Duchess Street, Saskatoon, SK",
-    "hours": "Ouvert tous les jours · 12h–18h",
+    "hours": "Lun–Ven 14h–20h · Sam 10h–20h · Dim 12h–18h",
     "nav": {
       "home": "Accueil",
       "about": "À propos",
@@ -15,7 +15,7 @@
   "footer": {
     "brandBlurb": "Un studio privé d'épilation au sucre au cœur de Saskatoon. Une épilation faite uniquement de sucre, de citron et d'eau.",
     "address": "410 Duchess Street, M2, Saskatoon, SK S7K 0R2",
-    "hours": "Ouvert tous les jours, de 12h00 à 18h00",
+    "hours": "Lun–Ven 14h–20h · Sam 10h–20h · Dim 12h–18h",
     "bookOnFresha": "Prendre rendez-vous",
     "companyHeading": "Studio",
     "companyLinks": {
@@ -27,10 +27,10 @@
     },
     "quickLinksHeading": "Traitements",
     "quickLinks": {
-      "mensSugaring": "Épilation homme",
       "intimate": "Intime",
       "body": "Corps",
-      "face": "Visage"
+      "face": "Visage",
+      "mensSugaring": "Épilation homme"
     },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
@@ -40,9 +40,9 @@
   },
   "pages": {
     "home": {
-      "kicker": "Studio d'épilation au sucre · Saskatoon",
-      "title": "La douceur commence ici",
-      "subtitle": "Épilation au sucre du corps, du visage et intime dans un studio privé de la rue Duchess — douce pour la peau, bien faite dès la première fois.",
+      "kicker": "City Park, Saskatoon",
+      "title": "Épilation au sucre professionnelle à Saskatoon",
+      "subtitle": "La douceur commence ici.",
       "cta": "Prendre rendez-vous",
       "featuredHeading": "Soins populaires",
       "viewAll": "Voir le menu complet",
@@ -65,7 +65,7 @@
       "step3Title": "Épilation en douceur",
       "step3Body": "La pâte est appliquée à contre-sens du poil puis retirée dans le sens de la pousse — le poil est retiré, les peaux mortes s'enlèvent, et la peau vivante reste intacte.",
       "step4Title": "Finitions et c'est prêt",
-      "step4Body": "Une finition apaisante adoucit la peau, avec des résultats qui durent généralement de quatre à cinq semaines.",
+      "step4Body": "Une finition apaisante adoucit la peau, avec des résultats qui durent généralement de quatre à six semaines.",
       "faqHeading": "Questions fréquentes",
       "finalCtaHeading": "Prête pour une peau plus douce ?",
       "finalCtaBody": "Réservez votre rendez-vous en ligne en quelques clics — confirmé instantanément.",
@@ -78,12 +78,13 @@
       "gallery4": "Des soins attentifs, faits à la main",
       "gallery5": "Des résultats qui durent",
       "readyKicker": "Se préparer",
-      "readyHeading": "Avant et après votre rendez-vous"
+      "readyHeading": "Avant et après votre rendez-vous",
+      "intro": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre à Saskatoon offrant l'épilation brésilienne, l'épilation du corps, l'épilation du visage et une sélection de services pour hommes. Situé dans le quartier City Park, nous offrons une épilation professionnelle et confortable avec les produits Alexandria Professional."
     },
     "about": {
       "kicker": "À propos du studio",
       "title": "Une épilation plus douce",
-      "paragraph1": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre situé rue Duchess à Saskatoon, proposant une épilation faite uniquement de sucre, de citron et d'eau.",
+      "paragraph1": "Soft Touch Aesthetics Studio est un studio privé d'épilation au sucre situé dans le quartier City Park à Saskatoon, spécialisé dans l'épilation professionnelle pour femmes et une sélection de services pour hommes. Du brésilien et du maillot aux jambes, aisselles, bras, visage, dos et ventre, chaque rendez-vous est pensé pour être privé, confortable et sans précipitation.",
       "paragraph2": "La pâte de sucre est appliquée à contre-sens de la pousse du poil puis retirée dans le sens de la pousse — plus douce pour la peau que la cire traditionnelle, avec moins de casse et moins de poils incarnés avec le temps.",
       "paragraph3": "Le studio est dirigé par une femme, propre et privé, et chaque rendez-vous reçoit une attention complète et sans précipitation du début à la fin.",
       "ctaHeading": "Prêt à réserver ?",
@@ -171,13 +172,37 @@
       "message": "Message",
       "send": "Envoyer le message",
       "thanks": "Merci {name}, nous vous recontacterons bientôt !",
-      "heroSub": "Un studio privé, une cliente à la fois, sur rendez-vous.",
+      "heroSub": "Situé dans le quartier City Park à Saskatoon. Un studio privé, une cliente à la fois, sur rendez-vous.",
       "emailHeading": "Courriel",
       "mapLink": "Ouvrir dans Maps",
       "socialHeading": "Suivez le studio",
       "formKicker": "Une question d'abord ?",
       "sending": "Envoi en cours…",
-      "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux."
+      "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux.",
+      "cityPark": "Situé dans le quartier City Park à Saskatoon."
+    },
+    "categoryPages": {
+      "treatmentsHeading": "Les soins",
+      "intimate": {
+        "kicker": "Épilation intime",
+        "title": "Épilation brésilienne à Saskatoon",
+        "intro": "Épilation brésilienne, maillot et maillot intégral au sucre à Saskatoon. Soft Touch Aesthetics Studio offre des rendez-vous d'épilation intime privés, confortables et professionnels dans notre studio de City Park."
+      },
+      "body": {
+        "kicker": "Épilation du corps",
+        "title": "Épilation du corps au sucre à Saskatoon",
+        "intro": "Profitez d'une peau douce et professionnellement épilée chez Soft Touch Aesthetics Studio à Saskatoon. Nos soins du corps comprennent les aisselles, les bras, les jambes, le ventre, le dos, le torse et d'autres zones, chaque rendez-vous étant adapté à vos besoins."
+      },
+      "mens": {
+        "kicker": "Épilation homme",
+        "title": "Épilation au sucre pour hommes à Saskatoon",
+        "intro": "Soft Touch Aesthetics Studio propose une épilation au sucre professionnelle pour hommes à Saskatoon, dans un studio privé et confortable. Découvrez nos services disponibles pour des résultats doux et durables."
+      },
+      "facial": {
+        "kicker": "Épilation du visage",
+        "title": "Épilation du visage au sucre à Saskatoon",
+        "intro": "Épilation douce du visage chez Soft Touch Aesthetics Studio à Saskatoon : sourcils, lèvre supérieure, menton, joues et visage complet. Chaque soin est réalisé avec soin pour un fini net et lisse."
+      }
     }
   },
   "prepare": {
@@ -208,17 +233,79 @@
     "stillHeading": "Une autre question ?",
     "stillBody": "Écrivez-nous et nous vous répondrons.",
     "stillCta": "Nous contacter",
-    "q1": "Est-ce que l'épilation au sucre fait mal ?",
-    "a1": "Un certain inconfort est normal, surtout lors du premier rendez-vous, mais beaucoup de clientes trouvent l'épilation au sucre plus douce que la cire traditionnelle.",
-    "q2": "Quelle doit être la longueur du poil ?",
-    "a2": "Environ ¼ de pouce (à peu près la longueur d'un grain de riz).",
-    "q3": "Puis-je me raser entre les rendez-vous ?",
-    "a3": "Pour de meilleurs résultats, évitez de vous raser entre les rendez-vous.",
-    "q4": "À quelle fréquence dois-je réserver ?",
-    "a4": "La plupart des clientes reviennent toutes les 4 à 6 semaines.",
-    "q5": "Puis-je me faire épiler pendant mes règles ?",
-    "a5": "Oui. Beaucoup de clientes le font. Nous recommandons simplement de porter un tampon ou une coupe menstruelle propre.",
-    "q6": "L'épilation au sucre convient-elle aux peaux sensibles ?",
-    "a6": "Oui. L'épilation au sucre est souvent privilégiée pour les peaux sensibles : elle est composée d'ingrédients naturels et risque moins d'irriter la peau que la cire traditionnelle."
+    "q1": "Quelle doit être la longueur du poil avant l'épilation au sucre ?",
+    "a1": "Environ ¼ de pouce — à peu près la longueur d'un grain de riz, soit deux à trois semaines de pousse après le rasage. La pâte de sucre saisit des poils plus courts que la cire ; en cas de doute, venez et nous regarderons ensemble.",
+    "q2": "Combien de temps durent les résultats ?",
+    "a2": "La plupart des clientes restent lisses de quatre à six semaines. Cela dépend de votre cycle de pousse, et les résultats durent plus longtemps si vous venez régulièrement, car le poil repousse plus fin avec le temps.",
+    "q3": "L'épilation au sucre convient-elle aux peaux sensibles ?",
+    "a3": "Oui. Elle est souvent privilégiée pour les peaux sensibles car elle est faite d'ingrédients naturels et risque moins d'irriter la peau que la cire traditionnelle. La pâte est appliquée à température corporelle, sans risque de brûlure.",
+    "q4": "À quelle fréquence réserver une épilation brésilienne ?",
+    "a4": "Toutes les quatre à six semaines convient à la plupart des clientes. Un rythme régulier fait repousser le poil de façon synchronisée, ce qui rend chaque rendez-vous plus rapide et plus confortable.",
+    "q5": "Que faire avant mon premier rendez-vous d'épilation brésilienne ?",
+    "a5": "Laissez le poil pousser jusqu'à environ ¼ de pouce, exfoliez délicatement 24 à 48 heures avant et évitez lotions et huiles le jour même. Portez des vêtements amples. Si c'est votre première fois, dites-le en arrivant — nous vous expliquerons chaque étape avant de commencer.",
+    "q6": "Que faut-il éviter après une épilation au sucre ?",
+    "a6": "Pendant les premières 24 à 48 heures, évitez les spas et saunas, la baignade, les exercices intenses, les vêtements serrés et l'exposition directe au soleil. Après quelques jours, une exfoliation douce aide à prévenir les poils incarnés.",
+    "q7": "Quelle est la différence entre la cire et le sucre ?",
+    "a7": "La pâte de sucre est faite de sucre, d'eau et de citron, appliquée à température corporelle et retirée dans le sens de la pousse. La cire est appliquée chaude et arrachée à contre-sens. Comme la pâte adhère au poil plutôt qu'à la peau, l'épilation au sucre est plus douce et casse moins le poil.",
+    "q8": "Où se trouve Soft Touch Aesthetics Studio ?",
+    "a8": "Nous sommes au 410 Duchess Street, M2, dans le quartier City Park à Saskatoon. Le studio est privé — une seule cliente à la fois, sans salle d'attente partagée.",
+    "q9": "Proposez-vous l'épilation au sucre pour hommes ?",
+    "a9": "Oui. Nous offrons une sélection de services pour hommes dans le même studio privé. Consultez notre page dédiée pour voir ce qui est disponible et réserver en ligne."
+  },
+  "hours": {
+    "heading": "Heures d'ouverture",
+    "short": "Lun–Ven 14h–20h · Sam 10h–20h · Dim 12h–18h",
+    "weekdays": "Lundi – Vendredi",
+    "weekdaysTime": "14h00 – 20h00",
+    "saturday": "Samedi",
+    "saturdayTime": "10h00 – 20h00",
+    "sunday": "Dimanche",
+    "sundayTime": "12h00 – 18h00"
+  },
+  "seo": {
+    "home": {
+      "title": "Épilation au sucre Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "Épilation au sucre professionnelle à Saskatoon : brésilien, maillot, aisselles, jambes, bras, visage et services pour hommes. Studio privé à City Park."
+    },
+    "intimate": {
+      "title": "Épilation brésilienne Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "Réservez une épilation brésilienne au sucre à Saskatoon chez Soft Touch Aesthetics Studio. Rendez-vous privés et confortables, débutantes bienvenues."
+    },
+    "body": {
+      "title": "Épilation du corps Saskatoon {'|'} Jambes, bras et aisselles",
+      "description": "Épilation au sucre du corps à Saskatoon : jambes, bras, aisselles, ventre, dos et plus. Rendez-vous privés chez Soft Touch Aesthetics Studio."
+    },
+    "mens": {
+      "title": "Épilation au sucre homme Saskatoon {'|'} Soft Touch Aesthetics",
+      "description": "Épilation au sucre pour hommes à Saskatoon dans un studio privé à City Park. Découvrez les services disponibles et réservez en ligne."
+    },
+    "facial": {
+      "title": "Épilation du visage Saskatoon {'|'} Soft Touch Aesthetics",
+      "description": "Épilation au sucre du visage à Saskatoon : sourcils, lèvre supérieure, menton, joues et visage complet. Réservez chez Soft Touch Aesthetics Studio."
+    },
+    "about": {
+      "title": "À propos de Soft Touch Aesthetics Studio {'|'} Saskatoon",
+      "description": "Découvrez Soft Touch Aesthetics Studio, un studio privé d'épilation au sucre à City Park, Saskatoon, offrant une épilation professionnelle et confortable."
+    },
+    "contact": {
+      "title": "Contact Soft Touch Aesthetics Studio {'|'} Saskatoon",
+      "description": "Contactez Soft Touch Aesthetics Studio à City Park, Saskatoon. Adresse, heures d'ouverture actuelles et réservation en ligne."
+    },
+    "services": {
+      "title": "Menu d'épilation au sucre {'|'} Soft Touch Aesthetics Studio",
+      "description": "Le menu complet de l'épilation au sucre chez Soft Touch Aesthetics Studio à Saskatoon : brésilien, corps, visage et hommes."
+    },
+    "faq": {
+      "title": "FAQ épilation au sucre Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "Réponses aux questions fréquentes : longueur du poil, durée des résultats, peaux sensibles, soins après et différences avec la cire."
+    }
+  },
+  "alt": {
+    "paste": "Pâte de sucre ambrée coulant d'une cuillère",
+    "legs": "Jambes lisses reposant sur un canapé en velours après une épilation au sucre",
+    "lemons": "Citrons frais dans l'eau — l'un des trois ingrédients de la pâte de sucre",
+    "treatment": "Une praticienne prépare la peau d'une cliente avant un soin d'épilation au sucre",
+    "portrait": "Portrait rapproché d'une cliente à la peau lisse et nette",
+    "application": "Une praticienne gantée applique de la pâte de sucre tiède sur la jambe d'une cliente à l'aide d'une spatule"
   }
 }

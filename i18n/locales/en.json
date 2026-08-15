@@ -1,7 +1,7 @@
 {
   "header": {
     "address": "410 Duchess Street, Saskatoon, SK",
-    "hours": "Open Daily · 12–6pm",
+    "hours": "Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm",
     "nav": {
       "home": "Home",
       "about": "About",
@@ -15,7 +15,7 @@
   "footer": {
     "brandBlurb": "A private body sugaring studio in the heart of Saskatoon. Hair removal made from nothing more than sugar, lemon and water.",
     "address": "410 Duchess Street, M2, Saskatoon, SK S7K 0R2",
-    "hours": "Open daily, 12:00pm – 6:00pm",
+    "hours": "Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm",
     "bookOnFresha": "Book Appointment",
     "companyHeading": "Studio",
     "companyLinks": {
@@ -27,10 +27,10 @@
     },
     "quickLinksHeading": "Treatments",
     "quickLinks": {
-      "mensSugaring": "Men's Sugaring",
       "intimate": "Intimate",
       "body": "Body",
-      "face": "Face"
+      "face": "Face",
+      "mensSugaring": "Men's Sugaring"
     },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
@@ -40,9 +40,9 @@
   },
   "pages": {
     "home": {
-      "kicker": "Body Sugaring Studio · Saskatoon",
-      "title": "Soft skin starts here",
-      "subtitle": "Body, face and intimate sugaring in a private Duchess Street studio — gentle on skin, done right the first time.",
+      "kicker": "City Park, Saskatoon",
+      "title": "Professional Body Sugaring in Saskatoon",
+      "subtitle": "Soft skin starts here.",
       "cta": "Book Appointment",
       "featuredHeading": "Popular Treatments",
       "viewAll": "View Full Menu",
@@ -65,7 +65,7 @@
       "step3Title": "Gentle removal",
       "step3Body": "The paste is applied against the grain and removed with it — hair lifts out, dead skin sloughs away, and live skin is left alone.",
       "step4Title": "Aftercare & you're set",
-      "step4Body": "A calming finish smooths the skin, with results that typically last four to five weeks.",
+      "step4Body": "A calming finish smooths the skin, with results that typically last four to six weeks.",
       "faqHeading": "Common questions",
       "finalCtaHeading": "Ready for softer skin?",
       "finalCtaBody": "Book your appointment online in a few taps — confirmed instantly.",
@@ -78,12 +78,13 @@
       "gallery4": "Hands-on, gentle care",
       "gallery5": "Results that last",
       "readyKicker": "Getting Ready",
-      "readyHeading": "Before & after your appointment"
+      "readyHeading": "Before & after your appointment",
+      "intro": "Soft Touch Aesthetics Studio is a private body sugaring studio in Saskatoon offering Brazilian sugaring, body sugaring, facial hair removal and select men's sugaring services. Located in City Park, we provide professional, comfortable hair removal using Alexandria Professional sugaring products."
     },
     "about": {
       "kicker": "About The Studio",
       "title": "A gentler way to remove hair",
-      "paragraph1": "Soft Touch Aesthetics Studio is a private body sugaring studio on Duchess Street in Saskatoon, offering hair removal made from nothing more than sugar, lemon and water.",
+      "paragraph1": "Soft Touch Aesthetics Studio is a private body sugaring studio in City Park, Saskatoon, specializing in professional hair removal for women and select men's services. From Brazilian and bikini sugaring to legs, underarms, arms, face, back and stomach, every appointment is designed to feel private, comfortable and unrushed.",
       "paragraph2": "Sugar paste is applied against the direction of hair growth and lifted away with it — gentler on skin than traditional waxing, with less breakage and fewer ingrown hairs over time.",
       "paragraph3": "The studio is woman-owned, clean and private, with every appointment given full, unhurried attention from start to finish.",
       "ctaHeading": "Ready to book?",
@@ -171,13 +172,37 @@
       "message": "Message",
       "send": "Send Message",
       "thanks": "Thanks {name}, we'll be in touch!",
-      "heroSub": "A private studio, one client at a time, by appointment.",
+      "heroSub": "Located in City Park, Saskatoon. A private studio, one client at a time, by appointment.",
       "emailHeading": "Email",
       "mapLink": "Open in Maps",
       "socialHeading": "Follow the studio",
       "formKicker": "Questions first?",
       "sending": "Sending…",
-      "error": "Your message could not be sent. Please email or message us instead."
+      "error": "Your message could not be sent. Please email or message us instead.",
+      "cityPark": "Located in City Park, Saskatoon."
+    },
+    "categoryPages": {
+      "treatmentsHeading": "Treatments",
+      "intimate": {
+        "kicker": "Intimate sugaring",
+        "title": "Brazilian Sugaring in Saskatoon",
+        "intro": "Professional Brazilian, bikini and extended bikini sugaring in Saskatoon. Soft Touch Aesthetics Studio provides private, comfortable and professional intimate sugaring appointments in our City Park studio."
+      },
+      "body": {
+        "kicker": "Body sugaring",
+        "title": "Body Sugaring in Saskatoon",
+        "intro": "Enjoy smooth, professionally sugared skin at Soft Touch Aesthetics Studio in Saskatoon. Our body sugaring services include underarms, arms, legs, stomach, back, chest and other body areas, with each appointment tailored to your individual needs."
+      },
+      "mens": {
+        "kicker": "Men's sugaring",
+        "title": "Men's Body Sugaring in Saskatoon",
+        "intro": "Soft Touch Aesthetics Studio offers professional men's body sugaring in Saskatoon in a private and comfortable studio environment. Explore our available men's sugaring services for smooth, long-lasting hair removal results."
+      },
+      "facial": {
+        "kicker": "Facial sugaring",
+        "title": "Facial Sugaring in Saskatoon",
+        "intro": "Gentle facial sugaring at Soft Touch Aesthetics Studio in Saskatoon for brows, upper lip, chin, cheeks and full-face hair removal. Each service is performed with care for a clean, smooth finish."
+      }
     }
   },
   "prepare": {
@@ -208,17 +233,79 @@
     "stillHeading": "Still have a question?",
     "stillBody": "Send us a note and we'll get back to you.",
     "stillCta": "Contact us",
-    "q1": "Does sugaring hurt?",
-    "a1": "Some discomfort is normal, especially during your first appointment, but many clients find sugaring gentler than traditional waxing.",
-    "q2": "How long should my hair be?",
-    "a2": "About ¼ inch (approximately the length of a grain of rice).",
-    "q3": "Can I shave between appointments?",
-    "a3": "For the best results, avoid shaving between sugaring appointments.",
-    "q4": "How often should I book?",
-    "a4": "Most clients return every 4–6 weeks.",
-    "q5": "Can I get sugared during my period?",
-    "a5": "Yes. Many clients do. We simply recommend wearing a fresh tampon or menstrual cup.",
-    "q6": "Is sugaring suitable for sensitive skin?",
-    "a6": "Yes. Sugaring is often preferred for sensitive skin because it is made from natural ingredients and is less likely to irritate the skin than traditional waxing."
+    "q1": "How long should my hair be before sugaring?",
+    "a1": "About ¼ inch — roughly the length of a grain of rice, which is usually two to three weeks of growth after shaving. Sugar paste can lift shorter hair than wax, so if you are unsure, book in and we will take a look together.",
+    "q2": "How long do sugaring results last?",
+    "a2": "Most clients stay smooth for four to six weeks. It depends on your own growth cycle, and results tend to last longer the more regularly you come, as hair grows back finer over time.",
+    "q3": "Is sugaring suitable for sensitive skin?",
+    "a3": "Yes. Sugaring is often preferred for sensitive skin because it is made from natural ingredients and is less likely to irritate the skin than traditional waxing. The paste is applied at body temperature, so there is no risk of a hot wax burn.",
+    "q4": "How often should I book Brazilian sugaring?",
+    "a4": "Every four to six weeks suits most clients. Keeping to a regular cycle means hair grows back on the same schedule, which makes each appointment quicker and more comfortable than leaving longer gaps.",
+    "q5": "What should I do before my first Brazilian sugaring appointment?",
+    "a5": "Let hair grow to about ¼ inch, exfoliate gently 24 to 48 hours beforehand, and skip lotions and oils on the day. Wear something loose and comfortable. If it is your first time, say so when you arrive — we will talk you through every step before we begin.",
+    "q6": "What should I avoid after sugaring?",
+    "a6": "For the first 24 to 48 hours, avoid hot tubs and saunas, swimming, heavy exercise, tight clothing and direct sun exposure. After a few days, gentle exfoliation helps keep ingrown hairs away.",
+    "q7": "What is the difference between waxing and sugaring?",
+    "a7": "Sugar paste is made from sugar, water and lemon, applied at body temperature and removed in the natural direction of hair growth. Wax is applied hot and pulled against the growth. Because the paste grips hair rather than skin, sugaring tends to be gentler and causes less breakage.",
+    "q8": "Where is Soft Touch Aesthetics Studio located?",
+    "a8": "We are at 410 Duchess Street, M2, in City Park, Saskatoon. The studio is private — one client at a time, with no shared waiting room.",
+    "q9": "Do you offer men's body sugaring?",
+    "a9": "Yes. We offer select men's sugaring services in the same private studio. You can see what is currently available on our men's body sugaring page and book online."
+  },
+  "hours": {
+    "heading": "Hours",
+    "short": "Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm",
+    "weekdays": "Monday – Friday",
+    "weekdaysTime": "2:00pm – 8:00pm",
+    "saturday": "Saturday",
+    "saturdayTime": "10:00am – 8:00pm",
+    "sunday": "Sunday",
+    "sundayTime": "12:00pm – 6:00pm"
+  },
+  "seo": {
+    "home": {
+      "title": "Body Sugaring Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "Professional body sugaring in Saskatoon for Brazilian, bikini, underarms, legs, arms, face and select men's services. Private City Park studio. Book online."
+    },
+    "intimate": {
+      "title": "Brazilian Sugaring Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "Book professional Brazilian sugaring in Saskatoon at Soft Touch Aesthetics Studio. Private, comfortable appointments for first-time and returning clients."
+    },
+    "body": {
+      "title": "Body Sugaring Saskatoon {'|'} Legs, Arms & Underarms",
+      "description": "Professional body sugaring in Saskatoon for legs, arms, underarms, stomach, back and more. Private appointments at Soft Touch Aesthetics Studio."
+    },
+    "mens": {
+      "title": "Men's Body Sugaring Saskatoon {'|'} Soft Touch Aesthetics",
+      "description": "Professional men's body sugaring in Saskatoon in a private City Park studio. Explore available men's sugaring services and book online."
+    },
+    "facial": {
+      "title": "Facial Sugaring Saskatoon {'|'} Soft Touch Aesthetics",
+      "description": "Professional facial sugaring in Saskatoon for brows, upper lip, chin, cheeks and full face. Book your appointment at Soft Touch Aesthetics Studio."
+    },
+    "about": {
+      "title": "About Soft Touch Aesthetics Studio {'|'} Saskatoon Sugarist",
+      "description": "Meet Soft Touch Aesthetics Studio, a private body sugaring studio in City Park, Saskatoon offering professional and comfortable hair removal services."
+    },
+    "contact": {
+      "title": "Contact Soft Touch Aesthetics Studio {'|'} Saskatoon",
+      "description": "Contact Soft Touch Aesthetics Studio in City Park, Saskatoon. Find our location, current business hours and online booking information."
+    },
+    "services": {
+      "title": "Sugaring Menu Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "The full sugaring menu at Soft Touch Aesthetics Studio in Saskatoon — Brazilian, body, facial and men's services in a private City Park studio."
+    },
+    "faq": {
+      "title": "Sugaring FAQ Saskatoon {'|'} Soft Touch Aesthetics Studio",
+      "description": "Answers to common sugaring questions — hair length, how long results last, sensitive skin, aftercare, and how sugaring differs from waxing."
+    }
+  },
+  "alt": {
+    "paste": "Amber sugar paste dripping from a spoon",
+    "legs": "Smooth legs resting on a velvet sofa after a sugaring treatment",
+    "lemons": "Fresh lemons in water — one of the three ingredients in sugar paste",
+    "treatment": "A practitioner preparing a client's skin before a sugaring treatment",
+    "portrait": "Close-up portrait of a client with smooth, clear skin",
+    "application": "A gloved practitioner applying warm sugar paste to a client's leg with a spatula"
   }
 }

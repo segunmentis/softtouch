@@ -2,6 +2,7 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
+      :image-alt="t('alt.lemons')"
       :kicker="t('pages.about.kicker')"
       :title="t('pages.about.title')"
       :sub="t('pages.about.heroSub')"
@@ -18,7 +19,7 @@
             class="print relative bg-cream p-2 pb-3 shadow-2xl md:absolute md:pb-8"
             :class="print.position"
           >
-            <img :src="print.src" alt="" class="h-40 w-full object-cover md:h-[calc(100%-1.5rem)]" />
+            <img :src="print.src" :alt="t(print.altKey)" class="h-40 w-full object-cover md:h-[calc(100%-1.5rem)]" />
             <figcaption
               class="mt-2 text-[11px] font-semibold uppercase leading-tight tracking-widest text-ink/55 md:absolute md:inset-x-3 md:bottom-2 md:mt-0 md:truncate"
             >
@@ -95,12 +96,14 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
+usePageSeo({ path: "/about", titleKey: "seo.about.title", descriptionKey: "seo.about.description" });
+
 const heroImage = "/images/hero/hero-3.jpg";
 
 const prints = [
-  { src: "/images/home/table.jpg", captionKey: "pages.about.gallery2", position: "md:left-0 md:top-4 md:h-[62%] md:w-[46%] md:-rotate-[5deg]" },
-  { src: "/images/home/portrait.jpg", captionKey: "pages.about.gallery1", position: "md:left-[34%] md:top-[16%] md:h-[64%] md:w-[44%] md:rotate-[3.5deg] md:z-10" },
-  { src: "/images/hero/hero-1.jpg", captionKey: "pages.about.gallery3", position: "md:right-0 md:top-0 md:h-[54%] md:w-[40%] md:rotate-[6deg]" },
+  { src: "/images/home/table.jpg", captionKey: "pages.about.gallery2", altKey: "alt.treatment", position: "md:left-0 md:top-4 md:h-[62%] md:w-[46%] md:-rotate-[5deg]" },
+  { src: "/images/home/portrait.jpg", captionKey: "pages.about.gallery1", altKey: "alt.portrait", position: "md:left-[34%] md:top-[16%] md:h-[64%] md:w-[44%] md:rotate-[3.5deg] md:z-10" },
+  { src: "/images/hero/hero-1.jpg", captionKey: "pages.about.gallery3", altKey: "alt.paste", position: "md:right-0 md:top-0 md:h-[54%] md:w-[40%] md:rotate-[6deg]" },
 ];
 </script>
 

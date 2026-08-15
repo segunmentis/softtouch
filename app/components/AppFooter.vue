@@ -14,7 +14,14 @@
           {{ t('footer.brandBlurb') }}
         </p>
         <p class="mb-1.5 text-sm text-gray-300">{{ t('footer.address') }}</p>
-        <p class="mb-4 text-sm text-gray-300">{{ t('footer.hours') }}</p>
+        <dl class="mb-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm text-gray-300">
+          <dt>{{ t('hours.weekdays') }}</dt>
+          <dd>{{ t('hours.weekdaysTime') }}</dd>
+          <dt>{{ t('hours.saturday') }}</dt>
+          <dd>{{ t('hours.saturdayTime') }}</dd>
+          <dt>{{ t('hours.sunday') }}</dt>
+          <dd>{{ t('hours.sundayTime') }}</dd>
+        </dl>
         <a
           :href="FRESHA_BOOKING_URL"
           target="_blank"
@@ -81,11 +88,12 @@ const companyLinks = [
   { labelKey: "footer.companyLinks.privacy", to: "/contact" },
 ];
 
+// Point at the standalone, crawlable service pages rather than filter anchors.
 const quickLinks = [
-  { labelKey: "footer.quickLinks.mensSugaring", to: "/services#mens-sugaring" },
-  { labelKey: "footer.quickLinks.intimate", to: "/services#intimate" },
-  { labelKey: "footer.quickLinks.body", to: "/services#body" },
-  { labelKey: "footer.quickLinks.face", to: "/services#face" },
+  { labelKey: "footer.quickLinks.intimate", to: "/intimate-sugaring" },
+  { labelKey: "footer.quickLinks.body", to: "/body-sugaring" },
+  { labelKey: "footer.quickLinks.face", to: "/facial-sugaring" },
+  { labelKey: "footer.quickLinks.mensSugaring", to: "/mens-sugaring" },
 ];
 </script>
 

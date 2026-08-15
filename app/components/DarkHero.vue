@@ -1,6 +1,6 @@
 <template>
   <section class="relative flex min-h-[340px] items-end overflow-hidden bg-[#100f0a] md:min-h-[440px]">
-    <img :src="image" alt="" class="absolute inset-0 h-full w-full object-cover" />
+    <img :src="image" :alt="imageAlt ?? ''" class="absolute inset-0 h-full w-full object-cover" />
     <div class="scrim absolute inset-0" />
     <div class="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-24 md:pb-16">
       <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">{{ kicker }}</p>
@@ -16,6 +16,8 @@ defineProps<{
   kicker: string;
   title: string;
   sub?: string;
+  /** Describe the actual photograph. Omit only for purely decorative imagery. */
+  imageAlt?: string;
 }>();
 </script>
 

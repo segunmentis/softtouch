@@ -2,6 +2,7 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
+      :image-alt="t('alt.application')"
       :kicker="t('faq.kicker')"
       :title="t('faq.title')"
       :sub="t('faq.heroSub')"
@@ -80,17 +81,22 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
+usePageSeo({ path: "/faq", titleKey: "seo.faq.title", descriptionKey: "seo.faq.description" });
+
 const heroImage = "/images/faq-hero.jpg";
 
 // Ids are stable and human-readable so a single answer can be linked directly,
 // e.g. /faq#hair-length in a reply to a client.
 const questions = [
-  { id: "does-it-hurt", qKey: "faq.q1", aKey: "faq.a1" },
-  { id: "hair-length", qKey: "faq.q2", aKey: "faq.a2" },
-  { id: "shaving-between", qKey: "faq.q3", aKey: "faq.a3" },
-  { id: "how-often", qKey: "faq.q4", aKey: "faq.a4" },
-  { id: "during-your-period", qKey: "faq.q5", aKey: "faq.a5" },
-  { id: "sensitive-skin", qKey: "faq.q6", aKey: "faq.a6" },
+  { id: "hair-length", qKey: "faq.q1", aKey: "faq.a1" },
+  { id: "how-long-results-last", qKey: "faq.q2", aKey: "faq.a2" },
+  { id: "sensitive-skin", qKey: "faq.q3", aKey: "faq.a3" },
+  { id: "brazilian-frequency", qKey: "faq.q4", aKey: "faq.a4" },
+  { id: "first-brazilian", qKey: "faq.q5", aKey: "faq.a5" },
+  { id: "after-sugaring", qKey: "faq.q6", aKey: "faq.a6" },
+  { id: "waxing-vs-sugaring", qKey: "faq.q7", aKey: "faq.a7" },
+  { id: "location", qKey: "faq.q8", aKey: "faq.a8" },
+  { id: "mens-sugaring", qKey: "faq.q9", aKey: "faq.a9" },
 ];
 
 // Search engines read the Q&As from JSON-LD rather than the rendered DOM.

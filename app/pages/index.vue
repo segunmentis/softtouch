@@ -25,6 +25,13 @@
       </template>
     </HeroSlider>
 
+    <!-- Intro -->
+    <section class="border-b border-cream/10 bg-[#100f0a] px-6 pb-12 pt-14">
+      <Reveal tag="p" class="mx-auto max-w-3xl text-center text-lg leading-relaxed text-cream/80">
+        {{ t('pages.home.intro') }}
+      </Reveal>
+    </section>
+
     <!-- Trust strip -->
     <section class="border-b border-cream/10 bg-[#100f0a] py-6">
       <Reveal class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-sm font-medium text-cream/70">
@@ -53,7 +60,7 @@
           class="t-card w-[320px] flex-shrink-0 snap-start flex flex-col overflow-hidden rounded-xl border border-cream/10 bg-[#191710]"
         >
           <div class="t-img h-48 overflow-hidden">
-            <img :src="item.image" alt="" class="h-full w-full object-cover" />
+            <img :src="item.image" :alt="t(item.altKey)" width="320" height="192" class="h-full w-full object-cover" />
           </div>
           <div class="flex flex-col p-5">
             <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gold">
@@ -70,7 +77,7 @@
     <section class="border-y border-cream/10 bg-[#191710] py-16">
       <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
         <Reveal class="h-[420px] overflow-hidden rounded-2xl">
-          <img src="/images/hero/hero-3.jpg" alt="" class="h-full w-full object-cover" />
+          <img src="/images/hero/hero-3.jpg" :alt="t('alt.lemons')" width="1920" height="1200" class="h-full w-full object-cover" />
         </Reveal>
         <div>
           <Reveal tag="p" class="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.services.kicker') }}</Reveal>
@@ -96,7 +103,7 @@
       <div class="marquee mt-10">
         <div class="marquee-track">
           <div v-for="(g, i) in galleryDoubled" :key="i" class="g-card relative h-80 w-64 flex-shrink-0 overflow-hidden rounded-xl">
-            <img :src="g.src" alt="" class="h-full w-full object-cover" />
+            <img :src="g.src" :alt="t(g.altKey)" width="256" height="320" class="h-full w-full object-cover" />
             <div class="g-cap absolute inset-x-0 bottom-0 p-4 text-sm font-medium text-cream">{{ t(g.captionKey) }}</div>
           </div>
         </div>
@@ -233,21 +240,23 @@
 <script setup lang="ts">
 const { t } = useI18n();
 
+usePageSeo({ path: "/", titleKey: "seo.home.title", descriptionKey: "seo.home.description" });
+
 const heroImages = ["/images/hero/hero-1.jpg", "/images/hero/hero-2.jpg", "/images/hero/hero-3.jpg"];
 
 const featured = [
-  { key: "underarms", category: "body", image: "/images/hero/hero-2.jpg" },
-  { key: "brazilian", category: "intimate", image: "/images/home/table.jpg" },
-  { key: "faceRefresh", category: "bundles", image: "/images/home/portrait.jpg" },
-  { key: "summerReady", category: "bundles", image: "/images/hero/hero-1.jpg" },
+  { key: "underarms", category: "body", image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
+  { key: "brazilian", category: "intimate", image: "/images/home/table.jpg", altKey: "alt.treatment" },
+  { key: "faceRefresh", category: "bundles", image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
+  { key: "summerReady", category: "bundles", image: "/images/hero/hero-1.jpg", altKey: "alt.paste" },
 ];
 
 const gallery = [
-  { src: "/images/hero/hero-1.jpg", captionKey: "pages.home.gallery1" },
-  { src: "/images/hero/hero-3.jpg", captionKey: "pages.home.gallery2" },
-  { src: "/images/hero/hero-2.jpg", captionKey: "pages.home.gallery3" },
-  { src: "/images/home/table.jpg", captionKey: "pages.home.gallery4" },
-  { src: "/images/home/portrait.jpg", captionKey: "pages.home.gallery5" },
+  { src: "/images/hero/hero-1.jpg", captionKey: "pages.home.gallery1", altKey: "alt.paste" },
+  { src: "/images/hero/hero-3.jpg", captionKey: "pages.home.gallery2", altKey: "alt.lemons" },
+  { src: "/images/hero/hero-2.jpg", captionKey: "pages.home.gallery3", altKey: "alt.legs" },
+  { src: "/images/home/table.jpg", captionKey: "pages.home.gallery4", altKey: "alt.treatment" },
+  { src: "/images/home/portrait.jpg", captionKey: "pages.home.gallery5", altKey: "alt.portrait" },
 ];
 const galleryDoubled = [...gallery, ...gallery];
 

@@ -2,6 +2,7 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
+      :image-alt="t('alt.treatment')"
       :kicker="t('pages.contact.kicker')"
       :title="t('pages.contact.title')"
       :sub="t('pages.contact.heroSub')"
@@ -22,8 +23,26 @@
               <h2 class="mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-gold">
                 {{ t(detail.headingKey) }}
               </h2>
+
+              <!-- Address: name / street / city, exactly as it should appear everywhere -->
+              <address v-if="detail.key === 'address'" class="text-base not-italic leading-relaxed text-cream/80">
+                {{ STUDIO_NAME }}<br />
+                {{ STUDIO_ADDRESS.street }}<br />
+                {{ STUDIO_ADDRESS.city }}, {{ STUDIO_ADDRESS.region }} {{ STUDIO_ADDRESS.postalCode }}
+              </address>
+
+              <!-- Hours: the full weekly schedule -->
+              <dl v-else-if="detail.key === 'hours'" class="grid grid-cols-[auto_1fr] gap-x-5 gap-y-1 text-base text-cream/80">
+                <dt>{{ t('hours.weekdays') }}</dt>
+                <dd>{{ t('hours.weekdaysTime') }}</dd>
+                <dt>{{ t('hours.saturday') }}</dt>
+                <dd>{{ t('hours.saturdayTime') }}</dd>
+                <dt>{{ t('hours.sunday') }}</dt>
+                <dd>{{ t('hours.sundayTime') }}</dd>
+              </dl>
+
               <a
-                v-if="detail.href"
+                v-else-if="detail.href"
                 :href="detail.href"
                 class="text-base text-cream/80 no-underline transition-colors hover:text-cream"
               >
@@ -33,6 +52,8 @@
             </div>
           </div>
 
+          <p class="text-sm text-cream/60">{{ t('pages.contact.cityPark') }}</p>
+
           <a
             v-if="MAP_URL"
             :href="MAP_URL"
@@ -40,7 +61,7 @@
             rel="noopener"
             class="map relative flex h-36 items-end overflow-hidden rounded-xl no-underline"
           >
-            <img src="/images/hero/hero-1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <img src="/images/hero/hero-1.jpg" :alt="t('alt.paste')" class="absolute inset-0 h-full w-full object-cover" />
             <span class="map-scrim absolute inset-0" />
             <span class="relative flex w-full items-center justify-between gap-3 p-4">
               <span class="text-sm text-cream/85">{{ t('footer.address') }}</span>
@@ -150,6 +171,8 @@
 
 <script setup lang="ts">
 const { t } = useI18n();
+
+usePageSeo({ path: "/contact", titleKey: "seo.contact.title", descriptionKey: "seo.contact.description" });
 
 const heroImage = "/images/home/table.jpg";
 

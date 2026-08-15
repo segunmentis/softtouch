@@ -2,7 +2,34 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
-  ssr: false,
+
+  // Was false. A client-rendered SPA serves crawlers an empty shell, so titles,
+  // meta descriptions, headings and JSON-LD only existed after JS ran — which
+  // undercuts every SEO change below. Now server-rendered and prerendered to
+  // static HTML at build time.
+  ssr: true,
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/", "/sitemap.xml"],
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      // REQUIRED before launch: set NUXT_PUBLIC_SITE_URL to the live origin
+      // (e.g. https://softtouchstudio.ca). Canonical tags, absolute og:image and
+      // the sitemap are all omitted while this is empty — a canonical pointing at
+      // the wrong origin can deindex the whole site, so guessing is worse than
+      // leaving it out.
+      //
+      // NOTE: pages are prerendered, so this must be set at BUILD time, not
+      // runtime — `NUXT_PUBLIC_SITE_URL=https://… npm run build`. Setting it only
+      // on the running server has no effect on the already-generated HTML.
+      siteUrl: "",
+    },
+  },
 
   app: {
     head: {
@@ -24,9 +51,7 @@ export default defineNuxtConfig({
         { name: "theme-color", content: "#2a2818" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Soft Touch Aesthetics Studio" },
-        // TODO: make this an absolute URL once the production domain is known —
-        // Facebook and LinkedIn will not resolve a relative og:image.
-        { property: "og:image", content: "/og-image.png" },
+        { property: "og:locale", content: "en_CA" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
     },
