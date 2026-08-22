@@ -1,18 +1,23 @@
 <template>
-  <div class="relative">
-    <button type="button" class="tc-arrow tc-prev" aria-label="Scroll left" @click="scroll(-1)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M15 5l-6 7 6 7" />
-      </svg>
-    </button>
+  <div>
+    <!-- Controls sit above the track rather than on top of it. Overlaid arrows
+         covered the first and last card's artwork. Hidden on touch, where the
+         track is swiped directly. -->
+    <div class="tc-controls">
+      <button type="button" class="tc-arrow" aria-label="Scroll left" @click="scroll(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 5l-6 7 6 7" />
+        </svg>
+      </button>
+      <button type="button" class="tc-arrow" aria-label="Scroll right" @click="scroll(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 5l6 7-6 7" />
+        </svg>
+      </button>
+    </div>
     <div ref="track" class="carousel" :class="{ dragging }" @mousedown="onDown">
       <slot />
     </div>
-    <button type="button" class="tc-arrow tc-next" aria-label="Scroll right" @click="scroll(1)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M9 5l6 7-6 7" />
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -62,10 +67,18 @@ function scroll(dir: number) {
   scroll-snap-type: none;
   user-select: none;
 }
+.tc-controls {
+  display: none;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+@media (min-width: 768px) and (pointer: fine) {
+  .tc-controls {
+    display: flex;
+  }
+}
 .tc-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,8 +89,6 @@ function scroll(dir: number) {
   background: #191710;
   cursor: pointer;
   color: #f3eed8;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-  z-index: 2;
   transition: border-color 0.2s, background 0.2s;
 }
 .tc-arrow:hover {
@@ -90,11 +101,5 @@ function scroll(dir: number) {
   width: 18px;
   height: 18px;
   display: block;
-}
-.tc-prev {
-  left: -20px;
-}
-.tc-next {
-  right: -20px;
 }
 </style>

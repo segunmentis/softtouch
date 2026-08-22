@@ -8,6 +8,8 @@
           :alt="t('footer.brandName')"
           width="440"
           height="565"
+          loading="lazy"
+          decoding="async"
           class="mb-5 h-auto w-[168px]"
         />
         <p class="mb-4 max-w-[42ch] text-sm leading-relaxed text-gray-300">
@@ -26,7 +28,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="footer-link text-sm font-semibold text-gold no-underline"
+          class="footer-link tap-link text-sm font-semibold text-gold no-underline"
         >
           {{ t('footer.bookOnFresha') }} →
         </a>
@@ -37,7 +39,7 @@
         <h6 class="mb-4 text-sm font-bold text-white">{{ t('footer.companyHeading') }}</h6>
         <ul class="list-none space-y-3 p-0">
           <li v-for="link in companyLinks" :key="link.to">
-            <NuxtLink :to="link.to" class="footer-link text-sm text-gray-300 no-underline">
+            <NuxtLink :to="link.to" class="footer-link tap-link text-sm text-gray-300 no-underline">
               {{ t(link.labelKey) }}
             </NuxtLink>
           </li>
@@ -49,7 +51,7 @@
         <h6 class="mb-4 text-sm font-bold text-white">{{ t('footer.quickLinksHeading') }}</h6>
         <ul class="list-none space-y-3 p-0">
           <li v-for="link in quickLinks" :key="link.to">
-            <NuxtLink :to="link.to" class="footer-link text-sm text-gray-300 no-underline">
+            <NuxtLink :to="link.to" class="footer-link tap-link text-sm text-gray-300 no-underline">
               {{ t(link.labelKey) }}
             </NuxtLink>
           </li>
@@ -66,10 +68,6 @@
             {{ t('footer.brandName') }}</NuxtLink
           >. {{ t('footer.allRightsReserved') }}
         </span>
-        <div class="flex gap-4">
-          <NuxtLink to="/contact" class="footer-link text-sm text-gray-400 no-underline">{{ t('footer.privacyPolicy') }}</NuxtLink>
-          <NuxtLink to="/contact" class="footer-link text-sm text-gray-400 no-underline">{{ t('footer.termsOfUse') }}</NuxtLink>
-        </div>
       </div>
     </div>
   </footer>
@@ -85,7 +83,6 @@ const companyLinks = [
   { labelKey: "footer.companyLinks.services", to: "/services" },
   { labelKey: "footer.companyLinks.faq", to: "/faq" },
   { labelKey: "footer.companyLinks.contact", to: "/contact" },
-  { labelKey: "footer.companyLinks.privacy", to: "/contact" },
 ];
 
 // Point at the standalone, crawlable service pages rather than filter anchors.

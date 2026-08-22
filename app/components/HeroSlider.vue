@@ -39,12 +39,12 @@
       <slot name="cta" />
     </div>
 
-    <div class="absolute inset-x-0 bottom-6 z-10 flex justify-center gap-2">
+    <div class="absolute inset-x-0 bottom-6 z-10 flex justify-center gap-4">
       <button
         v-for="(slide, i) in slides"
         :key="`dot-${slide}`"
         type="button"
-        class="h-2 rounded-full transition-all"
+        class="tap-target h-2 rounded-full transition-all"
         :class="active === i ? 'w-6 bg-gold' : 'w-2 bg-white/50'"
         :aria-label="`Go to slide ${i + 1}`"
         @click="goTo(i)"

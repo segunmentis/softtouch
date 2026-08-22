@@ -22,7 +22,6 @@
       "about": "À propos de nous",
       "services": "Services",
       "contact": "Contact",
-      "privacy": "Politique de confidentialité",
       "faq": "FAQ"
     },
     "quickLinksHeading": "Traitements",
@@ -34,9 +33,7 @@
     },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
-    "allRightsReserved": "Tous droits réservés.",
-    "privacyPolicy": "Politique de confidentialité",
-    "termsOfUse": "Conditions d'utilisation"
+    "allRightsReserved": "Tous droits réservés."
   },
   "pages": {
     "home": {
@@ -181,6 +178,7 @@
       "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux."
     },
     "categoryPages": {
+      "moreKicker": "Plus de soins",
       "treatmentsHeading": "Les soins",
       "intimate": {
         "kicker": "Épilation intime",

@@ -22,7 +22,6 @@
       "about": "About Us",
       "services": "Services",
       "contact": "Contact",
-      "privacy": "Privacy Policy",
       "faq": "FAQ"
     },
     "quickLinksHeading": "Treatments",
@@ -34,9 +33,7 @@
     },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
-    "allRightsReserved": "All Rights Reserved.",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfUse": "Terms of Use"
+    "allRightsReserved": "All Rights Reserved."
   },
   "pages": {
     "home": {
@@ -181,6 +178,7 @@
       "error": "Your message could not be sent. Please email or message us instead."
     },
     "categoryPages": {
+      "moreKicker": "More treatments",
       "treatmentsHeading": "Treatments",
       "intimate": {
         "kicker": "Intimate sugaring",

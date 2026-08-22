@@ -17,7 +17,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm transition-transform hover:-translate-y-0.5"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
           {{ t('header.cta') }}
         </a>
@@ -39,7 +39,7 @@
               rel="noopener"
               class="row grid grid-cols-[64px_1fr_auto] items-center gap-4 rounded-lg px-3 py-4 no-underline transition-colors hover:bg-cream/[0.06] md:gap-6"
             >
-              <img :src="item.image" :alt="t(item.altKey)" width="64" height="64" class="thumb h-16 w-16 rounded-md object-cover" />
+              <img :src="item.image" :alt="t(item.altKey)" width="64" height="64" loading="lazy" decoding="async" class="thumb h-16 w-16 rounded-md object-cover" />
               <div class="min-w-0">
                 <h3 class="truncate text-xl italic text-cream md:text-2xl">
                   {{ t(`pages.services.items.${item.key}.name`) }}
@@ -53,7 +53,7 @@
                   {{ t(`pages.services.items.${item.key}.duration`) }}
                 </span>
                 <span
-                  class="hidden rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white md:inline-block"
+                  class="hidden rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-ink md:inline-block"
                 >
                   {{ t('pages.services.book') }}
                 </span>
@@ -70,7 +70,7 @@
             :href="FRESHA_BOOKING_URL"
             target="_blank"
             rel="noopener"
-            class="inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white no-underline"
+            class="inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wider text-ink no-underline"
           >
             {{ t('pages.services.viewFullMenu') }}
           </a>
@@ -82,7 +82,7 @@
     <section class="border-t border-cream/10 bg-[#191710] py-12">
       <div class="mx-auto max-w-7xl px-6">
         <Reveal tag="p" class="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
-          {{ t('pages.services.kicker') }}
+          {{ t('pages.categoryPages.moreKicker') }}
         </Reveal>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Reveal v-for="sibling in siblings" :key="sibling.path">
@@ -113,7 +113,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm transition-transform hover:-translate-y-0.5"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
           {{ t('header.cta') }}
         </a>

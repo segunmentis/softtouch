@@ -11,7 +11,7 @@
             :href="FRESHA_BOOKING_URL"
             target="_blank"
             rel="noopener"
-            class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm"
+            class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm"
           >
             {{ t('pages.home.cta') }}
           </a>
@@ -32,11 +32,12 @@
       </Reveal>
     </section>
 
-    <!-- Trust strip -->
-    <section class="border-b border-cream/10 bg-[#100f0a] py-6">
-      <Reveal class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 text-sm font-medium text-cream/70">
-        <span v-for="n in [1, 2, 3, 4]" :key="n" class="flex items-center gap-2">
-          <span class="h-1.5 w-1.5 rounded-full bg-gold" />
+    <!-- Trust strip. These four are the studio's actual differentiators, so they
+         carry more weight than the decorative strip further down the page. -->
+    <section class="border-b border-cream/10 bg-[#100f0a] py-9 md:py-11">
+      <Reveal class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-12 gap-y-5 px-6 text-base font-medium text-cream/90">
+        <span v-for="n in [1, 2, 3, 4]" :key="n" class="flex items-center gap-2.5">
+          <span class="h-2 w-2 flex-shrink-0 rounded-full bg-gold" />
           {{ t(`pages.home.trust${n}`) }}
         </span>
       </Reveal>
@@ -49,7 +50,7 @@
           <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.services.kicker') }}</p>
           <h2 class="text-3xl italic text-cream">{{ t('pages.home.featuredHeading') }}</h2>
         </div>
-        <NuxtLink to="/services" class="text-sm font-semibold uppercase tracking-wide text-gold no-underline">
+        <NuxtLink to="/services" class="tap-link text-sm font-semibold uppercase tracking-wide text-gold no-underline">
           {{ t('pages.home.viewAll') }} →
         </NuxtLink>
       </Reveal>
@@ -60,7 +61,7 @@
           class="t-card w-[320px] flex-shrink-0 snap-start flex flex-col overflow-hidden rounded-xl border border-cream/10 bg-[#191710]"
         >
           <div class="t-img h-48 overflow-hidden">
-            <img :src="item.image" :alt="t(item.altKey)" width="320" height="192" class="h-full w-full object-cover" />
+            <img :src="item.image" :alt="t(item.altKey)" width="320" height="192" loading="lazy" decoding="async" class="h-full w-full object-cover" />
           </div>
           <div class="flex flex-col p-5">
             <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gold">
@@ -77,10 +78,10 @@
     <section class="border-y border-cream/10 bg-[#191710] py-16">
       <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
         <Reveal class="h-[420px] overflow-hidden rounded-2xl">
-          <img src="/images/hero/hero-3.jpg" :alt="t('alt.lemons')" width="1920" height="1200" class="h-full w-full object-cover" />
+          <img src="/images/hero/hero-3.jpg" :alt="t('alt.lemons')" width="1920" height="1200" loading="lazy" decoding="async" class="h-full w-full object-cover" />
         </Reveal>
         <div>
-          <Reveal tag="p" class="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.services.kicker') }}</Reveal>
+          <Reveal tag="p" class="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">{{ t('pages.services.whyKicker') }}</Reveal>
           <Reveal tag="h2" class="mb-6 text-3xl italic text-cream">{{ t('pages.home.whyHeading') }}</Reveal>
           <Reveal v-for="n in [1, 2, 3]" :key="n" class="flex gap-4 border-b border-cream/10 py-4 last:border-none">
             <span class="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-gold/50 text-gold">✓</span>
@@ -103,7 +104,7 @@
       <div class="marquee mt-10">
         <div class="marquee-track">
           <div v-for="(g, i) in galleryDoubled" :key="i" class="g-card relative h-80 w-64 flex-shrink-0 overflow-hidden rounded-xl">
-            <img :src="g.src" :alt="t(g.altKey)" width="256" height="320" class="h-full w-full object-cover" />
+            <img :src="g.src" :alt="t(g.altKey)" width="256" height="320" loading="lazy" decoding="async" class="h-full w-full object-cover" />
             <div class="g-cap absolute inset-x-0 bottom-0 p-4 text-sm font-medium text-cream">{{ t(g.captionKey) }}</div>
           </div>
         </div>
@@ -212,7 +213,7 @@
       <Reveal class="mt-8 text-center">
         <NuxtLink
           to="/faq"
-          class="text-sm font-semibold uppercase tracking-wide text-gold no-underline"
+          class="tap-link text-sm font-semibold uppercase tracking-wide text-gold no-underline"
         >
           {{ t('faq.seeAll') }} →
         </NuxtLink>
@@ -228,7 +229,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm"
         >
           {{ t('pages.home.cta') }}
         </a>
@@ -244,12 +245,10 @@ usePageSeo({ path: "/", titleKey: "seo.home.title", descriptionKey: "seo.home.de
 
 const heroImages = ["/images/hero/hero-1.jpg", "/images/hero/hero-2.jpg", "/images/hero/hero-3.jpg"];
 
-const featured = [
-  { key: "underarms", category: "body", image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
-  { key: "brazilian", category: "intimate", image: "/images/home/table.jpg", altKey: "alt.treatment" },
-  { key: "faceRefresh", category: "bundles", image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
-  { key: "summerReady", category: "bundles", image: "/images/hero/hero-1.jpg", altKey: "alt.paste" },
-];
+// The same catalogue the Services and category pages read, rather than a second
+// hardcoded copy — a duplicate list here is how the homepage ended up showing a
+// different (and wrong) image for a treatment than the rest of the site.
+const featured = TREATMENTS;
 
 const gallery = [
   { src: "/images/hero/hero-1.jpg", captionKey: "pages.home.gallery1", altKey: "alt.paste" },

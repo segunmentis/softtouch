@@ -6,3 +6,52 @@
 * {
   font-family: "EB Garamond", Georgia, "Times New Roman", serif;
 }
+
+/* Keyboard focus. :focus-visible only fires for keyboard/AT navigation, so this
+   is invisible to mouse users while giving everyone else a ring they can follow.
+   The offset keeps it clear of the pill buttons' own edge. */
+:focus-visible {
+  outline: 2px solid #c1892f;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Touch targets.
+   WCAG 2.2 AA asks for 24x24 CSS px; 44px is the platform guideline where there
+   is room. Both are applied by growing the hit area, never the visible element.
+   Sizes are deliberately kept under each control's own spacing — a 44px target
+   on a control sitting 16px from its neighbour just steals the neighbour's taps. */
+
+/* Small controls that must stay visually small (carousel dots). Hit area is a
+   centred pseudo-element, so nothing moves. */
+.tap-target {
+  position: relative;
+}
+.tap-target::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 24px;
+  min-height: 24px;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* Text links and toggles that can afford to grow on touch. Desktop keeps its
+   current density; coarse pointers get the full 44px. */
+.tap-link {
+  display: inline-flex;
+  align-items: center;
+}
+@media (pointer: coarse) {
+  .tap-link {
+    min-height: 44px;
+    min-width: 24px;
+  }
+  .tap-link-box {
+    min-width: 44px;
+    justify-content: center;
+  }
+}

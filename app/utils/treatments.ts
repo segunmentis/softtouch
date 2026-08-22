@@ -17,10 +17,13 @@ export type Treatment = {
 };
 
 export const TREATMENTS: Treatment[] = [
-  { key: "brazilian", category: "intimate", hasNote: false, image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
-  { key: "underarms", category: "body", hasNote: false, image: "/images/hero/hero-3.jpg", altKey: "alt.lemons" },
+  // Each treatment is illustrated with a picture of a treatment, not an
+  // ingredient. Underarms previously showed a bowl of lemons, and Summer Ready
+  // a bright paste-on-white shot that glared against the dark cards.
+  { key: "brazilian", category: "intimate", hasNote: false, image: "/images/faq-hero.jpg", altKey: "alt.application" },
+  { key: "underarms", category: "body", hasNote: false, image: "/images/home/table.jpg", altKey: "alt.treatment" },
   { key: "faceRefresh", category: "bundles", hasNote: true, image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
-  { key: "summerReady", category: "bundles", hasNote: true, image: "/images/hero/hero-1.jpg", altKey: "alt.paste" },
+  { key: "summerReady", category: "bundles", hasNote: true, image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
 ];
 
 export function treatmentsIn(category: TreatmentCategory) {

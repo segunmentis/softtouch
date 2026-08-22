@@ -51,7 +51,7 @@
             </div>
             <NuxtLink
               to="/contact"
-              class="inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white no-underline transition-transform hover:-translate-y-0.5"
+              class="inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wider text-ink no-underline transition-transform hover:-translate-y-0.5"
             >
               {{ t('faq.stillCta') }}
             </NuxtLink>
@@ -69,7 +69,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm transition-transform hover:-translate-y-0.5"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
           {{ t('pages.home.cta') }}
         </a>

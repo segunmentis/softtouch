@@ -19,7 +19,7 @@
             class="print relative bg-cream p-2 pb-3 shadow-2xl md:absolute md:pb-8"
             :class="print.position"
           >
-            <img :src="print.src" :alt="t(print.altKey)" class="h-40 w-full object-cover md:h-[calc(100%-1.5rem)]" />
+            <img :src="print.src" :alt="t(print.altKey)" loading="lazy" decoding="async" class="h-40 w-full object-cover md:h-[calc(100%-1.5rem)]" />
             <figcaption
               class="mt-2 text-[11px] font-semibold uppercase leading-tight tracking-widest text-ink/55 md:absolute md:inset-x-3 md:bottom-2 md:mt-0 md:truncate"
             >
@@ -84,7 +84,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm transition-transform hover:-translate-y-0.5"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
           {{ t('pages.about.cta') }}
         </a>

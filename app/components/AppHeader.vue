@@ -56,7 +56,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="ms-4 hidden items-center rounded-full bg-gold px-5 py-2 font-medium text-white no-underline md:flex"
+          class="ms-4 hidden items-center rounded-full bg-gold px-5 py-2 font-medium text-ink no-underline md:flex"
         >
           {{ t('header.cta') }}
           <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -95,7 +95,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="block rounded-full bg-gold px-5 py-2 text-center font-medium text-white no-underline"
+          class="block rounded-full bg-gold px-5 py-2 text-center font-medium text-ink no-underline"
           @click="drawer = false"
         >
           {{ t('header.cta') }}

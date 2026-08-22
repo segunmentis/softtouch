@@ -57,15 +57,11 @@
             :href="MAP_URL"
             target="_blank"
             rel="noopener"
-            class="map relative flex h-36 items-end overflow-hidden rounded-xl no-underline"
+            class="map flex items-center justify-between gap-3 rounded-xl border border-cream/12 bg-[#191710] p-4 no-underline"
           >
-            <img src="/images/hero/hero-1.jpg" :alt="t('alt.paste')" class="absolute inset-0 h-full w-full object-cover" />
-            <span class="map-scrim absolute inset-0" />
-            <span class="relative flex w-full items-center justify-between gap-3 p-4">
-              <span class="text-sm text-cream/85">{{ t('footer.address') }}</span>
-              <span class="flex-shrink-0 text-[11px] font-semibold uppercase tracking-wider text-gold">
-                {{ t('pages.contact.mapLink') }} →
-              </span>
+            <span class="text-sm text-cream/85">{{ t('footer.address') }}</span>
+            <span class="flex-shrink-0 text-[11px] font-semibold uppercase tracking-wider text-gold">
+              {{ t('pages.contact.mapLink') }} →
             </span>
           </a>
         </Reveal>
@@ -102,7 +98,7 @@
               <button
                 type="submit"
                 :disabled="status === 'sending'"
-                class="w-full rounded-full bg-gold px-6 py-3 font-semibold text-white transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60"
+                class="w-full rounded-full bg-gold px-6 py-3 font-semibold text-ink transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60"
               >
                 {{ status === 'sending' ? t('pages.contact.sending') : t('pages.contact.send') }}
               </button>
@@ -158,7 +154,7 @@
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
-          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-white no-underline shadow-sm transition-transform hover:-translate-y-0.5"
+          class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
           {{ t('pages.contact.bookOnFresha') }}
         </a>
@@ -235,16 +231,11 @@ async function submit() {
 .final-cta {
   background: linear-gradient(165deg, #2a2818 0%, #696740 45%, #c1892f 80%, #a15b28 100%);
 }
-.map-scrim {
-  background: linear-gradient(0deg, rgba(16, 15, 10, 0.92) 10%, rgba(16, 15, 10, 0.1) 75%);
+.map {
+  transition: border-color 0.22s ease;
 }
-.map img {
-  filter: grayscale(0.7) brightness(0.65);
-  transition: filter 0.35s ease, transform 0.6s ease;
-}
-.map:hover img {
-  filter: grayscale(0.35) brightness(0.75);
-  transform: scale(1.05);
+.map:hover {
+  border-color: rgba(217, 163, 77, 0.5);
 }
 .social {
   transition: border-color 0.22s ease, transform 0.22s ease;
