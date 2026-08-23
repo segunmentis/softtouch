@@ -8,119 +8,111 @@
       :sub="t('pages.services.intro')"
     />
 
-    <!-- Sticky filter chips -->
+    <!-- Menu tabs -->
     <div class="sticky top-0 z-30 border-b border-cream/10 bg-[#100f0a]/95 backdrop-blur">
-      <div class="mx-auto flex max-w-7xl flex-wrap gap-2 px-6 py-4">
+      <div
+        role="tablist"
+        :aria-label="t('pages.services.kicker')"
+        class="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-6 py-4"
+      >
         <button
-          v-for="chip in chips"
-          :key="chip.key"
+          v-for="tab in SERVICE_TABS"
+          :id="`tab-${tab}`"
+          :key="tab"
           type="button"
-          :aria-pressed="active === chip.key"
-          class="chip rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors"
+          role="tab"
+          :aria-selected="active === tab"
+          :aria-controls="`panel-${tab}`"
+          class="chip flex-shrink-0 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors"
           :class="
-            active === chip.key
+            active === tab
               ? 'border-gold bg-gold text-ink'
               : 'border-cream/20 text-cream/65 hover:border-gold/60 hover:text-cream'
           "
-          @click="select(chip.key)"
+          @click="select(tab)"
         >
-          {{ chip.key === 'all' ? t('pages.services.filterAll') : t(`pages.services.categories.${chip.key}`) }}
+          {{ t(`pages.services.tabs.${tab}`) }}
         </button>
       </div>
     </div>
 
-    <!-- Treatment rows -->
-    <section class="mx-auto max-w-7xl px-6 pb-4 pt-10">
+    <!-- Service list -->
+    <section class="mx-auto max-w-7xl px-6 pb-6 pt-10">
       <div class="max-w-3xl">
-        <p class="mb-6 text-sm uppercase tracking-widest text-cream/40">
-          {{
-            active === 'all'
-              ? t('pages.services.showingAll')
-              : t('pages.services.showingCategory', { category: t(`pages.services.categories.${active}`) })
-          }}
-        </p>
+        <!-- Every panel is rendered and the inactive ones hidden, rather than
+             swapped in on click. The page is prerendered, so a v-if would leave
+             12 of the 18 services out of the HTML entirely and invisible to
+             search engines. -->
+        <div v-for="tab in SERVICE_TABS" v-show="active === tab" :key="tab">
+          <p
+            v-if="tab === 'mens'"
+            class="mb-6 rounded-lg border border-cream/12 bg-[#191710] px-4 py-3 text-sm leading-relaxed text-cream/70"
+          >
+            {{ t('pages.services.mensNote') }}
+          </p>
 
-        <ul v-if="visibleItems.length" class="list-none space-y-1 p-0">
-          <li v-for="item in visibleItems" :key="item.key">
+          <ul :id="`panel-${tab}`" role="tabpanel" :aria-labelledby="`tab-${tab}`" class="list-none p-0">
+            <li v-for="service in servicesIn(tab)" :key="service.key">
             <a
               :href="FRESHA_BOOKING_URL"
               target="_blank"
               rel="noopener"
-              class="row grid grid-cols-[64px_1fr_auto] items-center gap-4 rounded-lg px-3 py-4 no-underline transition-colors hover:bg-cream/[0.06] md:gap-6"
+              class="row grid grid-cols-[1fr_auto] items-start gap-4 border-b border-cream/10 py-5 no-underline transition-colors hover:bg-cream/[0.04] md:gap-8"
             >
-              <img :src="item.image" :alt="t(item.altKey)" width="64" height="64" loading="lazy" decoding="async" class="thumb h-16 w-16 rounded-md object-cover" />
               <div class="min-w-0">
-                <p class="text-[11px] font-semibold uppercase tracking-widest text-gold">
-                  {{ t(`pages.services.categories.${item.category}`) }}
-                </p>
-                <h2 class="truncate text-xl italic text-cream md:text-2xl">
-                  {{ t(`pages.services.items.${item.key}.name`) }}
+                <h2 class="text-xl italic text-cream md:text-2xl">
+                  {{ t(`pages.services.items.${service.key}.name`) }}
                 </h2>
-                <p v-if="item.hasNote" class="mt-0.5 truncate text-sm text-cream/50">
-                  {{ t(`pages.services.items.${item.key}.note`) }}
+
+                <p class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-cream/50">
+                  <span>{{ t(`pages.services.items.${service.key}.duration`) }}</span>
+                  <span v-if="service.includes" class="text-gold">
+                    {{ t('pages.services.includes', { count: service.includes }) }}
+                  </span>
+                  <span v-if="service.femaleOnly">{{ t('pages.services.femaleOnly') }}</span>
+                </p>
+
+                <p class="mt-2 max-w-prose text-sm leading-relaxed text-cream/70">
+                  {{ t(`pages.services.items.${service.key}.description`) }}
                 </p>
               </div>
-              <div class="flex items-center gap-4">
-                <span class="text-sm uppercase tracking-wide text-cream/60">
-                  {{ t(`pages.services.items.${item.key}.duration`) }}
+
+              <div class="text-right">
+                <span class="block text-lg text-cream tabular-nums md:text-xl">
+                  {{ formatPrice(service.price) }}
+                </span>
+                <span v-if="service.compareAt" class="mt-0.5 block text-xs text-cream/40 line-through tabular-nums">
+                  {{ formatPrice(service.compareAt) }}
+                </span>
+                <span v-if="bundleSaving(service)" class="mt-1 block text-[11px] font-semibold uppercase tracking-wider text-gold">
+                  {{ t('pages.services.saving', { percent: bundleSaving(service) }) }}
                 </span>
                 <span
-                  class="book hidden rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-ink md:inline-block"
+                  class="book mt-2 hidden rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-ink md:inline-block"
                 >
                   {{ t('pages.services.book') }}
                 </span>
               </div>
             </a>
-          </li>
-        </ul>
+            </li>
+          </ul>
 
-        <!-- Category with nothing listed yet -->
-        <div v-else class="rounded-xl border border-dashed border-cream/20 px-6 py-12 text-center">
-          <h2 class="mb-2 text-2xl italic text-cream">{{ t('pages.services.emptyHeading') }}</h2>
-          <p class="mx-auto mb-6 max-w-md text-cream/60">{{ t('pages.services.moreOnFresha') }}</p>
+          <!-- Fresha has no per-category URL, so this opens the booking menu
+               where the rest of this section can be browsed. -->
           <a
             :href="FRESHA_BOOKING_URL"
             target="_blank"
             rel="noopener"
-            class="inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wider text-ink no-underline"
+            class="see-all tap-link mt-6 gap-2 text-sm font-semibold uppercase tracking-wider text-gold no-underline"
           >
-            {{ t('pages.services.viewFullMenu') }}
+            {{ t('pages.services.seeAll') }}
+            <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Bundle spotlights -->
-    <section v-if="showBundles" class="mx-auto max-w-7xl px-6 py-12">
-      <Reveal class="mb-6">
-        <h2 class="text-2xl italic text-cream">{{ t('pages.services.bundlesHeading') }}</h2>
-        <p class="text-sm text-cream/55">{{ t('pages.services.bundlesBody') }}</p>
-      </Reveal>
-      <div class="grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2">
-        <Reveal v-for="bundle in bundles" :key="bundle.key">
-          <a
-            :href="FRESHA_BOOKING_URL"
-            target="_blank"
-            rel="noopener"
-            class="bundle relative flex h-64 items-end overflow-hidden rounded-xl no-underline"
-          >
-            <img :src="bundle.image" :alt="t(bundle.altKey)" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
-            <span class="bundle-scrim absolute inset-0" />
-            <span class="relative block p-5">
-              <span class="mb-1 block text-[11px] font-semibold uppercase tracking-widest text-gold">
-                {{ t(`pages.services.items.${bundle.key}.duration`) }}
-              </span>
-              <span class="mb-1 block text-2xl italic text-cream">
-                {{ t(`pages.services.items.${bundle.key}.name`) }}
-              </span>
-              <span class="block text-sm text-cream/70">{{ t(`pages.services.items.${bundle.key}.note`) }}</span>
-            </span>
-          </a>
-        </Reveal>
-      </div>
-    </section>
-
-    <!-- Why choose sugaring — always shown, unlike the conditional bundles above -->
+    <!-- Why choose sugaring -->
     <section class="mx-auto max-w-7xl px-6 py-12 md:py-14">
       <div class="grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
         <Reveal>
@@ -206,27 +198,6 @@
       </div>
     </section>
 
-    <!-- Links out to the standalone, crawlable category pages -->
-    <section class="border-t border-cream/10 bg-[#191710] py-12">
-      <div class="mx-auto max-w-7xl px-6">
-        <Reveal tag="p" class="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
-          {{ t('pages.categoryPages.moreKicker') }}
-        </Reveal>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Reveal v-for="page in CATEGORY_PAGES" :key="page.path">
-            <NuxtLink
-              :to="page.path"
-              class="category block h-full rounded-xl border border-cream/10 bg-[#100f0a] p-5 no-underline"
-            >
-              <span class="block text-lg italic text-cream">
-                {{ t(`pages.categoryPages.${page.copyKey}.title`) }}
-              </span>
-            </NuxtLink>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-
     <!-- Final CTA -->
     <section class="final-cta px-6 py-16 text-center">
       <div class="mx-auto max-w-2xl">
@@ -247,84 +218,49 @@
 <script setup lang="ts">
 const { t } = useI18n();
 const route = useRoute();
+const router = useRouter();
 
 usePageSeo({ path: "/services", titleKey: "seo.services.title", descriptionKey: "seo.services.description" });
 
 const heroImage = "/images/hero/hero-2.jpg";
 
-const categories = [
-  { key: "mensSugaring", anchor: "mens-sugaring" },
-  { key: "intimate", anchor: "intimate" },
-  { key: "body", anchor: "body" },
-  { key: "face", anchor: "face" },
-  { key: "bundles", anchor: "bundles" },
-];
+const active = ref<ServiceTab>("featured");
 
-const items = TREATMENTS;
-
-// Only offer a filter that leads somewhere. A chip for a category with no
-// treatments in it is a dead end — it empties the list and tells the visitor
-// nothing. Categories reappear here automatically as treatments are added.
-const chips = [
-  { key: "all" },
-  ...categories.filter((c) => items.some((item) => item.category === c.key)).map((c) => ({ key: c.key })),
-];
-
-const active = ref("all");
-
-const visibleItems = computed(() =>
-  items.filter((item) => item.category !== "bundles" && (active.value === "all" || item.category === active.value))
-);
-const bundles = computed(() => items.filter((item) => item.category === "bundles"));
-const showBundles = computed(() => active.value === "all" || active.value === "bundles");
-
-function select(key: string) {
-  active.value = key;
-  const anchor = categories.find((c) => c.key === key)?.anchor;
-  const hash = anchor ? `#${anchor}` : "";
-  history.replaceState(history.state, "", `${route.path}${hash}`);
+function select(tab: ServiceTab) {
+  active.value = tab;
+  // Keep the tab in the URL so the footer links and a shared link both land on
+  // the right one. replace(), so tabbing does not fill the back button.
+  router.replace({ path: route.path, query: tab === "featured" ? {} : { tab } });
 }
 
-// Honour the deep links in the footer (/services#intimate, #body, …)
-function syncFromHash() {
-  const anchor = route.hash.replace("#", "");
-  active.value = categories.find((c) => c.anchor === anchor)?.key ?? "all";
+/** Honour /services?tab=intimate, used by the footer links. */
+function syncFromQuery() {
+  const tab = route.query.tab as string | undefined;
+  active.value = SERVICE_TABS.includes(tab as ServiceTab) ? (tab as ServiceTab) : "featured";
 }
-onMounted(syncFromHash);
-watch(() => route.hash, syncFromHash);
+syncFromQuery();
+watch(() => route.query.tab, syncFromQuery);
 </script>
 
 <style scoped>
 .final-cta {
   background: linear-gradient(165deg, #2a2818 0%, #696740 45%, #c1892f 80%, #a15b28 100%);
 }
-.bundle-scrim {
-  background: linear-gradient(0deg, rgba(16, 15, 10, 0.9) 15%, rgba(16, 15, 10, 0.05) 75%);
+.row:hover .book {
+  background: #d0982f;
 }
-.category {
-  transition: border-color 0.22s ease, transform 0.22s ease;
+.see-all {
+  display: inline-flex;
+  align-items: center;
 }
-.category:hover {
-  border-color: rgba(217, 163, 77, 0.5);
-  transform: translateY(-2px);
+.see-all span {
+  transition: transform 0.2s ease;
 }
-.thumb {
-  filter: grayscale(0.6);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-.row:hover .thumb {
-  filter: none;
-  transform: scale(1.05);
-}
-.bundle img {
-  transition: transform 0.6s ease;
-}
-.bundle:hover img {
-  transform: scale(1.06);
+.see-all:hover span {
+  transform: translateX(3px);
 }
 @media (prefers-reduced-motion: reduce) {
-  .thumb,
-  .bundle img {
+  .see-all span {
     transition: none;
   }
 }

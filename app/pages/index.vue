@@ -65,10 +65,13 @@
           </div>
           <div class="flex flex-col p-5">
             <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gold">
-              {{ t(`pages.services.categories.${item.category}`) }}
+              {{ t(`pages.services.tabs.${item.category}`) }}
             </p>
             <h3 class="mb-1 text-xl italic text-cream">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
-            <p class="text-sm text-cream/50">{{ t(`pages.services.items.${item.key}.duration`) }}</p>
+            <p class="flex items-baseline gap-2 text-sm text-cream/50">
+              <span>{{ t(`pages.services.items.${item.key}.duration`) }}</span>
+              <span class="text-cream/80 tabular-nums">{{ formatPrice(item.price) }}</span>
+            </p>
           </div>
         </div>
       </TreatmentCarousel>
@@ -245,10 +248,13 @@ usePageSeo({ path: "/", titleKey: "seo.home.title", descriptionKey: "seo.home.de
 
 const heroImages = ["/images/hero/hero-1.jpg", "/images/hero/hero-2.jpg", "/images/hero/hero-3.jpg"];
 
-// The same catalogue the Services and category pages read, rather than a second
-// hardcoded copy — a duplicate list here is how the homepage ended up showing a
-// different (and wrong) image for a treatment than the rest of the site.
-const featured = TREATMENTS;
+// Four hand-picked cards, resolved against the shared menu so the name, duration
+// and price shown here can never disagree with /services.
+const featured = HOME_FEATURED.map((card) => {
+  const service = SERVICES.find((s) => s.key === card.key);
+  if (!service) throw new Error(`HOME_FEATURED references unknown service: ${card.key}`);
+  return { ...card, ...service };
+});
 
 const gallery = [
   { src: "/images/hero/hero-1.jpg", captionKey: "pages.home.gallery1", altKey: "alt.paste" },

@@ -26,10 +26,10 @@
     },
     "quickLinksHeading": "Treatments",
     "quickLinks": {
-      "intimate": "Intimate",
-      "body": "Body",
-      "face": "Face",
-      "mensSugaring": "Men's Sugaring"
+      "featured": "Featured",
+      "mens": "Men's Sugaring",
+      "bundles": "Bundles",
+      "intimate": "Intimate"
     },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
@@ -107,44 +107,78 @@
     "services": {
       "kicker": "Treatment Menu",
       "title": "Sugaring, done right",
-      "intro": "A few of our most-booked treatments below. See the full, up-to-date menu when you book your appointment online.",
+      "intro": "What each treatment includes, and what it costs. Booking and live availability are on Fresha.",
       "viewFullMenu": "View Full Menu & Book",
       "moreOnFresha": "Full details for this category are available when you book.",
-      "categories": {
-        "mensSugaring": "Men's Sugaring",
-        "intimate": "Intimate",
-        "body": "Body",
-        "face": "Face",
-        "bundles": "Bundles"
-      },
       "items": {
-        "underarms": {
-          "name": "Underarms",
-          "duration": "15 min"
-        },
         "brazilian": {
           "name": "Brazilian",
-          "duration": "45 min"
+          "duration": "45 min",
+          "description": "Complete hair removal from the intimate area, including the front, labia and bum strip. Go completely bare, or leave a strip or triangle."
         },
-        "faceRefresh": {
-          "name": "Face Refresh",
-          "duration": "35 min · 3 treatments",
-          "note": "Three treatments in one visit."
+        "extendedBikini": {
+          "name": "Extended Bikini",
+          "duration": "30 min",
+          "description": "A deeper clean-up than a standard bikini: everything in the Bikini, plus more from the front and further inward from the bikini line. Does not include the full labia or bum strip."
+        },
+        "bikini": {
+          "name": "Bikini",
+          "duration": "20 min",
+          "description": "Removes hair visible outside a standard bikini bottom, along the bikini line and upper thigh crease. Does not include the labia, bum strip or hair further inward."
+        },
+        "buttCheeks": {
+          "name": "Butt Cheeks",
+          "duration": "20 min",
+          "description": "Hair removal from both cheeks."
+        },
+        "mensFullBack": {
+          "name": "Men's Full Back",
+          "duration": "1 hr",
+          "description": "The entire back — upper, middle and lower — for smooth, long-lasting results."
+        },
+        "mensChest": {
+          "name": "Men's Chest",
+          "duration": "45 min",
+          "description": "The chest, for smooth, long-lasting results and softer regrowth."
+        },
+        "mensStomach": {
+          "name": "Men's Stomach",
+          "duration": "20 min",
+          "description": "The stomach area, for smooth, long-lasting results."
+        },
+        "mensShoulders": {
+          "name": "Men's Shoulders",
+          "duration": "20 min",
+          "description": "Both shoulders, leaving the skin smooth and well groomed."
         },
         "summerReady": {
           "name": "Summer Ready",
-          "duration": "1 hr 45 min · 2 treatments",
-          "note": "Two treatments bundled for the season."
+          "duration": "1 hr 45 min",
+          "description": "Two treatments bundled for the season."
+        },
+        "smoothEssentials": {
+          "name": "Smooth Essentials",
+          "duration": "1 hr",
+          "description": "Two everyday treatments in a single visit."
+        },
+        "faceRefresh": {
+          "name": "Face Refresh",
+          "duration": "35 min",
+          "description": "Three facial treatments in one visit."
+        },
+        "chin": {
+          "name": "Chin",
+          "duration": "10 min",
+          "description": "Removes unwanted hair from the chin area."
+        },
+        "upperLip": {
+          "name": "Upper Lip",
+          "duration": "10 min",
+          "description": "Removes unwanted hair from the upper lip for a smooth finish."
         }
       },
-      "filterAll": "All treatments",
       "book": "Book",
-      "bundlesHeading": "Bundles",
-      "bundlesBody": "Treatments grouped into a single visit.",
-      "emptyHeading": "This category lives on Fresha",
       "livePricing": "Live pricing and full availability are always on Fresha.",
-      "showingAll": "Showing every treatment",
-      "showingCategory": "Showing {category}",
       "whyKicker": "The method",
       "whyHeading": "Why Choose Sugaring?",
       "whyIntro": "Sugaring is a natural method of hair removal made from only sugar, water, and lemon.",
@@ -154,7 +188,19 @@
       "whyPoint3": "Helps reduce ingrown hairs",
       "whyPoint4": "Can lead to finer hair over time",
       "whyPoint5": "Leaves skin feeling softer and smoother",
-      "whyClosing": "Whether you're booking a Brazilian, underarms, legs, facial sugaring, or body treatment, you'll receive personalized care from start to finish."
+      "whyClosing": "Whether you're booking a Brazilian, underarms, legs, facial sugaring, or body treatment, you'll receive personalized care from start to finish.",
+      "tabs": {
+        "featured": "Featured",
+        "mens": "Men's Sugaring",
+        "bundles": "Bundles",
+        "intimate": "Intimate"
+      },
+      "includes": "{count} treatments",
+      "femaleOnly": "Female only",
+      "saving": "Save {percent}%",
+      "was": "was {price}",
+      "mensNote": "Men's intimate sugaring (Brazilian and bikini) is not currently offered.",
+      "seeAll": "See full list"
     },
     "contact": {
       "kicker": "Visit Or Book",
@@ -176,30 +222,6 @@
       "formKicker": "Questions first?",
       "sending": "Sending…",
       "error": "Your message could not be sent. Please email or message us instead."
-    },
-    "categoryPages": {
-      "moreKicker": "More treatments",
-      "treatmentsHeading": "Treatments",
-      "intimate": {
-        "kicker": "Intimate sugaring",
-        "title": "Brazilian Sugaring in Saskatoon",
-        "intro": "Professional Brazilian, bikini and extended bikini sugaring in Saskatoon. Soft Touch Aesthetics Studio provides private, comfortable and professional intimate sugaring appointments in our Saskatoon studio."
-      },
-      "body": {
-        "kicker": "Body sugaring",
-        "title": "Body Sugaring in Saskatoon",
-        "intro": "Enjoy smooth, professionally sugared skin at Soft Touch Aesthetics Studio in Saskatoon. Our body sugaring services include underarms, arms, legs, stomach, back, chest and other body areas, with each appointment tailored to your individual needs."
-      },
-      "mens": {
-        "kicker": "Men's sugaring",
-        "title": "Men's Body Sugaring in Saskatoon",
-        "intro": "Soft Touch Aesthetics Studio offers professional men's body sugaring in Saskatoon in a private and comfortable studio environment. Explore our available men's sugaring services for smooth, long-lasting hair removal results."
-      },
-      "facial": {
-        "kicker": "Facial sugaring",
-        "title": "Facial Sugaring in Saskatoon",
-        "intro": "Gentle facial sugaring at Soft Touch Aesthetics Studio in Saskatoon for brows, upper lip, chin, cheeks and full-face hair removal. Each service is performed with care for a clean, smooth finish."
-      }
     }
   },
   "prepare": {
@@ -247,7 +269,7 @@
     "q8": "Where is Soft Touch Aesthetics Studio located?",
     "a8": "We are at 410 Duchess Street, M2, in Saskatoon. The studio is private — one client at a time, with no shared waiting room.",
     "q9": "Do you offer men's body sugaring?",
-    "a9": "Yes. We offer select men's sugaring services in the same private studio. You can see what is currently available on our men's body sugaring page and book online."
+    "a9": "Yes. We offer select men's sugaring services in the same private studio. The current list and availability are on our booking page."
   },
   "hours": {
     "heading": "Hours",
@@ -263,22 +285,6 @@
     "home": {
       "title": "Body Sugaring Saskatoon {'|'} Soft Touch Aesthetics Studio",
       "description": "Professional body sugaring in Saskatoon for Brazilian, bikini, underarms, legs, arms, face and select men's services. Private studio. Book online."
-    },
-    "intimate": {
-      "title": "Brazilian Sugaring Saskatoon {'|'} Soft Touch Aesthetics Studio",
-      "description": "Book professional Brazilian sugaring in Saskatoon at Soft Touch Aesthetics Studio. Private, comfortable appointments for first-time and returning clients."
-    },
-    "body": {
-      "title": "Body Sugaring Saskatoon {'|'} Legs, Arms & Underarms",
-      "description": "Professional body sugaring in Saskatoon for legs, arms, underarms, stomach, back and more. Private appointments at Soft Touch Aesthetics Studio."
-    },
-    "mens": {
-      "title": "Men's Body Sugaring Saskatoon {'|'} Soft Touch Aesthetics",
-      "description": "Professional men's body sugaring in Saskatoon in a private studio. Explore available men's sugaring services and book online."
-    },
-    "facial": {
-      "title": "Facial Sugaring Saskatoon {'|'} Soft Touch Aesthetics",
-      "description": "Professional facial sugaring in Saskatoon for brows, upper lip, chin, cheeks and full face. Book your appointment at Soft Touch Aesthetics Studio."
     },
     "about": {
       "title": "About Soft Touch Aesthetics Studio {'|'} Saskatoon Sugarist",

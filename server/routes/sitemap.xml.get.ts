@@ -7,10 +7,6 @@
 const ROUTES = [
   { path: "/", priority: "1.0" },
   { path: "/services", priority: "0.9" },
-  { path: "/intimate-sugaring", priority: "0.9" },
-  { path: "/body-sugaring", priority: "0.9" },
-  { path: "/mens-sugaring", priority: "0.9" },
-  { path: "/facial-sugaring", priority: "0.9" },
   { path: "/faq", priority: "0.7" },
   { path: "/about", priority: "0.7" },
   { path: "/contact", priority: "0.7" },

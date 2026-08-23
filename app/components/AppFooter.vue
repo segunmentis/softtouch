@@ -86,11 +86,13 @@ const companyLinks = [
 ];
 
 // Point at the standalone, crawlable service pages rather than filter anchors.
+// The menu is one page with tabs, so these deep-link to a tab rather than to
+// pages of their own.
 const quickLinks = [
-  { labelKey: "footer.quickLinks.intimate", to: "/intimate-sugaring" },
-  { labelKey: "footer.quickLinks.body", to: "/body-sugaring" },
-  { labelKey: "footer.quickLinks.face", to: "/facial-sugaring" },
-  { labelKey: "footer.quickLinks.mensSugaring", to: "/mens-sugaring" },
+  { labelKey: "footer.quickLinks.featured", to: "/services" },
+  { labelKey: "footer.quickLinks.mens", to: "/services?tab=mens" },
+  { labelKey: "footer.quickLinks.bundles", to: "/services?tab=bundles" },
+  { labelKey: "footer.quickLinks.intimate", to: "/services?tab=intimate" },
 ];
 </script>
 

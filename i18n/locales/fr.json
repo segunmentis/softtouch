@@ -26,10 +26,10 @@
     },
     "quickLinksHeading": "Traitements",
     "quickLinks": {
-      "intimate": "Intime",
-      "body": "Corps",
-      "face": "Visage",
-      "mensSugaring": "Épilation homme"
+      "featured": "En vedette",
+      "mens": "Épilation homme",
+      "bundles": "Forfaits",
+      "intimate": "Intime"
     },
     "copyright": "Copyright © {year}",
     "brandName": "Soft Touch Aesthetics Studio",
@@ -107,44 +107,78 @@
     "services": {
       "kicker": "Menu des soins",
       "title": "L'épilation au sucre, bien faite",
-      "intro": "Voici quelques-uns de nos soins les plus réservés. Consultez le menu complet et à jour lors de votre réservation en ligne.",
+      "intro": "Ce que comprend chaque soin, et son prix. La réservation et les disponibilités en direct sont sur Fresha.",
       "viewFullMenu": "Voir le menu complet et réserver",
       "moreOnFresha": "Tous les détails de cette catégorie sont disponibles lors de la réservation.",
-      "categories": {
-        "mensSugaring": "Épilation homme",
-        "intimate": "Intime",
-        "body": "Corps",
-        "face": "Visage",
-        "bundles": "Forfaits"
-      },
       "items": {
-        "underarms": {
-          "name": "Aisselles",
-          "duration": "15 min"
-        },
         "brazilian": {
           "name": "Brésilien",
-          "duration": "45 min"
+          "duration": "45 min",
+          "description": "Épilation complète de la zone intime, incluant le devant, les lèvres et le sillon interfessier. Entièrement dénudé, ou en gardant une bande ou un triangle."
         },
-        "faceRefresh": {
-          "name": "Visage Éclat",
-          "duration": "35 min · 3 soins",
-          "note": "Trois soins en une seule visite."
+        "extendedBikini": {
+          "name": "Maillot échancré",
+          "duration": "30 min",
+          "description": "Un nettoyage plus poussé que le maillot classique : tout le maillot, plus de poils retirés à l'avant et plus loin vers l'intérieur. N'inclut ni les lèvres ni le sillon interfessier."
+        },
+        "bikini": {
+          "name": "Maillot",
+          "duration": "20 min",
+          "description": "Retire les poils visibles hors d'un bas de maillot classique, le long de la ligne du maillot et du pli de l'aine. N'inclut ni les lèvres, ni le sillon interfessier, ni les poils plus vers l'intérieur."
+        },
+        "buttCheeks": {
+          "name": "Fessiers",
+          "duration": "20 min",
+          "description": "Épilation des deux fessiers."
+        },
+        "mensFullBack": {
+          "name": "Dos complet — homme",
+          "duration": "1 h",
+          "description": "Tout le dos — haut, milieu et bas — pour un résultat lisse et durable."
+        },
+        "mensChest": {
+          "name": "Torse — homme",
+          "duration": "45 min",
+          "description": "Le torse, pour un résultat lisse, durable et une repousse plus douce."
+        },
+        "mensStomach": {
+          "name": "Ventre — homme",
+          "duration": "20 min",
+          "description": "La zone du ventre, pour un résultat lisse et durable."
+        },
+        "mensShoulders": {
+          "name": "Épaules — homme",
+          "duration": "20 min",
+          "description": "Les deux épaules, pour une peau lisse et soignée."
         },
         "summerReady": {
           "name": "Prêt pour l'été",
-          "duration": "1 h 45 · 2 soins",
-          "note": "Deux soins réunis pour la saison."
+          "duration": "1 h 45",
+          "description": "Deux soins réunis pour la saison."
+        },
+        "smoothEssentials": {
+          "name": "Essentiels Douceur",
+          "duration": "1 h",
+          "description": "Deux soins du quotidien en une seule visite."
+        },
+        "faceRefresh": {
+          "name": "Visage Éclat",
+          "duration": "35 min",
+          "description": "Trois soins du visage en une seule visite."
+        },
+        "chin": {
+          "name": "Menton",
+          "duration": "10 min",
+          "description": "Retire les poils indésirables du menton."
+        },
+        "upperLip": {
+          "name": "Lèvre supérieure",
+          "duration": "10 min",
+          "description": "Retire les poils indésirables de la lèvre supérieure pour un fini lisse."
         }
       },
-      "filterAll": "Tous les soins",
       "book": "Réserver",
-      "bundlesHeading": "Forfaits",
-      "bundlesBody": "Des soins réunis en une seule visite.",
-      "emptyHeading": "Cette catégorie se trouve sur Fresha",
       "livePricing": "Les tarifs à jour et les disponibilités sont toujours sur Fresha.",
-      "showingAll": "Tous les soins affichés",
-      "showingCategory": "Affichage : {category}",
       "whyKicker": "La méthode",
       "whyHeading": "Pourquoi choisir l'épilation au sucre ?",
       "whyIntro": "L'épilation au sucre est une méthode naturelle composée uniquement de sucre, d'eau et de citron.",
@@ -154,7 +188,19 @@
       "whyPoint3": "Aide à réduire les poils incarnés",
       "whyPoint4": "Peut affiner le poil avec le temps",
       "whyPoint5": "Laisse la peau plus douce et plus lisse",
-      "whyClosing": "Que vous réserviez un brésilien, les aisselles, les jambes, une épilation du visage ou un soin du corps, vous recevrez une attention personnalisée du début à la fin."
+      "whyClosing": "Que vous réserviez un brésilien, les aisselles, les jambes, une épilation du visage ou un soin du corps, vous recevrez une attention personnalisée du début à la fin.",
+      "tabs": {
+        "featured": "En vedette",
+        "mens": "Épilation homme",
+        "bundles": "Forfaits",
+        "intimate": "Intime"
+      },
+      "includes": "{count} soins",
+      "femaleOnly": "Femmes seulement",
+      "saving": "Économisez {percent} %",
+      "was": "au lieu de {price}",
+      "mensNote": "L'épilation intime pour hommes (brésilien et maillot) n'est pas offerte pour le moment.",
+      "seeAll": "Voir la liste complète"
     },
     "contact": {
       "kicker": "Visitez-nous ou réservez",
@@ -176,30 +222,6 @@
       "formKicker": "Une question d'abord ?",
       "sending": "Envoi en cours…",
       "error": "Votre message n'a pas pu être envoyé. Écrivez-nous par courriel ou sur les réseaux."
-    },
-    "categoryPages": {
-      "moreKicker": "Plus de soins",
-      "treatmentsHeading": "Les soins",
-      "intimate": {
-        "kicker": "Épilation intime",
-        "title": "Épilation brésilienne à Saskatoon",
-        "intro": "Épilation brésilienne, maillot et maillot intégral au sucre à Saskatoon. Soft Touch Aesthetics Studio offre des rendez-vous d'épilation intime privés, confortables et professionnels dans notre studio de Saskatoon."
-      },
-      "body": {
-        "kicker": "Épilation du corps",
-        "title": "Épilation du corps au sucre à Saskatoon",
-        "intro": "Profitez d'une peau douce et professionnellement épilée chez Soft Touch Aesthetics Studio à Saskatoon. Nos soins du corps comprennent les aisselles, les bras, les jambes, le ventre, le dos, le torse et d'autres zones, chaque rendez-vous étant adapté à vos besoins."
-      },
-      "mens": {
-        "kicker": "Épilation homme",
-        "title": "Épilation au sucre pour hommes à Saskatoon",
-        "intro": "Soft Touch Aesthetics Studio propose une épilation au sucre professionnelle pour hommes à Saskatoon, dans un studio privé et confortable. Découvrez nos services disponibles pour des résultats doux et durables."
-      },
-      "facial": {
-        "kicker": "Épilation du visage",
-        "title": "Épilation du visage au sucre à Saskatoon",
-        "intro": "Épilation douce du visage chez Soft Touch Aesthetics Studio à Saskatoon : sourcils, lèvre supérieure, menton, joues et visage complet. Chaque soin est réalisé avec soin pour un fini net et lisse."
-      }
     }
   },
   "prepare": {
@@ -247,7 +269,7 @@
     "q8": "Où se trouve Soft Touch Aesthetics Studio ?",
     "a8": "Nous sommes au 410 Duchess Street, M2, à Saskatoon. Le studio est privé — une seule cliente à la fois, sans salle d'attente partagée.",
     "q9": "Proposez-vous l'épilation au sucre pour hommes ?",
-    "a9": "Oui. Nous offrons une sélection de services pour hommes dans le même studio privé. Consultez notre page dédiée pour voir ce qui est disponible et réserver en ligne."
+    "a9": "Oui. Nous offrons une sélection de services pour hommes dans le même studio privé. La liste à jour et les disponibilités se trouvent sur notre page de réservation."
   },
   "hours": {
     "heading": "Heures d'ouverture",
@@ -263,22 +285,6 @@
     "home": {
       "title": "Épilation au sucre Saskatoon {'|'} Soft Touch Aesthetics Studio",
       "description": "Épilation au sucre professionnelle à Saskatoon : brésilien, maillot, aisselles, jambes, bras, visage et services pour hommes. Studio privé."
-    },
-    "intimate": {
-      "title": "Épilation brésilienne Saskatoon {'|'} Soft Touch Aesthetics Studio",
-      "description": "Réservez une épilation brésilienne au sucre à Saskatoon chez Soft Touch Aesthetics Studio. Rendez-vous privés et confortables, débutantes bienvenues."
-    },
-    "body": {
-      "title": "Épilation du corps Saskatoon {'|'} Jambes, bras et aisselles",
-      "description": "Épilation au sucre du corps à Saskatoon : jambes, bras, aisselles, ventre, dos et plus. Rendez-vous privés chez Soft Touch Aesthetics Studio."
-    },
-    "mens": {
-      "title": "Épilation au sucre homme Saskatoon {'|'} Soft Touch Aesthetics",
-      "description": "Épilation au sucre pour hommes à Saskatoon dans un studio privé. Découvrez les services disponibles et réservez en ligne."
-    },
-    "facial": {
-      "title": "Épilation du visage Saskatoon {'|'} Soft Touch Aesthetics",
-      "description": "Épilation au sucre du visage à Saskatoon : sourcils, lèvre supérieure, menton, joues et visage complet. Réservez chez Soft Touch Aesthetics Studio."
     },
     "about": {
       "title": "À propos de Soft Touch Aesthetics Studio {'|'} Saskatoon",

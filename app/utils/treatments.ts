@@ -1,39 +1,91 @@
-// The treatment catalogue, shared by /services and the four category pages.
+// The studio's service menu, mirroring the live Fresha booking menu.
 //
-// Only treatments that exist in the locale files appear here — nothing is
-// invented. Men's Sugaring and Face have no entries yet, so those pages fall
-// back to the "full menu on Fresha" state rather than showing fabricated
-// services. Add entries here (and matching `pages.services.items.*` strings in
-// both locales) as the real menu is confirmed.
+// Prices, durations and groupings here are transcribed from Fresha. Fresha
+// remains the source of truth: if a price changes there, change it here too, or
+// the site will quote a stale figure. Nothing in this file is invented — a
+// service only appears once it exists on the booking menu.
+//
+// Copy (name, duration, description) lives in the locale files under
+// `pages.services.items.<key>` so both languages stay in step.
 
-export type TreatmentCategory = "intimate" | "body" | "face" | "mensSugaring" | "bundles";
+/** The section a service belongs to on the booking menu. */
+export type ServiceCategory = "mens" | "bundles" | "intimate" | "face";
 
-export type Treatment = {
+/** The tabs shown on /services. "featured" is a curated view, not a section. */
+export type ServiceTab = "featured" | "mens" | "bundles" | "intimate";
+
+export type Service = {
   key: string;
-  category: TreatmentCategory;
-  hasNote: boolean;
-  image: string;
-  altKey: string;
+  category: ServiceCategory;
+  /** Appears under the Featured tab, as it does on Fresha. */
+  featured?: boolean;
+  /** CAD. Rendered as CA$<price>. */
+  price: number;
+  /** Bundles only: the combined price of the services bought separately. */
+  compareAt?: number;
+  /** Bundles only: how many treatments are included. */
+  includes?: number;
+  femaleOnly?: boolean;
 };
 
-export const TREATMENTS: Treatment[] = [
-  // Each treatment is illustrated with a picture of a treatment, not an
-  // ingredient. Underarms previously showed a bowl of lemons, and Summer Ready
-  // a bright paste-on-white shot that glared against the dark cards.
-  { key: "brazilian", category: "intimate", hasNote: false, image: "/images/faq-hero.jpg", altKey: "alt.application" },
-  { key: "underarms", category: "body", hasNote: false, image: "/images/home/table.jpg", altKey: "alt.treatment" },
-  { key: "faceRefresh", category: "bundles", hasNote: true, image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
-  { key: "summerReady", category: "bundles", hasNote: true, image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
+/**
+ * A taste of each part of the menu, not the whole thing — about four per tab,
+ * in the order Fresha lists them, with a link out to the full menu. Fresha
+ * carries services that deliberately do not appear here (all of Body and Face,
+ * and the rest of Men's), so never describe this list as complete.
+ */
+export const SERVICES: Service[] = [
+  // Intimate
+  { key: "buttCheeks", category: "intimate", price: 25 },
+  { key: "brazilian", category: "intimate", featured: true, price: 60 },
+  { key: "extendedBikini", category: "intimate", price: 45 },
+  { key: "bikini", category: "intimate", price: 35 },
+
+  // Men's sugaring
+  { key: "mensFullBack", category: "mens", price: 80 },
+  { key: "mensShoulders", category: "mens", price: 25 },
+  { key: "mensStomach", category: "mens", price: 30 },
+  { key: "mensChest", category: "mens", price: 60 },
+
+  // Bundles
+  { key: "faceRefresh", category: "bundles", price: 42, compareAt: 47, includes: 3 },
+  { key: "smoothEssentials", category: "bundles", price: 75, compareAt: 80, includes: 2, femaleOnly: true },
+  { key: "summerReady", category: "bundles", featured: true, price: 125, compareAt: 135, includes: 2, femaleOnly: true },
+
+  // Face — only surfaced through the Featured tab, as on Fresha.
+  { key: "upperLip", category: "face", featured: true, price: 12 },
+  { key: "chin", category: "face", featured: true, price: 15 },
 ];
 
-export function treatmentsIn(category: TreatmentCategory) {
-  return TREATMENTS.filter((item) => item.category === category);
+export const SERVICE_TABS: ServiceTab[] = ["featured", "mens", "bundles", "intimate"];
+
+/** Keeps every tab to a short, scannable list rather than a full price list. */
+export const MAX_PER_TAB = 4;
+
+export function servicesIn(tab: ServiceTab): Service[] {
+  const all = tab === "featured"
+    ? SERVICES.filter((s) => s.featured)
+    : SERVICES.filter((s) => s.category === tab);
+  return all.slice(0, MAX_PER_TAB);
 }
 
-/** The four standalone, crawlable category pages. */
-export const CATEGORY_PAGES = [
-  { path: "/intimate-sugaring", copyKey: "intimate", category: "intimate" as const, seoKey: "intimate", image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
-  { path: "/body-sugaring", copyKey: "body", category: "body" as const, seoKey: "body", image: "/images/home/table.jpg", altKey: "alt.treatment" },
-  { path: "/mens-sugaring", copyKey: "mens", category: "mensSugaring" as const, seoKey: "mens", image: "/images/hero/hero-1.jpg", altKey: "alt.paste" },
-  { path: "/facial-sugaring", copyKey: "facial", category: "face" as const, seoKey: "facial", image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
+/** Percentage saved on a bundle, rounded the way Fresha displays it. */
+export function bundleSaving(service: Service): number | null {
+  if (!service.compareAt) return null;
+  return Math.round(((service.compareAt - service.price) / service.compareAt) * 100);
+}
+
+export function formatPrice(amount: number): string {
+  return `CA$${amount}`;
+}
+
+/**
+ * The four cards in the homepage carousel. Kept short and hand-picked, with an
+ * image each — the full menu lives on /services.
+ */
+export const HOME_FEATURED = [
+  { key: "brazilian", image: "/images/faq-hero.jpg", altKey: "alt.application" },
+  { key: "summerReady", image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
+  { key: "faceRefresh", image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
+  { key: "mensFullBack", image: "/images/home/table.jpg", altKey: "alt.treatment" },
 ];
