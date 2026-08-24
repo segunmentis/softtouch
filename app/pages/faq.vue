@@ -2,7 +2,7 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
-      :image-alt="t('alt.application')"
+      :image-alt="t('alt.paste')"
       :kicker="t('faq.kicker')"
       :title="t('faq.title')"
       :sub="t('faq.heroSub')"
@@ -83,7 +83,7 @@ const { t } = useI18n();
 
 usePageSeo({ path: "/faq", titleKey: "seo.faq.title", descriptionKey: "seo.faq.description" });
 
-const heroImage = "/images/faq-hero.jpg";
+const heroImage = "/images/hero/hero-1.jpg";
 
 // Ids are stable and human-readable so a single answer can be linked directly,
 // e.g. /faq#hair-length in a reply to a client.

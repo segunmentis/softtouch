@@ -100,10 +100,13 @@ usePageSeo({ path: "/about", titleKey: "seo.about.title", descriptionKey: "seo.a
 
 const heroImage = "/images/hero/hero-3.jpg";
 
+// Captions describe the photograph they sit on. They previously did not: a
+// massage shot was captioned "Paste, made fresh", a portrait "The treatment
+// room", and the paste "Duchess Street".
 const prints = [
-  { src: "/images/home/table.jpg", captionKey: "pages.about.gallery2", altKey: "alt.treatment", position: "md:left-0 md:top-4 md:h-[62%] md:w-[46%] md:-rotate-[5deg]" },
+  { src: "/images/hero/hero-1.jpg", captionKey: "pages.about.gallery2", altKey: "alt.paste", position: "md:left-0 md:top-4 md:h-[62%] md:w-[46%] md:-rotate-[5deg]" },
   { src: "/images/home/portrait.jpg", captionKey: "pages.about.gallery1", altKey: "alt.portrait", position: "md:left-[34%] md:top-[16%] md:h-[64%] md:w-[44%] md:rotate-[3.5deg] md:z-10" },
-  { src: "/images/hero/hero-1.jpg", captionKey: "pages.about.gallery3", altKey: "alt.paste", position: "md:right-0 md:top-0 md:h-[54%] md:w-[40%] md:rotate-[6deg]" },
+  { src: "/images/hero/hero-2.jpg", captionKey: "pages.about.gallery3", altKey: "alt.legs", position: "md:right-0 md:top-0 md:h-[54%] md:w-[40%] md:rotate-[6deg]" },
 ];
 </script>
 

@@ -58,21 +58,25 @@
         <div
           v-for="item in featured"
           :key="item.key"
-          class="t-card w-[320px] flex-shrink-0 snap-start flex flex-col overflow-hidden rounded-xl border border-cream/10 bg-[#191710]"
+          class="t-card flex w-[300px] flex-shrink-0 snap-start flex-col justify-between rounded-xl border border-cream/12 bg-[#191710] p-6"
         >
-          <div class="t-img h-48 overflow-hidden">
-            <img :src="item.image" :alt="t(item.altKey)" width="320" height="192" loading="lazy" decoding="async" class="h-full w-full object-cover" />
-          </div>
-          <div class="flex flex-col p-5">
-            <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gold">
+          <div>
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-gold">
               {{ t(`pages.services.tabs.${item.category}`) }}
             </p>
-            <h3 class="mb-1 text-xl italic text-cream">{{ t(`pages.services.items.${item.key}.name`) }}</h3>
-            <p class="flex items-baseline gap-2 text-sm text-cream/50">
-              <span>{{ t(`pages.services.items.${item.key}.duration`) }}</span>
-              <span class="text-cream/80 tabular-nums">{{ formatPrice(item.price) }}</span>
+            <h3 class="mb-2 text-2xl italic leading-tight text-cream">
+              {{ t(`pages.services.items.${item.key}.name`) }}
+            </h3>
+            <p class="text-sm leading-relaxed text-cream/60">
+              {{ t(`pages.services.items.${item.key}.description`) }}
             </p>
           </div>
+          <p class="mt-6 flex items-baseline justify-between border-t border-cream/10 pt-4">
+            <span class="text-xs uppercase tracking-wider text-cream/50">
+              {{ t(`pages.services.items.${item.key}.duration`) }}
+            </span>
+            <span class="text-xl text-cream tabular-nums">{{ formatPrice(item.price) }}</span>
+          </p>
         </div>
       </TreatmentCarousel>
     </section>
@@ -260,7 +264,6 @@ const gallery = [
   { src: "/images/hero/hero-1.jpg", captionKey: "pages.home.gallery1", altKey: "alt.paste" },
   { src: "/images/hero/hero-3.jpg", captionKey: "pages.home.gallery2", altKey: "alt.lemons" },
   { src: "/images/hero/hero-2.jpg", captionKey: "pages.home.gallery3", altKey: "alt.legs" },
-  { src: "/images/home/table.jpg", captionKey: "pages.home.gallery4", altKey: "alt.treatment" },
   { src: "/images/home/portrait.jpg", captionKey: "pages.home.gallery5", altKey: "alt.portrait" },
 ];
 const galleryDoubled = [...gallery, ...gallery];

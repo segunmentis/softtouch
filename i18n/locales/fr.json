@@ -72,7 +72,6 @@
       "gallery1": "Pâte de sucre 100 % naturelle",
       "gallery2": "Seulement du sucre, du citron et de l'eau",
       "gallery3": "Une peau douce et saine",
-      "gallery4": "Des soins attentifs, faits à la main",
       "gallery5": "Des résultats qui durent",
       "readyKicker": "Se préparer",
       "readyHeading": "Avant et après votre rendez-vous",
@@ -88,9 +87,9 @@
       "ctaBody": "Consultez le menu complet des soins ou réservez votre rendez-vous directement en ligne.",
       "cta": "Prendre rendez-vous",
       "heroSub": "Épilation au sucre en studio privé, rue Duchess, Saskatoon.",
-      "gallery1": "La salle de soin",
+      "gallery1": "Une peau douce et saine",
       "gallery2": "La pâte, préparée fraîche",
-      "gallery3": "Rue Duchess",
+      "gallery3": "Des résultats qui durent",
       "noteCard": "Sucre, citron, eau — voilà toute la recette. Rien d'artificiel, jamais.",
       "visitKicker": "Votre rendez-vous",
       "visitHeading": "Comment se déroule un rendez-vous",
@@ -306,9 +305,7 @@
   "alt": {
     "paste": "Pâte de sucre ambrée coulant d'une cuillère",
     "legs": "Jambes lisses reposant sur un canapé en velours après une épilation au sucre",
-    "lemons": "Citrons frais dans l'eau — l'un des trois ingrédients de la pâte de sucre",
-    "treatment": "Une praticienne prépare la peau d'une cliente avant un soin d'épilation au sucre",
-    "portrait": "Portrait rapproché d'une cliente à la peau lisse et nette",
-    "application": "Une praticienne gantée applique de la pâte de sucre tiède sur la jambe d'une cliente à l'aide d'une spatule"
+    "lemons": "Des agrumes dans l'eau — le genre d'ingrédients simples et naturels sur lesquels repose l'épilation au sucre",
+    "portrait": "Portrait rapproché d'une cliente à la peau lisse et nette"
   }
 }

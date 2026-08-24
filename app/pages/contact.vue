@@ -2,7 +2,7 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
-      :image-alt="t('alt.treatment')"
+      :image-alt="t('alt.portrait')"
       :kicker="t('pages.contact.kicker')"
       :title="t('pages.contact.title')"
       :sub="t('pages.contact.heroSub')"
@@ -168,7 +168,7 @@ const { t } = useI18n();
 
 usePageSeo({ path: "/contact", titleKey: "seo.contact.title", descriptionKey: "seo.contact.description" });
 
-const heroImage = "/images/home/table.jpg";
+const heroImage = "/images/home/portrait.jpg";
 
 const details = computed(() =>
   [

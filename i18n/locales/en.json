@@ -72,7 +72,6 @@
       "gallery1": "All-natural sugar paste",
       "gallery2": "Just sugar, lemon and water",
       "gallery3": "Smooth, healthy skin",
-      "gallery4": "Hands-on, gentle care",
       "gallery5": "Results that last",
       "readyKicker": "Getting Ready",
       "readyHeading": "Before & after your appointment",
@@ -88,9 +87,9 @@
       "ctaBody": "See the full treatment menu or book your appointment directly online.",
       "cta": "Book Appointment",
       "heroSub": "Private body sugaring on Duchess Street, Saskatoon.",
-      "gallery1": "The treatment room",
+      "gallery1": "Smooth, healthy skin",
       "gallery2": "Paste, made fresh",
-      "gallery3": "Duchess Street",
+      "gallery3": "Results that last",
       "noteCard": "Sugar, lemon, water — that's the whole recipe. Nothing artificial, ever.",
       "visitKicker": "Your appointment",
       "visitHeading": "What an appointment is like",
@@ -306,9 +305,7 @@
   "alt": {
     "paste": "Amber sugar paste dripping from a spoon",
     "legs": "Smooth legs resting on a velvet sofa after a sugaring treatment",
-    "lemons": "Fresh lemons in water — one of the three ingredients in sugar paste",
-    "treatment": "A practitioner preparing a client's skin before a sugaring treatment",
-    "portrait": "Close-up portrait of a client with smooth, clear skin",
-    "application": "A gloved practitioner applying warm sugar paste to a client's leg with a spatula"
+    "lemons": "Citrus and water — the kind of simple, natural ingredients sugaring is built on",
+    "portrait": "Close-up portrait of a client with smooth, clear skin"
   }
 }

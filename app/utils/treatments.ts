@@ -80,12 +80,18 @@ export function formatPrice(amount: number): string {
 }
 
 /**
- * The four cards in the homepage carousel. Kept short and hand-picked, with an
- * image each — the full menu lives on /services.
+ * The four cards in the homepage carousel — the full menu lives on /services.
+ *
+ * Deliberately without photographs. The studio has no photography of these
+ * specific treatments, and the stock images previously used here showed a
+ * massage, a wax-style spatula application and a pair of bare legs — none of
+ * them sugaring, and each one implying a treatment the studio does not offer.
+ * A card with no picture is better than a card with the wrong one. Add images
+ * back here only alongside real photographs of the treatment named.
  */
 export const HOME_FEATURED = [
-  { key: "brazilian", image: "/images/faq-hero.jpg", altKey: "alt.application" },
-  { key: "summerReady", image: "/images/hero/hero-2.jpg", altKey: "alt.legs" },
-  { key: "faceRefresh", image: "/images/home/portrait.jpg", altKey: "alt.portrait" },
-  { key: "mensFullBack", image: "/images/home/table.jpg", altKey: "alt.treatment" },
+  { key: "brazilian" },
+  { key: "summerReady" },
+  { key: "faceRefresh" },
+  { key: "mensFullBack" },
 ];
