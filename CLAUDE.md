@@ -106,18 +106,25 @@ never literals.
 - [server/routes/sitemap.xml.get.ts](server/routes/sitemap.xml.get.ts) generates
   the sitemap.
 
-## Two things are still blocking launch
+## One thing is still blocking launch
 
-1. **`NUXT_PUBLIC_SITE_URL` is empty.** Canonical tags, absolute `og:image` and
-   the sitemap are all suppressed until it is set. Because pages are
-   prerendered it must be set at **build** time:
-   `NUXT_PUBLIC_SITE_URL=https://… npm run build`. Setting it on the running
-   server does nothing to the already-generated HTML.
-2. **`STUDIO_PHONE` is empty** in [app/utils/studio.ts](app/utils/studio.ts).
-   The LocalBusiness schema wants it.
+**`NUXT_PUBLIC_SITE_URL` is empty.** Canonical tags, absolute `og:image` and
+the sitemap are all suppressed until it is set. Because pages are prerendered
+it must be set at **build** time:
+`NUXT_PUBLIC_SITE_URL=https://… npm run build`. Setting it on the running
+server does nothing to the already-generated HTML. This is deliberate —
+guessing an origin can deindex the site — so leave it empty until the owner
+supplies the real value.
 
-Both are deliberate — guessing an origin can deindex the site — so leave them
-empty until the owner supplies the real values.
+`STUDIO_PHONE` is now filled in and the LocalBusiness schema emits it.
+
+## Contact details that are still partly empty
+
+Every field in [app/utils/contact.ts](app/utils/contact.ts) follows one rule:
+**anything empty is hidden rather than rendered as a dead link**, so the page
+stays coherent while values are outstanding. All three `SOCIAL_LINKS` URLs and
+`STUDIO_PHONE` are now set; still outstanding are `CONTACT_EMAIL` and
+`CONTACT_FORM_ENDPOINT`. The owner supplies these; do not invent them.
 
 ## Assets
 

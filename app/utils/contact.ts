@@ -24,7 +24,7 @@ export const MAP_URL = "https://www.google.com/maps/search/?api=1&query=410+Duch
 
 /** Social profiles. Entries without a `url` are not rendered. */
 export const SOCIAL_LINKS: { key: string; label: string; handle: string; url: string }[] = [
-  { key: "facebook", label: "Facebook", handle: "", url: "" },
-  { key: "instagram", label: "Instagram", handle: "", url: "" },
-  { key: "tiktok", label: "TikTok", handle: "", url: "" },
+  { key: "facebook", label: "Facebook", handle: "", url: "https://www.facebook.com/profile.php?id=61590793826908" },
+  { key: "instagram", label: "Instagram", handle: "@softtouchaestheticsstudio", url: "https://www.instagram.com/softtouchaestheticsstudio/" },
+  { key: "tiktok", label: "TikTok", handle: "@softtouchaesthetics", url: "https://www.tiktok.com/@softtouchaesthetics" },
 ];

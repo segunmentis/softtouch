@@ -12,8 +12,12 @@ export const STUDIO_ADDRESS = {
   country: "CA",
 };
 
-/** TODO: add the studio's public phone number — it is requested for the LocalBusiness schema. */
-export const STUDIO_PHONE = "";
+/**
+ * Displayed as written; the footer's tel: link normalises it to E.164, so the
+ * formatting here is purely presentational. Also emitted as `telephone` in the
+ * LocalBusiness schema.
+ */
+export const STUDIO_PHONE = "(639) 525-2953";
 
 /**
  * Opening hours. `days` uses schema.org day codes so the structured data and the
