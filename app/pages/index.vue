@@ -110,7 +110,7 @@
       </Reveal>
       <div class="marquee mt-10">
         <div class="marquee-track">
-          <div v-for="(g, i) in galleryDoubled" :key="i" class="g-card relative h-80 w-64 flex-shrink-0 overflow-hidden rounded-xl">
+          <div v-for="(g, i) in galleryRepeated" :key="i" class="g-card relative h-80 w-64 flex-shrink-0 overflow-hidden rounded-xl">
             <img :src="g.src" :alt="t(g.altKey)" width="256" height="320" loading="lazy" decoding="async" class="h-full w-full object-cover" />
             <div class="g-cap absolute inset-x-0 bottom-0 p-4 text-sm font-medium text-cream">{{ t(g.captionKey) }}</div>
           </div>
@@ -264,9 +264,13 @@ const gallery = [
   { src: "/images/hero/hero-1.jpg", captionKey: "pages.home.gallery1", altKey: "alt.paste" },
   { src: "/images/hero/hero-3.jpg", captionKey: "pages.home.gallery2", altKey: "alt.lemons" },
   { src: "/images/hero/hero-2.jpg", captionKey: "pages.home.gallery3", altKey: "alt.legs" },
-  { src: "/images/home/portrait.jpg", captionKey: "pages.home.gallery5", altKey: "alt.portrait" },
 ];
-const galleryDoubled = [...gallery, ...gallery];
+
+// Repeated three times, not twice: the marquee scrolls one full copy and loops,
+// so a copy must be at least as wide as the viewport or a gap opens at the seam.
+// Three copies of three 256px cards covers ~1650px; two would only cover ~830px.
+// Keep this in step with the translateX percentage in the marquee keyframes.
+const galleryRepeated = [...gallery, ...gallery, ...gallery];
 
 // How it works: scroll-driven step progress
 const stepsWrap = ref<HTMLElement | null>(null);
@@ -336,7 +340,7 @@ const openFaq = ref<number | null>(null);
   gap: 20px;
   width: max-content;
   padding: 0 24px;
-  animation: marquee 34s linear infinite;
+  animation: marquee 26s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;
@@ -346,7 +350,7 @@ const openFaq = ref<number | null>(null);
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-33.3333%);
   }
 }
 @media (prefers-reduced-motion: reduce) {
