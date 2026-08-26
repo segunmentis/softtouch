@@ -114,7 +114,7 @@
 
     <!-- Why choose sugaring -->
     <section class="mx-auto max-w-7xl px-6 py-12 md:py-14">
-      <div class="grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:gap-16">
         <Reveal>
           <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
             {{ t('pages.services.whyKicker') }}
