@@ -38,6 +38,13 @@
     "brandName": "Soft Touch Aesthetics Studio",
     "allRightsReserved": "Tous droits réservés."
   },
+  "error": {
+    "kicker": "Erreur 404",
+    "title": "Cette page n'existe pas.",
+    "body": "Le lien est peut-être périmé, ou la page a été déplacée.",
+    "seoTitle": "Page introuvable",
+    "seoDescription": "Cette page est introuvable. Consultez le menu des soins, les heures d'ouverture et les coordonnées de Soft Touch Aesthetics Studio à Saskatoon."
+  },
   "pages": {
     "home": {
       "kicker": "Saskatoon, SK",
