@@ -39,7 +39,7 @@ export default defineNuxtConfig({
       //
       // Public on purpose — the browser posts the form directly, so the address
       // is in the page source either way. Do not put secrets here.
-      contactEmail: "soniapologbo@gmail.com",
+      contactEmail: "soniapologbo04@gmail.com",
     },
   },
 
