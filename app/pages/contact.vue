@@ -76,6 +76,13 @@
             <p class="mb-6 text-sm text-cream/60">{{ t('pages.contact.formIntro') }}</p>
 
             <form novalidate @submit.prevent="submit">
+              <!-- Spam trap: off-screen rather than display:none, which some
+                   bots detect and skip. Never shown to a real visitor. -->
+              <div class="absolute left-[-9999px]" aria-hidden="true">
+                <label for="contact-company">Company</label>
+                <input id="contact-company" v-model="honey" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div class="mb-4">
                 <label for="contact-name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
                   {{ t('pages.contact.name') }}
@@ -170,17 +177,20 @@ usePageSeo({ path: "/contact", titleKey: "seo.contact.title", descriptionKey: "s
 
 const heroImage = "/images/home/portrait.jpg";
 
+const contactEmail = computed(() => useContactEmail());
+const formEndpoint = computed(() => useContactFormEndpoint());
+
 const details = computed(() =>
   [
     { key: "address", icon: "◎", headingKey: "pages.contact.addressHeading", value: t("footer.address"), href: "" },
     { key: "hours", icon: "◷", headingKey: "pages.contact.hoursHeading", value: t("footer.hours"), href: "" },
-    CONTACT_EMAIL
+    contactEmail.value
       ? {
           key: "email",
           icon: "✉",
           headingKey: "pages.contact.emailHeading",
-          value: CONTACT_EMAIL,
-          href: `mailto:${CONTACT_EMAIL}`,
+          value: contactEmail.value,
+          href: `mailto:${contactEmail.value}`,
         }
       : null,
   ].filter((d): d is NonNullable<typeof d> => d !== null)
@@ -190,40 +200,54 @@ const details = computed(() =>
 const socials = computed(() => SOCIAL_LINKS.filter((s) => s.url));
 
 const form = reactive({ name: "", email: "", message: "" });
+// Spam trap. Bots fill every field they find; a real visitor never sees this
+// one, so anything non-empty here is discarded. FormSubmit honours `_honey`
+// server-side too, but bailing early saves the request.
+const honey = ref("");
 const status = ref<"idle" | "sending" | "sent" | "error">("idle");
 const sentName = ref("");
 
 async function submit() {
+  if (honey.value) return;
+
+  // Nothing configured yet: fail honestly rather than claiming it sent.
+  if (!formEndpoint.value) {
+    status.value = "error";
+    return;
+  }
+
   status.value = "sending";
   sentName.value = form.name;
 
-  // Hosted form endpoint, when configured.
-  if (CONTACT_FORM_ENDPOINT) {
-    try {
-      await $fetch(CONTACT_FORM_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: { ...form },
-      });
-      status.value = "sent";
-      Object.assign(form, { name: "", email: "", message: "" });
-    } catch {
-      status.value = "error";
-    }
-    return;
-  }
+  try {
+    // FormSubmit replies 200 with { success: "false", message } for a form that
+    // has not been activated yet, so the body is checked rather than trusting
+    // the status code.
+    const res = await $fetch<{ success?: string | boolean; message?: string }>(formEndpoint.value, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        // Names the studio, so the enquiry is identifiable in the inbox.
+        _subject: `${STUDIO_NAME} — ${form.name}`,
+        // Sends a readable table instead of FormSubmit's default layout, and
+        // suppresses their captcha page (this is an AJAX POST, so a redirect to
+        // a captcha would strand the visitor).
+        _template: "table",
+        _captcha: "false",
+        _honey: honey.value,
+      },
+    });
 
-  // Otherwise hand off to the visitor's mail client.
-  if (CONTACT_EMAIL) {
-    const subject = encodeURIComponent(`${t("pages.contact.formHeading")} — ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n${form.name}\n${form.email}`);
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    if (res && String(res.success) === "false") throw new Error(res.message || "rejected");
+
     status.value = "sent";
-    return;
+    Object.assign(form, { name: "", email: "", message: "" });
+  } catch {
+    status.value = "error";
   }
-
-  // Nothing is configured yet: fail honestly rather than claiming it sent.
-  status.value = "error";
 }
 </script>
 

@@ -123,8 +123,31 @@ supplies the real value.
 Every field in [app/utils/contact.ts](app/utils/contact.ts) follows one rule:
 **anything empty is hidden rather than rendered as a dead link**, so the page
 stays coherent while values are outstanding. All three `SOCIAL_LINKS` URLs and
-`STUDIO_PHONE` are now set; still outstanding are `CONTACT_EMAIL` and
-`CONTACT_FORM_ENDPOINT`. The owner supplies these; do not invent them.
+`STUDIO_PHONE` are now set.
+
+The studio inbox is **not** in that file — it comes from
+`NUXT_PUBLIC_CONTACT_EMAIL` and is read through `useContactEmail()` in
+[app/composables/useContact.ts](app/composables/useContact.ts). It drives three
+things: the email row on the contact page, `email` in the LocalBusiness schema,
+and the contact form's endpoint. **It is still empty**, so the form currently
+fails honestly rather than pretending to send.
+
+## The contact form
+
+Posts from the browser to **FormSubmit**, at
+`https://formsubmit.co/ajax/<NUXT_PUBLIC_CONTACT_EMAIL>`. The `/ajax/` endpoint
+is deliberate: the plain form `action` would navigate the visitor to
+formsubmit.co, discarding the page's own translated sending / thanks / error
+states. There is no server route and no mail dependency.
+
+Two things to know:
+
+- **FormSubmit needs activating.** The first submission to a new address
+  triggers a confirmation email that must be clicked before anything is
+  forwarded. Until then it answers `200` with `{"success":"false"}` — which is
+  why the handler checks the body rather than trusting the status code.
+- A `_honey` honeypot field sits off-screen in the form. Anything non-empty
+  there is dropped before the request is made.
 
 ## Assets
 

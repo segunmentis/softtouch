@@ -28,6 +28,18 @@ export default defineNuxtConfig({
       // runtime — `NUXT_PUBLIC_SITE_URL=https://… npm run build`. Setting it only
       // on the running server has no effect on the already-generated HTML.
       siteUrl: "",
+
+      // The studio inbox. The contact form POSTs to FormSubmit, whose endpoint
+      // is keyed by this address, and it is also emitted as `email` in the
+      // LocalBusiness schema. Set NUXT_PUBLIC_CONTACT_EMAIL.
+      //
+      // Same BUILD-time caveat as siteUrl above: the contact page is
+      // prerendered, so this is baked into the generated HTML and payload.
+      // Setting it only on the running server changes nothing.
+      //
+      // Public on purpose — the browser posts the form directly, so the address
+      // is in the page source either way. Do not put secrets here.
+      contactEmail: "mentis2010@gmail.com",
     },
   },
 
@@ -35,7 +47,11 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "anonymous",
+        },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
@@ -43,8 +59,18 @@ export default defineNuxtConfig({
         // Cream monogram on an ink plate — cream on transparent disappears in a light tab.
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-        { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
-        { rel: "icon", type: "image/png", sizes: "512x512", href: "/icon-512.png" },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/favicon-32.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "512x512",
+          href: "/icon-512.png",
+        },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       ],
       meta: [

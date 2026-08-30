@@ -9,6 +9,7 @@
  */
 export default defineNuxtPlugin(() => {
   const siteUrl = (useRuntimeConfig().public.siteUrl as string) || "";
+  const contactEmail = useContactEmail();
   const origin = siteUrl.replace(/\/$/, "");
 
   const sameAs = SOCIAL_LINKS.filter((link) => link.url).map((link) => link.url);
@@ -50,7 +51,7 @@ export default defineNuxtPlugin(() => {
     schema.image = `${origin}/og-image.png`;
   }
   if (STUDIO_PHONE) schema.telephone = STUDIO_PHONE;
-  if (CONTACT_EMAIL) schema.email = CONTACT_EMAIL;
+  if (contactEmail) schema.email = contactEmail;
   if (sameAs.length) schema.sameAs = sameAs;
 
   useHead({
