@@ -104,15 +104,15 @@ const ABOUT_STEPS = [
   { title: "Aftercare", body: "Written aftercare to take with you, and rebooking whenever you are ready — never before." },
 ];
 
-const heroImage = "/images/hero/hero-3.jpg";
+const heroImage = "/images/hero/hero-3.webp";
 
 // Captions describe the photograph they sit on. They previously did not: a
 // massage shot was captioned "Paste, made fresh", a portrait "The treatment
 // room", and the paste "Duchess Street".
 const prints = [
-  { src: "/images/hero/hero-1.jpg", caption: "Paste, made fresh", alt: "Amber sugar paste dripping from a spoon", position: "md:left-0 md:top-4 md:h-[62%] md:w-[46%] md:-rotate-[5deg]" },
-  { src: "/images/home/portrait.jpg", caption: "Smooth, healthy skin", alt: "Close-up portrait of a client with smooth, clear skin", position: "md:left-[34%] md:top-[16%] md:h-[64%] md:w-[44%] md:rotate-[3.5deg] md:z-10" },
-  { src: "/images/hero/hero-2.jpg", caption: "Results that last", alt: "Smooth legs resting on a velvet sofa after a sugaring treatment", position: "md:right-0 md:top-0 md:h-[54%] md:w-[40%] md:rotate-[6deg]" },
+  { src: "/images/hero/hero-1.webp", caption: "Paste, made fresh", alt: "Amber sugar paste dripping from a spoon", position: "md:left-0 md:top-4 md:h-[62%] md:w-[46%] md:-rotate-[5deg]" },
+  { src: "/images/home/portrait.webp", caption: "Smooth, healthy skin", alt: "Close-up portrait of a client with smooth, clear skin", position: "md:left-[34%] md:top-[16%] md:h-[64%] md:w-[44%] md:rotate-[3.5deg] md:z-10" },
+  { src: "/images/hero/hero-2.webp", caption: "Results that last", alt: "Smooth legs resting on a velvet sofa after a sugaring treatment", position: "md:right-0 md:top-0 md:h-[54%] md:w-[40%] md:rotate-[6deg]" },
 ];
 </script>
 

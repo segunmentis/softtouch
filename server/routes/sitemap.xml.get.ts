@@ -3,6 +3,10 @@
 // Emits nothing useful until NUXT_PUBLIC_SITE_URL is set — sitemap entries must
 // be absolute URLs on the site's own origin, and a sitemap full of wrong hosts
 // is worse than no sitemap at all.
+//
+// No <lastmod>. It would be the build date for every page, so a rebuild that
+// changed one page would claim all five had changed. Search engines discount
+// lastmod they find unreliable, which is worse than omitting it.
 
 const ROUTES = [
   { path: "/", priority: "1.0" },
@@ -14,14 +18,12 @@ const ROUTES = [
 
 export default defineEventHandler((event) => {
   const origin = (useRuntimeConfig(event).public.siteUrl as string || "").replace(/\/$/, "");
-  const lastmod = new Date().toISOString().split("T")[0];
 
   const urls = origin
     ? ROUTES.map(
         (route) =>
           `  <url>\n` +
           `    <loc>${origin}${route.path === "/" ? "/" : route.path}</loc>\n` +
-          `    <lastmod>${lastmod}</lastmod>\n` +
           `    <priority>${route.priority}</priority>\n` +
           `  </url>`
       ).join("\n")

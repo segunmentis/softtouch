@@ -221,7 +221,7 @@ const router = useRouter();
 
 usePageSeo({ path: "/services", title: "Sugaring Menu Saskatoon | Soft Touch Aesthetics Studio", description: "The full sugaring menu at Soft Touch Aesthetics Studio in Saskatoon — Brazilian, body, facial and men's services in a private studio." });
 
-const heroImage = "/images/hero/hero-2.jpg";
+const heroImage = "/images/hero/hero-2.webp";
 
 const WHY_POINTS = [
   "Removes hair in the natural direction of growth",

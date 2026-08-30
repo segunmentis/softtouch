@@ -22,7 +22,7 @@
         <!-- Logo -->
         <NuxtLink to="/" class="mr-8 flex items-center gap-3 no-underline">
           <img
-            src="/images/logo-badge.png"
+            src="/images/logo-badge.webp"
             alt="Soft Touch Aesthetics Studio"
             width="256"
             height="258"

@@ -82,7 +82,7 @@
 
 usePageSeo({ path: "/faq", title: "Sugaring FAQ Saskatoon | Soft Touch Aesthetics Studio", description: "Answers to common sugaring questions — hair length, how long results last, sensitive skin, aftercare, and how sugaring differs from waxing." });
 
-const heroImage = "/images/hero/hero-1.jpg";
+const heroImage = "/images/hero/hero-1.webp";
 
 const questions = FAQS;
 

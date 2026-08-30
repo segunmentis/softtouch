@@ -55,8 +55,8 @@ Palette lives in [tailwind.config.js](tailwind.config.js):
 | `ember` | `#a15b28` | Accent |
 | `primary` | `#696740` | Muted olive |
 
-Typography is **EB Garamond** throughout, loaded from Google Fonts and applied
-via a `*` rule in [app/assets/css/main.css](app/assets/css/main.css).
+Typography is **EB Garamond** throughout, self-hosted and applied via a `*`
+rule in [app/assets/css/main.css](app/assets/css/main.css).
 
 Settled UI conventions, each the result of a specific correction:
 
@@ -82,10 +82,11 @@ them so details cannot drift:
 - [app/utils/contact.ts](app/utils/contact.ts), [app/utils/fresha.ts](app/utils/fresha.ts)
   — contact details and the Fresha booking URL.
 
-**Pages**: index, about, services, contact, faq, plus four crawlable category
-pages (`/intimate-sugaring`, `/body-sugaring`, `/mens-sugaring`,
-`/facial-sugaring`) all rendered through the shared
-[app/components/CategoryPage.vue](app/components/CategoryPage.vue).
+**Pages**: index, about, services, contact, faq, plus
+[app/error.vue](app/error.vue) for 404s and 500s. The four category pages that
+used to exist were replaced by the tabbed menu on `/services`; their URLs are
+kept alive as 301 redirects in [nuxt.config.ts](nuxt.config.ts) because they
+were indexed.
 
 **Copy**: the site is **English-only** — `@nuxtjs/i18n` was removed, along with
 the locale files, the locale switcher and the locale-persistence plugin. Copy
@@ -161,5 +162,23 @@ Two things to know:
 
 Brand marks and imagery live in [public/](public/) and [brand/](brand/). The
 favicon is a cream monogram **on an ink plate**, not on transparency, because
-cream-on-transparent vanishes in a light browser tab. Unused images have been
-pruned from the bundle once already; keep the served set tight.
+cream-on-transparent vanishes in a light browser tab.
+
+**Every served image is WebP.** The JPEG/PNG originals were removed, not kept as
+fallbacks — WebP support is universal, and shipping both doubles the bundle for
+no one. Convert new images before adding them (`cwebp -q 80 -m 6`).
+
+**The photography's licensing is unconfirmed.** `hero-1`, `hero-2`, `hero-3`
+and `portrait` all arrived in one commit (`d9753dc`) with no source recorded,
+and they are every photograph on the site. Nobody has established they are
+licensed for commercial use. Replacing them with real studio photography would
+settle it and fix the missing treatment imagery at the same time.
+
+**EB Garamond is self-hosted** in [public/fonts/](public/fonts/), latin subset
+only, with the faces declared in
+[app/assets/css/fonts.css](app/assets/css/fonts.css). It used to come from
+Google Fonts, which put a render-blocking stylesheet on a third-party origin in
+the critical path. All five faces (400, 500, 600, 700 and 400 italic) are
+genuinely used — check before dropping one.
+
+Unused images have been pruned twice now; keep the served set tight.
