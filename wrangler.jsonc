@@ -1,0 +1,11 @@
+{
+  "name": "softtouch",
+  "compatibility_date": "2026-08-28",
+  "assets": {
+    "directory": ".output/public"
+  },
+  "routes": [
+    { "pattern": "softtouchaestheticsstudio.com", "custom_domain": true },
+    { "pattern": "www.softtouchaestheticsstudio.com", "custom_domain": true }
+  ]
+}
