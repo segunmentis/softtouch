@@ -61,7 +61,7 @@
         <!-- Brand -->
         <div class="col-span-2 md:col-span-1">
           <img
-            src="/images/logo-stacked.png"
+            src="/images/logo-stacked.webp"
             alt="Soft Touch Aesthetics Studio"
             width="440"
             height="565"

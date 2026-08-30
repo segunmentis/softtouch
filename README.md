@@ -93,6 +93,23 @@ Two things to know:
 - A `_honey` honeypot field sits off-screen in the form. Anything non-empty
   there is dropped before the request is made.
 
+## Assets
+
+Every served image is **WebP**; the JPEG/PNG originals were removed rather than
+kept as fallbacks. Convert new images before adding them:
+
+```bash
+cwebp -q 80 -m 6 input.jpg -o public/images/input.webp
+```
+
+**EB Garamond is self-hosted** in `public/fonts/` (latin subset only), declared
+in `app/assets/css/fonts.css`. Regenerate by re-fetching the Google Fonts CSS
+and keeping only the `latin` blocks.
+
+Logo masters live in [brand/](brand/), outside `public/` so they are not served.
+See [brand/README.md](brand/README.md) for which derivative comes from which
+master.
+
 ## Prices come from Fresha
 
 Every price, duration and description in `treatments.ts` is transcribed from the

@@ -85,7 +85,7 @@
     <section class="border-y border-cream/10 bg-[#191710] py-16">
       <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
         <Reveal class="h-[420px] overflow-hidden rounded-2xl">
-          <img src="/images/hero/hero-3.jpg" alt="Citrus and water — the kind of simple, natural ingredients sugaring is built on" width="1920" height="1200" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+          <img src="/images/hero/hero-3.webp" alt="Citrus and water — the kind of simple, natural ingredients sugaring is built on" width="1920" height="1200" loading="lazy" decoding="async" class="h-full w-full object-cover" />
         </Reveal>
         <div>
           <Reveal tag="p" class="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">The method</Reveal>
@@ -249,7 +249,7 @@
 
 usePageSeo({ path: "/", title: "Body Sugaring Saskatoon | Soft Touch Aesthetics Studio", description: "Professional body sugaring in Saskatoon for Brazilian, bikini, underarms, legs, arms, face and select men's services. Private studio. Book online." });
 
-const heroImages = ["/images/hero/hero-1.jpg", "/images/hero/hero-2.jpg", "/images/hero/hero-3.jpg"];
+const heroImages = ["/images/hero/hero-1.webp", "/images/hero/hero-2.webp", "/images/hero/hero-3.webp"];
 
 const TRUST_POINTS = [
   "Certified Sugaring Practitioner",
@@ -282,9 +282,9 @@ const featured = HOME_FEATURED.map((card) => {
 });
 
 const gallery = [
-  { src: "/images/hero/hero-1.jpg", caption: "All-natural sugar paste", alt: "Amber sugar paste dripping from a spoon" },
-  { src: "/images/hero/hero-3.jpg", caption: "Just sugar, lemon and water", alt: "Citrus and water — the kind of simple, natural ingredients sugaring is built on" },
-  { src: "/images/hero/hero-2.jpg", caption: "Smooth, healthy skin", alt: "Smooth legs resting on a velvet sofa after a sugaring treatment" },
+  { src: "/images/hero/hero-1.webp", caption: "All-natural sugar paste", alt: "Amber sugar paste dripping from a spoon" },
+  { src: "/images/hero/hero-3.webp", caption: "Just sugar, lemon and water", alt: "Citrus and water — the kind of simple, natural ingredients sugaring is built on" },
+  { src: "/images/hero/hero-2.webp", caption: "Smooth, healthy skin", alt: "Smooth legs resting on a velvet sofa after a sugaring treatment" },
 ];
 
 // Repeated three times, not twice: the marquee scrolls one full copy and loops,

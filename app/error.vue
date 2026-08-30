@@ -1,11 +1,7 @@
 <template>
-  <!-- error.vue replaces app.vue rather than rendering inside it, so the header,
-       the footer and the noscript reveal fix all have to be repeated here. -->
+  <!-- error.vue replaces app.vue rather than rendering inside it, so the header
+       and footer have to be repeated here. -->
   <div class="flex min-h-screen flex-col bg-[#100f0a]">
-    <noscript>
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <component :is="'style'">.reveal { opacity: 1 !important; transform: none !important; }</component>
-    </noscript>
     <NuxtRouteAnnouncer />
     <AppHeader />
 

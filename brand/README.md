@@ -5,8 +5,8 @@ Everything the site actually loads is derived from these files.
 
 | Master | Derivatives |
 | --- | --- |
-| `submark.png` — circular badge | `public/images/logo-badge.png` (header), `public/og-image.png` |
-| `primary.png` — stacked lockup | `public/images/logo-stacked.png` (footer) |
+| `submark.png` — circular badge | `public/images/logo-badge.webp` (header), `public/og-image.png` |
+| `primary.png` — stacked lockup | `public/images/logo-stacked.webp` (footer) |
 | `Icon.png` — ST monogram | `public/favicon.ico`, `favicon.svg`, `favicon-32.png`, `icon-512.png`, `apple-touch-icon.png` |
 
 The icons composite the cream monogram onto an ink `#2a2818` plate — cream on

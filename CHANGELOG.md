@@ -14,3 +14,6 @@ First release.
   descriptions, canonicals and Open Graph tags, LocalBusiness and FAQPage
   structured data, and a generated `sitemap.xml`.
 - English only.
+- 301 redirects from the four retired category URLs to the tabbed menu.
+- WebP imagery and self-hosted EB Garamond, so the site loads no third-party
+  resources at all.

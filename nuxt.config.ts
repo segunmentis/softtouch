@@ -14,6 +14,18 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: ["/", "/sitemap.xml"],
     },
+
+    // The four category pages were replaced by the tabbed menu on /services in
+    // 4756703. They were crawlable and are still indexed, so they redirect
+    // rather than 404 — a 301 passes their accumulated ranking to the tab that
+    // replaced them. Body and Face have no tab of their own, so they land on
+    // the menu itself.
+    routeRules: {
+      "/intimate-sugaring": { redirect: { to: "/services?tab=intimate", statusCode: 301 } },
+      "/mens-sugaring": { redirect: { to: "/services?tab=mens", statusCode: 301 } },
+      "/body-sugaring": { redirect: { to: "/services", statusCode: 301 } },
+      "/facial-sugaring": { redirect: { to: "/services", statusCode: 301 } },
+    },
   },
 
   runtimeConfig: {
@@ -48,16 +60,33 @@ export default defineNuxtConfig({
       // @nuxtjs/i18n used to set this. The site is English-only now, so it is
       // declared here — screen readers and search engines both rely on it.
       htmlAttrs: { lang: "en-CA" },
+
+      // Scroll-reveal sections start at opacity 0 and are shown by JS. Pages are
+      // server-rendered, so their text is in the HTML from the first byte — this
+      // keeps it visible for anyone (or anything) that never runs the script.
+      //
+      // Declared here rather than as a <noscript> in app.vue: the browser parses
+      // noscript content as raw text when scripting is on, while Vue's client
+      // vdom expects an element, which produced a hydration mismatch on every
+      // page.
+      noscript: [{ innerHTML: ".reveal{opacity:1!important;transform:none!important}" }],
       link: [
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        // EB Garamond is self-hosted (app/assets/css/fonts.css). These two faces
+        // carry the hero and the nav, so they are fetched in parallel with the
+        // stylesheet rather than after it.
         {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
+          rel: "preload",
+          as: "font",
+          type: "font/woff2",
+          href: "/fonts/eb-garamond-400.woff2",
           crossorigin: "anonymous",
         },
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+          rel: "preload",
+          as: "font",
+          type: "font/woff2",
+          href: "/fonts/eb-garamond-400-italic.woff2",
+          crossorigin: "anonymous",
         },
         // Cream monogram on an ink plate — cream on transparent disappears in a light tab.
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -81,6 +110,9 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Soft Touch Aesthetics Studio" },
         { property: "og:locale", content: "en_CA" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
+        { property: "og:image:alt", content: "Soft Touch Aesthetics Studio" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
     },

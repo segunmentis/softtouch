@@ -174,7 +174,7 @@
 
 usePageSeo({ path: "/contact", title: "Contact Soft Touch Aesthetics Studio | Saskatoon", description: "Contact Soft Touch Aesthetics Studio in Saskatoon. Find our location, current business hours and online booking information." });
 
-const heroImage = "/images/home/portrait.jpg";
+const heroImage = "/images/home/portrait.webp";
 
 const contactEmail = computed(() => useContactEmail());
 const formEndpoint = computed(() => useContactFormEndpoint());

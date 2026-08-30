@@ -50,6 +50,13 @@ export default defineNuxtPlugin(() => {
     schema.logo = `${origin}/icon-512.png`;
     schema.image = `${origin}/og-image.png`;
   }
+  // Derived from the menu rather than typed by hand, so it cannot drift from
+  // the real prices. Google uses priceRange in local results.
+  const prices = SERVICES.map((service) => service.price);
+  if (prices.length) {
+    schema.priceRange = `CA$${Math.min(...prices)}–CA$${Math.max(...prices)}`;
+  }
+
   if (STUDIO_PHONE) schema.telephone = STUDIO_PHONE;
   if (contactEmail) schema.email = contactEmail;
   if (sameAs.length) schema.sameAs = sameAs;
