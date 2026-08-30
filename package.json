@@ -1,20 +1,22 @@
 {
   "name": "softtouch",
+  "version": "1.0.0",
   "type": "module",
   "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev:host": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47",
     "nuxt": "^4.4.8",
     "vue": "^3.5.38",
-    "vue-router": "^5.1.0",
-    "vuetify": "^4.1.2",
-    "vuetify-nuxt-module": "^1.0.0-rc.1"
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0"
   }
 }
