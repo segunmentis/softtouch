@@ -31,9 +31,9 @@ Two values live in `runtimeConfig.public` in
 [nuxt.config.ts](nuxt.config.ts) and can be overridden by environment
 variable:
 
-| Variable | Drives |
-|---|---|
-| `NUXT_PUBLIC_SITE_URL` | Canonical tags, absolute `og:image`, the sitemap |
+| Variable                    | Drives                                                                    |
+| --------------------------- | ------------------------------------------------------------------------- |
+| `NUXT_PUBLIC_SITE_URL`      | Canonical tags, absolute `og:image`, the sitemap                          |
 | `NUXT_PUBLIC_CONTACT_EMAIL` | Contact form endpoint, the email row, `email` in the LocalBusiness schema |
 
 **Both must be set at build time, not runtime.** Pages are prerendered to static
@@ -55,14 +55,14 @@ guessing.
 Shared data modules are the single source of truth; components read from them so
 details cannot drift apart.
 
-| File | Holds |
-|---|---|
-| [app/utils/studio.ts](app/utils/studio.ts) | Name, address, phone, opening hours |
+| File                                               | Holds                                                         |
+| -------------------------------------------------- | ------------------------------------------------------------- |
+| [app/utils/studio.ts](app/utils/studio.ts)         | Name, address, phone, opening hours                           |
 | [app/utils/treatments.ts](app/utils/treatments.ts) | The service menu — price, duration, description per treatment |
-| [app/utils/faqs.ts](app/utils/faqs.ts) | The nine Q&As, shared by `/faq` and the homepage |
-| [app/utils/prepare.ts](app/utils/prepare.ts) | Before/after care, shared by the homepage and `/services` |
-| [app/utils/contact.ts](app/utils/contact.ts) | Map URL and social profiles |
-| [app/utils/fresha.ts](app/utils/fresha.ts) | The Fresha booking URL |
+| [app/utils/faqs.ts](app/utils/faqs.ts)             | The nine Q&As, shared by `/faq` and the homepage              |
+| [app/utils/prepare.ts](app/utils/prepare.ts)       | Before/after care, shared by the homepage and `/services`     |
+| [app/utils/contact.ts](app/utils/contact.ts)       | Map URL and social profiles                                   |
+| [app/utils/fresha.ts](app/utils/fresha.ts)         | The Fresha booking URL                                        |
 
 Pages: `index`, `about`, `services`, `contact`, `faq`, plus `app/error.vue` for
 404s and 500s.
