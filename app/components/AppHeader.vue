@@ -9,13 +9,10 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            {{ t('header.address') }}
+            410 Duchess Street, Saskatoon, SK
           </span>
         </div>
-        <div class="flex items-center gap-4">
-          <span class="text-sm text-cream/90">{{ t('header.hours') }}</span>
-          <LocaleSwitcher class="text-cream/90" />
-        </div>
+        <span class="text-sm text-cream/90">Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm</span>
       </div>
     </div>
 
@@ -31,7 +28,7 @@
             height="258"
             class="h-12 w-auto object-contain"
           />
-          <span class="wordmark text-xl leading-none text-cream">{{ t('header.brandName') }}</span>
+          <span class="wordmark text-xl leading-none text-cream">Soft Touch</span>
         </NuxtLink>
 
         <div class="flex-1" />
@@ -45,7 +42,7 @@
             exact-active-class="nav-link-active"
             class="nav-link px-3 py-2 text-base font-medium"
           >
-            {{ t(link.labelKey) }}
+            {{ link.label }}
           </NuxtLink>
         </nav>
 
@@ -58,7 +55,7 @@
           rel="noopener"
           class="ms-4 hidden items-center rounded-full bg-gold px-5 py-2 font-medium text-ink no-underline md:flex"
         >
-          {{ t('header.cta') }}
+          Book Appointment
           <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0V11.25a2.25 2.25 0 012.25-2.25h13.5a2.25 2.25 0 012.25 2.25v7.5" />
           </svg>
@@ -67,7 +64,7 @@
         <!-- Mobile hamburger -->
         <button
           class="flex items-center justify-center p-2 text-cream md:hidden"
-          :aria-label="t('header.toggleMenu')"
+          aria-label="Toggle menu"
           @click="drawer = !drawer"
         >
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -88,7 +85,7 @@
         class="drawer-link block border-l-2 border-transparent px-6 py-3 no-underline"
         @click="drawer = false"
       >
-        {{ t(link.labelKey) }}
+        {{ link.label }}
       </NuxtLink>
       <div class="px-6 py-3">
         <a
@@ -98,26 +95,21 @@
           class="block rounded-full bg-gold px-5 py-2 text-center font-medium text-ink no-underline"
           @click="drawer = false"
         >
-          {{ t('header.cta') }}
+          Book Appointment
         </a>
-      </div>
-      <div class="flex justify-center px-6 pb-4">
-        <LocaleSwitcher class="text-cream" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
-
 const drawer = ref(false)
 
 const navLinks = [
-  { labelKey: 'header.nav.home', to: '/' },
-  { labelKey: 'header.nav.about', to: '/about' },
-  { labelKey: 'header.nav.services', to: '/services' },
-  { labelKey: 'header.nav.contact', to: '/contact' },
+  { label: "Home", to: '/' },
+  { label: "About", to: '/about' },
+  { label: "Services", to: '/services' },
+  { label: "Contact", to: '/contact' },
 ]
 </script>
 

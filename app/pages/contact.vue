@@ -2,10 +2,10 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
-      :image-alt="t('alt.portrait')"
-      :kicker="t('pages.contact.kicker')"
-      :title="t('pages.contact.title')"
-      :sub="t('pages.contact.heroSub')"
+      image-alt="Close-up portrait of a client with smooth, clear skin"
+      kicker="Visit Or Book"
+      title="Come see us on Duchess Street"
+      sub="Located in Saskatoon. A private studio, one client at a time, by appointment."
     />
 
     <section class="mx-auto max-w-7xl px-6 py-14 md:py-20">
@@ -21,7 +21,7 @@
             </span>
             <div>
               <h2 class="mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-gold">
-                {{ t(detail.headingKey) }}
+                {{ detail.heading }}
               </h2>
 
               <!-- Address: name / street / city, exactly as it should appear everywhere -->
@@ -33,12 +33,12 @@
 
               <!-- Hours: the full weekly schedule -->
               <dl v-else-if="detail.key === 'hours'" class="grid grid-cols-[auto_1fr] gap-x-5 gap-y-1 text-base text-cream/80">
-                <dt>{{ t('hours.weekdays') }}</dt>
-                <dd>{{ t('hours.weekdaysTime') }}</dd>
-                <dt>{{ t('hours.saturday') }}</dt>
-                <dd>{{ t('hours.saturdayTime') }}</dd>
-                <dt>{{ t('hours.sunday') }}</dt>
-                <dd>{{ t('hours.sundayTime') }}</dd>
+                <dt>Monday – Friday</dt>
+                <dd>2:00pm – 8:00pm</dd>
+                <dt>Saturday</dt>
+                <dd>10:00am – 8:00pm</dd>
+                <dt>Sunday</dt>
+                <dd>12:00pm – 6:00pm</dd>
               </dl>
 
               <a
@@ -59,9 +59,9 @@
             rel="noopener"
             class="map flex items-center justify-between gap-3 rounded-xl border border-cream/12 bg-[#191710] p-4 no-underline"
           >
-            <span class="text-sm text-cream/85">{{ t('footer.address') }}</span>
+            <span class="text-sm text-cream/85">410 Duchess Street, M2, Saskatoon, SK S7K 0R2</span>
             <span class="flex-shrink-0 text-[11px] font-semibold uppercase tracking-wider text-gold">
-              {{ t('pages.contact.mapLink') }} →
+              Open in Maps →
             </span>
           </a>
         </Reveal>
@@ -70,10 +70,10 @@
         <Reveal>
           <div class="rounded-2xl border border-cream/10 bg-[#191710] p-6 md:p-8">
             <p class="mb-1 text-sm font-semibold uppercase tracking-widest text-gold">
-              {{ t('pages.contact.formKicker') }}
+              Questions first?
             </p>
-            <h2 class="mb-2 text-2xl italic text-cream">{{ t('pages.contact.formHeading') }}</h2>
-            <p class="mb-6 text-sm text-cream/60">{{ t('pages.contact.formIntro') }}</p>
+            <h2 class="mb-2 text-2xl italic text-cream">Send a message</h2>
+            <p class="mb-6 text-sm text-cream/60">Have a question before you book? Send us a note and we'll get back to you.</p>
 
             <form novalidate @submit.prevent="submit">
               <!-- Spam trap: off-screen rather than display:none, which some
@@ -85,19 +85,19 @@
 
               <div class="mb-4">
                 <label for="contact-name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
-                  {{ t('pages.contact.name') }}
+                  Name
                 </label>
                 <input id="contact-name" v-model="form.name" type="text" required class="field" />
               </div>
               <div class="mb-4">
                 <label for="contact-email" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
-                  {{ t('pages.contact.email') }}
+                  Email
                 </label>
                 <input id="contact-email" v-model="form.email" type="email" required class="field" />
               </div>
               <div class="mb-5">
                 <label for="contact-message" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
-                  {{ t('pages.contact.message') }}
+                  Message
                 </label>
                 <textarea id="contact-message" v-model="form.message" rows="5" required class="field" />
               </div>
@@ -107,7 +107,7 @@
                 :disabled="status === 'sending'"
                 class="w-full rounded-full bg-gold px-6 py-3 font-semibold text-ink transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60"
               >
-                {{ status === 'sending' ? t('pages.contact.sending') : t('pages.contact.send') }}
+                {{ status === 'sending' ? "Sending…" : "Send Message" }}
               </button>
 
               <p
@@ -115,14 +115,14 @@
                 role="status"
                 class="mt-4 rounded-lg border border-gold/40 bg-gold/10 px-4 py-3 text-sm text-cream"
               >
-                {{ t('pages.contact.thanks', { name: sentName }) }}
+                Thanks {{ sentName }}, we'll be in touch!
               </p>
               <p
                 v-else-if="status === 'error'"
                 role="alert"
                 class="mt-4 rounded-lg border border-ember/50 bg-ember/10 px-4 py-3 text-sm text-cream"
               >
-                {{ t('pages.contact.error') }}
+                Your message could not be sent. Please email or message us instead.
               </p>
             </form>
           </div>
@@ -134,7 +134,7 @@
     <section v-if="socials.length" class="border-t border-cream/10 bg-[#191710] py-14">
       <div class="mx-auto max-w-7xl px-6">
         <Reveal tag="p" class="mb-5 text-sm font-semibold uppercase tracking-widest text-gold">
-          {{ t('pages.contact.socialHeading') }}
+          Follow the studio
         </Reveal>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <Reveal v-for="social in socials" :key="social.key">
@@ -155,15 +155,15 @@
     <!-- Final CTA -->
     <section class="final-cta px-6 py-16 text-center">
       <div class="mx-auto max-w-2xl">
-        <h2 class="mb-4 text-3xl italic text-cream">{{ t('pages.home.finalCtaHeading') }}</h2>
-        <p class="mx-auto mb-8 max-w-lg text-cream/85">{{ t('pages.home.finalCtaBody') }}</p>
+        <h2 class="mb-4 text-3xl italic text-cream">Ready for softer skin?</h2>
+        <p class="mx-auto mb-8 max-w-lg text-cream/85">Book your appointment online in a few taps — confirmed instantly.</p>
         <a
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
           class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
-          {{ t('pages.contact.bookOnFresha') }}
+          Book Appointment
         </a>
       </div>
     </section>
@@ -171,9 +171,8 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
 
-usePageSeo({ path: "/contact", titleKey: "seo.contact.title", descriptionKey: "seo.contact.description" });
+usePageSeo({ path: "/contact", title: "Contact Soft Touch Aesthetics Studio | Saskatoon", description: "Contact Soft Touch Aesthetics Studio in Saskatoon. Find our location, current business hours and online booking information." });
 
 const heroImage = "/images/home/portrait.jpg";
 
@@ -182,13 +181,13 @@ const formEndpoint = computed(() => useContactFormEndpoint());
 
 const details = computed(() =>
   [
-    { key: "address", icon: "◎", headingKey: "pages.contact.addressHeading", value: t("footer.address"), href: "" },
-    { key: "hours", icon: "◷", headingKey: "pages.contact.hoursHeading", value: t("footer.hours"), href: "" },
+    { key: "address", icon: "◎", heading: "Studio Address", value: "410 Duchess Street, M2, Saskatoon, SK S7K 0R2", href: "" },
+    { key: "hours", icon: "◷", heading: "Hours", value: "Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm", href: "" },
     contactEmail.value
       ? {
           key: "email",
           icon: "✉",
-          headingKey: "pages.contact.emailHeading",
+          heading: "Email",
           value: contactEmail.value,
           href: `mailto:${contactEmail.value}`,
         }

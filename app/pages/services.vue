@@ -2,17 +2,17 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
-      :image-alt="t('alt.legs')"
-      :kicker="t('pages.services.kicker')"
-      :title="t('pages.services.title')"
-      :sub="t('pages.services.intro')"
+      image-alt="Smooth legs resting on a velvet sofa after a sugaring treatment"
+      kicker="Treatment Menu"
+      title="Sugaring, done right"
+      sub="What each treatment includes, and what it costs. Booking and live availability are on Fresha."
     />
 
     <!-- Menu tabs -->
     <div class="sticky top-0 z-30 border-b border-cream/10 bg-[#100f0a]/95 backdrop-blur">
       <div
         role="tablist"
-        :aria-label="t('pages.services.kicker')"
+        aria-label="Treatment Menu"
         class="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-6 py-4"
       >
         <button
@@ -31,7 +31,7 @@
           "
           @click="select(tab)"
         >
-          {{ t(`pages.services.tabs.${tab}`) }}
+          {{ SERVICE_TAB_LABELS[tab] }}
         </button>
       </div>
     </div>
@@ -48,7 +48,7 @@
             v-if="tab === 'mens'"
             class="mb-6 rounded-lg border border-cream/12 bg-[#191710] px-4 py-3 text-sm leading-relaxed text-cream/70"
           >
-            {{ t('pages.services.mensNote') }}
+            Men's intimate sugaring (Brazilian and bikini) is not currently offered.
           </p>
 
           <ul :id="`panel-${tab}`" role="tabpanel" :aria-labelledby="`tab-${tab}`" class="list-none p-0">
@@ -61,19 +61,19 @@
             >
               <div class="min-w-0">
                 <h2 class="text-xl italic text-cream md:text-2xl">
-                  {{ t(`pages.services.items.${service.key}.name`) }}
+                  {{ service.name }}
                 </h2>
 
                 <p class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-wider text-cream/50">
-                  <span>{{ t(`pages.services.items.${service.key}.duration`) }}</span>
+                  <span>{{ service.duration }}</span>
                   <span v-if="service.includes" class="text-gold">
-                    {{ t('pages.services.includes', { count: service.includes }) }}
+                    {{ service.includes }} treatments
                   </span>
-                  <span v-if="service.femaleOnly">{{ t('pages.services.femaleOnly') }}</span>
+                  <span v-if="service.femaleOnly">Female only</span>
                 </p>
 
                 <p class="mt-2 max-w-prose text-sm leading-relaxed text-cream/70">
-                  {{ t(`pages.services.items.${service.key}.description`) }}
+                  {{ service.description }}
                 </p>
               </div>
 
@@ -85,12 +85,12 @@
                   {{ formatPrice(service.compareAt) }}
                 </span>
                 <span v-if="bundleSaving(service)" class="mt-1 block text-[11px] font-semibold uppercase tracking-wider text-gold">
-                  {{ t('pages.services.saving', { percent: bundleSaving(service) }) }}
+                  Save {{ bundleSaving(service) }}%
                 </span>
                 <span
                   class="book mt-2 hidden rounded-full bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wider text-ink md:inline-block"
                 >
-                  {{ t('pages.services.book') }}
+                  Book
                 </span>
               </div>
             </a>
@@ -105,7 +105,7 @@
             rel="noopener"
             class="see-all tap-link mt-6 gap-2 text-sm font-semibold uppercase tracking-wider text-gold no-underline"
           >
-            {{ t('pages.services.seeAll') }}
+            See full list
             <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -117,21 +117,21 @@
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:gap-16">
         <Reveal>
           <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-gold">
-            {{ t('pages.services.whyKicker') }}
+            The method
           </p>
-          <h2 class="mb-3 text-3xl italic text-cream">{{ t('pages.services.whyHeading') }}</h2>
-          <p class="mb-4 text-base leading-relaxed text-cream/75">{{ t('pages.services.whyIntro') }}</p>
-          <p class="text-sm leading-relaxed text-cream/55">{{ t('pages.services.whyClosing') }}</p>
+          <h2 class="mb-3 text-3xl italic text-cream">Why Choose Sugaring?</h2>
+          <p class="mb-4 text-base leading-relaxed text-cream/75">Sugaring is a natural method of hair removal made from only sugar, water, and lemon.</p>
+          <p class="text-sm leading-relaxed text-cream/55">Whether you're booking a Brazilian, underarms, legs, facial sugaring, or body treatment, you'll receive personalized care from start to finish.</p>
         </Reveal>
 
         <Reveal>
           <p class="mb-2 text-[11px] font-bold uppercase tracking-[0.12em] text-cream/50">
-            {{ t('pages.services.whyUnlike') }}
+            Unlike traditional waxing, sugaring:
           </p>
           <ul class="list-none p-0">
             <li
-              v-for="n in 5"
-              :key="n"
+              v-for="point in WHY_POINTS"
+              :key="point"
               class="flex gap-3 border-b border-cream/10 py-3 text-sm leading-relaxed text-cream/80 last:border-none"
             >
               <span
@@ -140,7 +140,7 @@
               >
                 ✓
               </span>
-              {{ t(`pages.services.whyPoint${n}`) }}
+              {{ point }}
             </li>
           </ul>
         </Reveal>
@@ -154,18 +154,18 @@
           <span
             class="mb-3 inline-flex items-center gap-1.5 rounded-full border border-gold/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-gold"
           >
-            <span aria-hidden="true">✓</span>{{ t('prepare.doLabel') }}
+            <span aria-hidden="true">✓</span>Do
           </span>
-          <h2 class="text-2xl italic text-cream">{{ t('prepare.beforeHeading') }}</h2>
-          <p class="mt-1 text-sm text-cream/60">{{ t('prepare.beforeIntro') }}</p>
+          <h2 class="text-2xl italic text-cream">Before Your Appointment</h2>
+          <p class="mt-1 text-sm text-cream/60">For the best results:</p>
           <ul class="mt-3 list-none p-0">
             <li
-              v-for="n in 5"
-              :key="n"
+              v-for="item in BEFORE_CARE"
+              :key="item"
               class="flex gap-3 border-b border-dashed border-cream/15 py-2.5 text-sm leading-relaxed text-cream/80 last:border-none"
             >
               <span class="mt-0.5 flex-shrink-0 text-xs text-gold" aria-hidden="true">✓</span>
-              {{ t(`prepare.before${n}`) }}
+              {{ item }}
             </li>
           </ul>
         </Reveal>
@@ -174,25 +174,25 @@
           <span
             class="mb-3 inline-flex items-center gap-1.5 rounded-full border border-cream/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-cream/50"
           >
-            <span aria-hidden="true">✕</span>{{ t('prepare.avoidLabel') }}
+            <span aria-hidden="true">✕</span>Avoid
           </span>
-          <h2 class="text-2xl italic text-cream">{{ t('prepare.afterHeading') }}</h2>
-          <p class="mt-1 text-sm text-cream/60">{{ t('prepare.afterIntro') }}</p>
+          <h2 class="text-2xl italic text-cream">After Your Appointment</h2>
+          <p class="mt-1 text-sm text-cream/60">To keep your skin looking its best:</p>
           <p class="mt-3 text-[11px] font-bold uppercase tracking-[0.1em] text-cream/45">
-            {{ t('prepare.avoidIntro') }}
+            For the first 24–48 hours avoid:
           </p>
           <ul class="mt-1 list-none p-0">
             <li
-              v-for="n in 5"
-              :key="n"
+              v-for="item in AVOID_AFTER"
+              :key="item"
               class="flex gap-3 border-b border-dashed border-cream/15 py-2.5 text-sm leading-relaxed text-cream/80 last:border-none"
             >
               <span class="mt-0.5 flex-shrink-0 text-xs text-cream/35" aria-hidden="true">✕</span>
-              {{ t(`prepare.avoid${n}`) }}
+              {{ item }}
             </li>
           </ul>
           <p class="mt-4 rounded-lg border border-gold/25 bg-gold/[0.08] px-3.5 py-2.5 text-sm leading-relaxed text-cream/75">
-            {{ t('prepare.afterTip') }}
+            Resume gentle exfoliation after a few days to help reduce ingrown hairs.
           </p>
         </Reveal>
       </div>
@@ -201,14 +201,14 @@
     <!-- Final CTA -->
     <section class="final-cta px-6 py-16 text-center">
       <div class="mx-auto max-w-2xl">
-        <h2 class="mb-4 text-3xl italic text-cream">{{ t('pages.services.livePricing') }}</h2>
+        <h2 class="mb-4 text-3xl italic text-cream">Live pricing and full availability are always on Fresha.</h2>
         <a
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
           class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
-          {{ t('pages.services.viewFullMenu') }}
+          View Full Menu &amp; Book
         </a>
       </div>
     </section>
@@ -216,13 +216,20 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
 
-usePageSeo({ path: "/services", titleKey: "seo.services.title", descriptionKey: "seo.services.description" });
+usePageSeo({ path: "/services", title: "Sugaring Menu Saskatoon | Soft Touch Aesthetics Studio", description: "The full sugaring menu at Soft Touch Aesthetics Studio in Saskatoon — Brazilian, body, facial and men's services in a private studio." });
 
 const heroImage = "/images/hero/hero-2.jpg";
+
+const WHY_POINTS = [
+  "Removes hair in the natural direction of growth",
+  "Is gentle on sensitive skin",
+  "Helps reduce ingrown hairs",
+  "Can lead to finer hair over time",
+  "Leaves skin feeling softer and smoother",
+];
 
 const active = ref<ServiceTab>("featured");
 

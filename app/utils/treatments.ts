@@ -4,9 +4,7 @@
 // remains the source of truth: if a price changes there, change it here too, or
 // the site will quote a stale figure. Nothing in this file is invented — a
 // service only appears once it exists on the booking menu.
-//
-// Copy (name, duration, description) lives in the locale files under
-// `pages.services.items.<key>` so both languages stay in step.
+
 
 /** The section a service belongs to on the booking menu. */
 export type ServiceCategory = "mens" | "bundles" | "intimate" | "face";
@@ -16,6 +14,12 @@ export type ServiceTab = "featured" | "mens" | "bundles" | "intimate";
 
 export type Service = {
   key: string;
+  /** Display name, as it reads on the Fresha menu. */
+  name: string;
+  /** Human-readable length, e.g. "45 min". */
+  duration: string;
+  /** One or two sentences, supplied by the owner. */
+  description: string;
   category: ServiceCategory;
   /** Appears under the Featured tab, as it does on Fresha. */
   featured?: boolean;
@@ -36,28 +40,36 @@ export type Service = {
  */
 export const SERVICES: Service[] = [
   // Intimate
-  { key: "buttCheeks", category: "intimate", price: 25 },
-  { key: "brazilian", category: "intimate", featured: true, price: 60 },
-  { key: "extendedBikini", category: "intimate", price: 45 },
-  { key: "bikini", category: "intimate", price: 35 },
+  { key: "buttCheeks", name: "Butt Cheeks", duration: "20 min", category: "intimate", price: 25, description: "Hair removal from both cheeks." },
+  { key: "brazilian", name: "Brazilian", duration: "45 min", category: "intimate", featured: true, price: 60, description: "Complete hair removal from the intimate area, including the front, labia and bum strip. Go completely bare, or leave a strip or triangle." },
+  { key: "extendedBikini", name: "Extended Bikini", duration: "30 min", category: "intimate", price: 45, description: "A deeper clean-up than a standard bikini: everything in the Bikini, plus more from the front and further inward from the bikini line. Does not include the full labia or bum strip." },
+  { key: "bikini", name: "Bikini", duration: "20 min", category: "intimate", price: 35, description: "Removes hair visible outside a standard bikini bottom, along the bikini line and upper thigh crease. Does not include the labia, bum strip or hair further inward." },
 
   // Men's sugaring
-  { key: "mensFullBack", category: "mens", price: 80 },
-  { key: "mensShoulders", category: "mens", price: 25 },
-  { key: "mensStomach", category: "mens", price: 30 },
-  { key: "mensChest", category: "mens", price: 60 },
+  { key: "mensFullBack", name: "Men's Full Back", duration: "1 hr", category: "mens", price: 80, description: "The entire back — upper, middle and lower — for smooth, long-lasting results." },
+  { key: "mensShoulders", name: "Men's Shoulders", duration: "20 min", category: "mens", price: 25, description: "Both shoulders, leaving the skin smooth and well groomed." },
+  { key: "mensStomach", name: "Men's Stomach", duration: "20 min", category: "mens", price: 30, description: "The stomach area, for smooth, long-lasting results." },
+  { key: "mensChest", name: "Men's Chest", duration: "45 min", category: "mens", price: 60, description: "The chest, for smooth, long-lasting results and softer regrowth." },
 
   // Bundles
-  { key: "faceRefresh", category: "bundles", price: 42, compareAt: 47, includes: 3 },
-  { key: "smoothEssentials", category: "bundles", price: 75, compareAt: 80, includes: 2, femaleOnly: true },
-  { key: "summerReady", category: "bundles", featured: true, price: 125, compareAt: 135, includes: 2, femaleOnly: true },
+  { key: "faceRefresh", name: "Face Refresh", duration: "35 min", category: "bundles", price: 42, compareAt: 47, includes: 3, description: "Three facial treatments in one visit." },
+  { key: "smoothEssentials", name: "Smooth Essentials", duration: "1 hr", category: "bundles", price: 75, compareAt: 80, includes: 2, femaleOnly: true, description: "Two everyday treatments in a single visit." },
+  { key: "summerReady", name: "Summer Ready", duration: "1 hr 45 min", category: "bundles", featured: true, price: 125, compareAt: 135, includes: 2, femaleOnly: true, description: "Two treatments bundled for the season." },
 
   // Face — only surfaced through the Featured tab, as on Fresha.
-  { key: "upperLip", category: "face", featured: true, price: 12 },
-  { key: "chin", category: "face", featured: true, price: 15 },
+  { key: "upperLip", name: "Upper Lip", duration: "10 min", category: "face", featured: true, price: 12, description: "Removes unwanted hair from the upper lip for a smooth finish." },
+  { key: "chin", name: "Chin", duration: "10 min", category: "face", featured: true, price: 15, description: "Removes unwanted hair from the chin area." },
 ];
 
 export const SERVICE_TABS: ServiceTab[] = ["featured", "mens", "bundles", "intimate"];
+
+/** Display label for each tab, used by /services and the homepage cards. */
+export const SERVICE_TAB_LABELS: Record<ServiceTab, string> = {
+  featured: "Featured",
+  mens: "Men's Sugaring",
+  bundles: "Bundles",
+  intimate: "Intimate",
+};
 
 /** Keeps every tab to a short, scannable list rather than a full price list. */
 export const MAX_PER_TAB = 4;

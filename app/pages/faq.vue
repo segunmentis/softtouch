@@ -2,10 +2,10 @@
   <div class="bg-[#100f0a]">
     <DarkHero
       :image="heroImage"
-      :image-alt="t('alt.paste')"
-      :kicker="t('faq.kicker')"
-      :title="t('faq.title')"
-      :sub="t('faq.heroSub')"
+      image-alt="Amber sugar paste dripping from a spoon"
+      kicker="Common questions"
+      title="Frequently Asked Questions"
+      sub="Everything clients ask before their first appointment."
     />
 
     <section class="mx-auto max-w-7xl px-6 py-14 md:py-20">
@@ -13,7 +13,7 @@
         <!-- Question index: a scroll strip on mobile, a sticky rail from md up -->
         <nav
           class="-mx-6 flex gap-1 overflow-x-auto px-6 pb-2 md:mx-0 md:sticky md:top-6 md:mt-1 md:h-max md:flex-col md:overflow-visible md:border-l md:border-cream/15 md:px-0 md:pb-0"
-          :aria-label="t('faq.title')"
+          aria-label="Frequently Asked Questions"
         >
           <a
             v-for="item in questions"
@@ -23,7 +23,7 @@
             :class="active === item.id ? 'is-active' : 'text-cream/50'"
             @click="active = item.id"
           >
-            {{ t(item.qKey) }}
+            {{ item.question }}
           </a>
         </nav>
 
@@ -37,8 +37,8 @@
             tag="article"
             class="scroll-mt-8 border-b border-cream/10 pb-7 last:border-none [&:not(:first-child)]:pt-7"
           >
-            <h2 class="mb-2 text-xl italic text-cream md:text-2xl">{{ t(item.qKey) }}</h2>
-            <p class="max-w-[62ch] text-base leading-relaxed text-cream/75">{{ t(item.aKey) }}</p>
+            <h2 class="mb-2 text-xl italic text-cream md:text-2xl">{{ item.question }}</h2>
+            <p class="max-w-[62ch] text-base leading-relaxed text-cream/75">{{ item.answer }}</p>
           </Reveal>
 
           <!-- Whoever didn't find their answer gets a route out -->
@@ -46,14 +46,14 @@
             class="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-cream/12 bg-[#191710] p-6"
           >
             <div>
-              <p class="text-xl italic text-cream">{{ t('faq.stillHeading') }}</p>
-              <p class="mt-0.5 text-sm text-cream/60">{{ t('faq.stillBody') }}</p>
+              <p class="text-xl italic text-cream">Still have a question?</p>
+              <p class="mt-0.5 text-sm text-cream/60">Send us a note and we'll get back to you.</p>
             </div>
             <NuxtLink
               to="/contact"
               class="inline-block rounded-full bg-gold px-6 py-3 text-sm font-semibold uppercase tracking-wider text-ink no-underline transition-transform hover:-translate-y-0.5"
             >
-              {{ t('faq.stillCta') }}
+              Contact us
             </NuxtLink>
           </Reveal>
         </div>
@@ -63,15 +63,15 @@
     <!-- Final CTA -->
     <section class="final-cta px-6 py-16 text-center">
       <div class="mx-auto max-w-2xl">
-        <h2 class="mb-4 text-3xl italic text-cream">{{ t('pages.home.finalCtaHeading') }}</h2>
-        <p class="mx-auto mb-8 max-w-lg text-cream/85">{{ t('pages.home.finalCtaBody') }}</p>
+        <h2 class="mb-4 text-3xl italic text-cream">Ready for softer skin?</h2>
+        <p class="mx-auto mb-8 max-w-lg text-cream/85">Book your appointment online in a few taps — confirmed instantly.</p>
         <a
           :href="FRESHA_BOOKING_URL"
           target="_blank"
           rel="noopener"
           class="inline-block rounded-full bg-gold px-8 py-3 font-semibold text-ink no-underline shadow-sm transition-transform hover:-translate-y-0.5"
         >
-          {{ t('pages.home.cta') }}
+          Book Appointment
         </a>
       </div>
     </section>
@@ -79,25 +79,12 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
 
-usePageSeo({ path: "/faq", titleKey: "seo.faq.title", descriptionKey: "seo.faq.description" });
+usePageSeo({ path: "/faq", title: "Sugaring FAQ Saskatoon | Soft Touch Aesthetics Studio", description: "Answers to common sugaring questions — hair length, how long results last, sensitive skin, aftercare, and how sugaring differs from waxing." });
 
 const heroImage = "/images/hero/hero-1.jpg";
 
-// Ids are stable and human-readable so a single answer can be linked directly,
-// e.g. /faq#hair-length in a reply to a client.
-const questions = [
-  { id: "hair-length", qKey: "faq.q1", aKey: "faq.a1" },
-  { id: "how-long-results-last", qKey: "faq.q2", aKey: "faq.a2" },
-  { id: "sensitive-skin", qKey: "faq.q3", aKey: "faq.a3" },
-  { id: "brazilian-frequency", qKey: "faq.q4", aKey: "faq.a4" },
-  { id: "first-brazilian", qKey: "faq.q5", aKey: "faq.a5" },
-  { id: "after-sugaring", qKey: "faq.q6", aKey: "faq.a6" },
-  { id: "waxing-vs-sugaring", qKey: "faq.q7", aKey: "faq.a7" },
-  { id: "location", qKey: "faq.q8", aKey: "faq.a8" },
-  { id: "mens-sugaring", qKey: "faq.q9", aKey: "faq.a9" },
-];
+const questions = FAQS;
 
 // Search engines read the Q&As from JSON-LD rather than the rendered DOM.
 useHead({
@@ -110,8 +97,8 @@ useHead({
           "@type": "FAQPage",
           mainEntity: questions.map((item) => ({
             "@type": "Question",
-            name: t(item.qKey),
-            acceptedAnswer: { "@type": "Answer", text: t(item.aKey) },
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
           })),
         })
       ),

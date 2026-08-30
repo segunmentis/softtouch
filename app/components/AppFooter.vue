@@ -14,12 +14,12 @@
               <path :d="TEL_ICON" fill="currentColor" />
             </svg>
             <span>{{ STUDIO_PHONE }}</span>
-            <span class="sr-only">— {{ t('footer.callStudio') }}</span>
+            <span class="sr-only">— Call the studio</span>
           </a>
 
           <span v-if="STUDIO_PHONE" class="hidden h-4 w-px bg-ink/30 sm:block" aria-hidden="true" />
 
-          <p class="m-0 text-sm text-ink/70">{{ t('footer.hours') }}</p>
+          <p class="m-0 text-sm text-ink/70">Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm</p>
         </div>
 
         <ul v-if="socials.length" class="m-0 flex list-none gap-2 p-0">
@@ -62,7 +62,7 @@
         <div class="col-span-2 md:col-span-1">
           <img
             src="/images/logo-stacked.png"
-            :alt="t('footer.brandName')"
+            alt="Soft Touch Aesthetics Studio"
             width="440"
             height="565"
             loading="lazy"
@@ -70,19 +70,19 @@
             class="mb-4 h-auto w-[120px]"
           />
           <p class="m-0 max-w-[42ch] text-sm leading-relaxed text-cream/60">
-            {{ t('footer.brandBlurb') }}
+            A private body sugaring studio in the heart of Saskatoon. Hair removal made from nothing more than sugar, lemon and water.
           </p>
         </div>
 
         <!-- Studio -->
         <div>
           <h6 class="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-cream/50">
-            {{ t('footer.companyHeading') }}
+            Studio
           </h6>
           <ul class="list-none space-y-3 p-0">
             <li v-for="link in companyLinks" :key="link.to">
               <NuxtLink :to="link.to" class="footer-link tap-link text-sm text-cream/70 no-underline">
-                {{ t(link.labelKey) }}
+                {{ link.label }}
               </NuxtLink>
             </li>
           </ul>
@@ -91,12 +91,12 @@
         <!-- Treatments -->
         <div>
           <h6 class="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-cream/50">
-            {{ t('footer.quickLinksHeading') }}
+            Treatments
           </h6>
           <ul class="list-none space-y-3 p-0">
             <li v-for="link in quickLinks" :key="link.to">
               <NuxtLink :to="link.to" class="footer-link tap-link text-sm text-cream/70 no-underline">
-                {{ t(link.labelKey) }}
+                {{ link.label }}
               </NuxtLink>
             </li>
           </ul>
@@ -105,7 +105,7 @@
         <!-- Visit -->
         <div>
           <h6 class="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-cream/50">
-            {{ t('footer.visitHeading') }}
+            Visit
           </h6>
           <address class="mb-4 text-sm not-italic leading-relaxed text-cream/60">
             {{ STUDIO_ADDRESS.street }}<br />
@@ -118,7 +118,7 @@
             rel="noopener"
             class="footer-link tap-link text-sm font-semibold text-gold no-underline"
           >
-            {{ t('footer.directions') }} →
+            Directions →
           </a>
         </div>
       </div>
@@ -129,10 +129,10 @@
           class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-5 text-sm text-cream/40 md:flex-row"
         >
           <span>
-            {{ t('footer.copyright', { year }) }}
+            Copyright © {{ year }}
             <NuxtLink to="/" class="font-medium no-underline" style="color: #f3eed8">
-              {{ t('footer.brandName') }}</NuxtLink
-            >. {{ t('footer.allRightsReserved') }}
+              Soft Touch Aesthetics Studio</NuxtLink
+            >. All Rights Reserved.
           </span>
         </div>
       </div>
@@ -141,7 +141,6 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n();
 
 const year = new Date().getFullYear();
 
@@ -172,20 +171,20 @@ const SOCIAL_ICONS: Record<string, string> = {
 };
 
 const companyLinks = [
-  { labelKey: "footer.companyLinks.about", to: "/about" },
-  { labelKey: "footer.companyLinks.services", to: "/services" },
-  { labelKey: "footer.companyLinks.faq", to: "/faq" },
-  { labelKey: "footer.companyLinks.contact", to: "/contact" },
+  { label: "About Us", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "FAQ", to: "/faq" },
+  { label: "Contact", to: "/contact" },
 ];
 
 // Point at the standalone, crawlable service pages rather than filter anchors.
 // The menu is one page with tabs, so these deep-link to a tab rather than to
 // pages of their own.
 const quickLinks = [
-  { labelKey: "footer.quickLinks.featured", to: "/services" },
-  { labelKey: "footer.quickLinks.mens", to: "/services?tab=mens" },
-  { labelKey: "footer.quickLinks.bundles", to: "/services?tab=bundles" },
-  { labelKey: "footer.quickLinks.intimate", to: "/services?tab=intimate" },
+  { label: "Featured", to: "/services" },
+  { label: "Men's Sugaring", to: "/services?tab=mens" },
+  { label: "Bundles", to: "/services?tab=bundles" },
+  { label: "Intimate", to: "/services?tab=intimate" },
 ];
 </script>
 

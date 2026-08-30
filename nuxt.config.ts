@@ -45,6 +45,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      // @nuxtjs/i18n used to set this. The site is English-only now, so it is
+      // declared here — screen readers and search engines both rely on it.
+      htmlAttrs: { lang: "en-CA" },
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         {
@@ -83,22 +86,12 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss"],
 
   tailwindcss: {
     cssPath: "~/assets/css/main.css",
   },
 
-  i18n: {
-    strategy: "no_prefix",
-    defaultLocale: "en",
-    locales: [
-      { code: "en", name: "English" },
-      { code: "fr", name: "Français" },
-    ],
-    // We handle persistence ourselves via localStorage (see app/plugins/i18n-locale.client.ts)
-    detectBrowserLanguage: false,
-  },
 
   vite: {
     optimizeDeps: {

@@ -1,7 +1,7 @@
 # Soft Touch Aesthetics Studio — project notes
 
 Marketing site for a sugaring (natural hair removal) studio in Saskatoon, SK.
-Nuxt 4 + Vue 3 + Tailwind, bilingual EN/FR, no test suite. Dev server runs on
+Nuxt 4 + Vue 3 + Tailwind, English-only, no test suite. Dev server runs on
 port **1080** (`npm run dev`, or `npm run dev:host` to expose on the LAN).
 
 ## How the owner likes to work
@@ -87,13 +87,21 @@ pages (`/intimate-sugaring`, `/body-sugaring`, `/mens-sugaring`,
 `/facial-sugaring`) all rendered through the shared
 [app/components/CategoryPage.vue](app/components/CategoryPage.vue).
 
-**i18n**: `@nuxtjs/i18n` with `strategy: "no_prefix"` — EN and FR share one set
-of URLs. Locale persistence is handled manually in
-[app/plugins/i18n-locale.client.ts](app/plugins/i18n-locale.client.ts) rather
-than by browser detection. **All user-facing copy goes in
-[i18n/locales/en.json](i18n/locales/en.json) and
-[i18n/locales/fr.json](i18n/locales/fr.json)** — components reference keys,
-never literals.
+**Copy**: the site is **English-only** — `@nuxtjs/i18n` was removed, along with
+the locale files, the locale switcher and the locale-persistence plugin. Copy
+now lives as literals in the component that renders it, except where more than
+one page needs it, which is why these exist:
+
+- [app/utils/faqs.ts](app/utils/faqs.ts) — the nine Q&As. `/faq` shows all of
+  them and emits the FAQPage JSON-LD; the homepage teases the first three.
+- [app/utils/prepare.ts](app/utils/prepare.ts) — before- and after-care, shown
+  on both the homepage and `/services`.
+- [app/utils/treatments.ts](app/utils/treatments.ts) — each service record now
+  carries its own `name`, `duration` and `description`, so a treatment is one
+  object rather than a key resolved elsewhere.
+
+`<html lang>` is set in [nuxt.config.ts](nuxt.config.ts); the i18n module used
+to do it.
 
 **SEO** (a later pass over the whole site):
 

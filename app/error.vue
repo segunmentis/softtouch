@@ -25,13 +25,13 @@
         </p>
 
         <p class="mt-7 text-sm font-semibold uppercase tracking-widest text-gold md:mt-8">
-          {{ t('error.kicker') }}
+          Error 404
         </p>
         <h1 class="mx-auto mt-3 max-w-[16ch] text-3xl italic text-cream md:text-[38px]">
-          {{ t('error.title') }}
+          That page isn't here.
         </h1>
         <p class="mx-auto mt-4 max-w-[52ch] text-sm leading-relaxed text-cream/60 md:text-base">
-          {{ t('error.body') }}
+          The link may be out of date, or the page may have moved.
         </p>
       </div>
     </main>
@@ -48,12 +48,10 @@ import type { NuxtError } from "#app";
 // never shown as raw text.
 defineProps<{ error?: NuxtError }>();
 
-const { t } = useI18n();
-
 useHead({
-  title: () => t("error.seoTitle"),
+  title: () => "Page not found",
   meta: [
-    { name: "description", content: () => t("error.seoDescription") },
+    { name: "description", content: () => "That page could not be found. Browse the treatment menu, hours and contact details for Soft Touch Aesthetics Studio in Saskatoon." },
     // An error page must never be indexed, whatever the status code.
     { name: "robots", content: "noindex, follow" },
   ],
