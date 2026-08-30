@@ -22,46 +22,35 @@
           <p class="m-0 text-sm text-ink/70">{{ t('footer.hours') }}</p>
         </div>
 
-        <div class="flex flex-wrap items-center gap-4">
-          <ul v-if="socials.length" class="m-0 flex list-none gap-2 p-0">
-            <li v-for="social in socials" :key="social.key">
-              <a
-                :href="social.url"
-                target="_blank"
-                rel="noopener"
-                :aria-label="social.label"
-                class="soc"
-              >
-                <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" aria-hidden="true">
-                  <template v-if="social.key === 'instagram'">
-                    <rect
-                      x="3.2"
-                      y="3.2"
-                      width="17.6"
-                      height="17.6"
-                      rx="5.2"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.7"
-                    />
-                    <circle cx="12" cy="12" r="4.05" fill="none" stroke="currentColor" stroke-width="1.7" />
-                    <circle cx="17.15" cy="6.9" r="1.2" fill="currentColor" />
-                  </template>
-                  <path v-else :d="SOCIAL_ICONS[social.key]" fill="currentColor" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-
-          <a
-            :href="FRESHA_BOOKING_URL"
-            target="_blank"
-            rel="noopener"
-            class="rounded-full bg-ink px-6 py-3 text-[13px] font-bold tracking-wide text-cream no-underline transition-transform hover:-translate-y-0.5"
-          >
-            {{ t('footer.bookOnFresha') }}
-          </a>
-        </div>
+        <ul v-if="socials.length" class="m-0 flex list-none gap-2 p-0">
+          <li v-for="social in socials" :key="social.key">
+            <a
+              :href="social.url"
+              target="_blank"
+              rel="noopener"
+              :aria-label="social.label"
+              class="soc"
+            >
+              <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" aria-hidden="true">
+                <template v-if="social.key === 'instagram'">
+                  <rect
+                    x="3.2"
+                    y="3.2"
+                    width="17.6"
+                    height="17.6"
+                    rx="5.2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                  />
+                  <circle cx="12" cy="12" r="4.05" fill="none" stroke="currentColor" stroke-width="1.7" />
+                  <circle cx="17.15" cy="6.9" r="1.2" fill="currentColor" />
+                </template>
+                <path v-else :d="SOCIAL_ICONS[social.key]" fill="currentColor" />
+              </svg>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
