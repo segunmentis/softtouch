@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       // NOTE: pages are prerendered, so this must be set at BUILD time, not
       // runtime — `NUXT_PUBLIC_SITE_URL=https://… npm run build`. Setting it only
       // on the running server has no effect on the already-generated HTML.
-      siteUrl: "",
+      siteUrl: "https://softtouchaestheticsstudio.com",
 
       // The studio inbox. The contact form POSTs to FormSubmit, whose endpoint
       // is keyed by this address, and it is also emitted as `email` in the
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
       //
       // Public on purpose — the browser posts the form directly, so the address
       // is in the page source either way. Do not put secrets here.
-      contactEmail: "mentis2010@gmail.com",
+      contactEmail: "soniapologbo@gmail.com",
     },
   },
 
