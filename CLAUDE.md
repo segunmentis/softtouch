@@ -1,6 +1,6 @@
 # Soft Touch Aesthetics Studio — project notes
 
-Marketing site for a sugaring (natural hair removal) studio in Saskatoon, SK.
+Website for a sugaring (natural hair removal) studio in Saskatoon, SK.
 Nuxt 4 + Vue 3 + Tailwind, English-only, no test suite. Dev server runs on
 port **1080** (`npm run dev`, or `npm run dev:host` to expose on the LAN).
 
