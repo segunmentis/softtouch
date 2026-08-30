@@ -3,9 +3,9 @@
     <DarkHero
       :image="heroImage"
       image-alt="Close-up portrait of a client with smooth, clear skin"
-      kicker="Visit Or Book"
-      title="Come see us on Duchess Street"
-      sub="Located in Saskatoon. A private studio, one client at a time, by appointment."
+      kicker="Get In Touch"
+      title="Contact us"
+      sub="Questions about a treatment, or ready to book? Send a message and we'll be in touch."
     />
 
     <section class="mx-auto max-w-7xl px-6 py-14 md:py-20">
