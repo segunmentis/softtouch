@@ -1,0 +1,45 @@
+name: Deploy to Cloudflare
+
+# A merged PR into main is the release event. `pull_request: closed` also fires
+# when a PR is closed without merging, so the job is gated on `merged == true`.
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # On `pull_request: closed` the default checkout is the PR head, not
+          # the merge result. Deploy what main actually contains.
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Full static prerender into .output/public, which is the assets
+      # directory wrangler.jsonc serves. siteUrl and contactEmail are baked
+      # into the HTML here — setting them on the running worker is too late.
+      - run: npx nuxt generate
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
