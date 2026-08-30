@@ -3,7 +3,7 @@
     <!-- Hero -->
     <HeroSlider :slides="heroImages">
       <template #kicker>Saskatoon, SK</template>
-      <template #title>Professional Body Sugaring in Saskatoon</template>
+      <template #title>Gentle, natural sugaring</template>
       <template #subtitle>Soft skin starts here.</template>
       <template #cta>
         <div class="flex flex-wrap justify-center gap-3">
@@ -253,7 +253,6 @@ const heroImages = ["/images/hero/hero-1.jpg", "/images/hero/hero-2.jpg", "/imag
 
 const TRUST_POINTS = [
   "Certified Sugaring Practitioner",
-  "Woman-Owned Studio",
   "100% Natural Ingredients",
   "Saskatoon, SK",
 ];
