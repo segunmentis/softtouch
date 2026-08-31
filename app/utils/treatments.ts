@@ -41,9 +41,9 @@ export type Service = {
 export const SERVICES: Service[] = [
   // Intimate
   { key: "buttCheeks", name: "Butt Cheeks", duration: "20 min", category: "intimate", price: 25, description: "Hair removal from both cheeks." },
-  { key: "brazilian", name: "Brazilian", duration: "45 min", category: "intimate", featured: true, price: 60, description: "Complete hair removal from the intimate area, including the front, labia and bum strip. Go completely bare, or leave a strip or triangle." },
-  { key: "extendedBikini", name: "Extended Bikini", duration: "30 min", category: "intimate", price: 45, description: "A deeper clean-up than a standard bikini: everything in the Bikini, plus more from the front and further inward from the bikini line. Does not include the full labia or bum strip." },
-  { key: "bikini", name: "Bikini", duration: "20 min", category: "intimate", price: 35, description: "Removes hair visible outside a standard bikini bottom, along the bikini line and upper thigh crease. Does not include the labia, bum strip or hair further inward." },
+  { key: "brazilian", name: "Brazilian", duration: "45 min", category: "intimate", featured: true, price: 70, description: "Complete hair removal from the intimate area, including the front, labia and bum strip. Go completely bare, or leave a strip or triangle." },
+  { key: "extendedBikini", name: "Extended Bikini", duration: "30 min", category: "intimate", price: 50, description: "A deeper clean-up than a standard bikini: everything in the Bikini, plus more from the front and further inward from the bikini line. Does not include the full labia or bum strip." },
+  { key: "bikini", name: "Bikini", duration: "20 min", category: "intimate", price: 40, description: "Removes hair visible outside a standard bikini bottom, along the bikini line and upper thigh crease. Does not include the labia, bum strip or hair further inward." },
 
   // Men's sugaring
   { key: "mensFullBack", name: "Men's Full Back", duration: "1 hr", category: "mens", price: 80, description: "The entire back — upper, middle and lower — for smooth, long-lasting results." },
@@ -53,8 +53,8 @@ export const SERVICES: Service[] = [
 
   // Bundles
   { key: "faceRefresh", name: "Face Refresh", duration: "35 min", category: "bundles", price: 42, compareAt: 47, includes: 3, description: "Three facial treatments in one visit." },
-  { key: "smoothEssentials", name: "Smooth Essentials", duration: "1 hr", category: "bundles", price: 75, compareAt: 80, includes: 2, femaleOnly: true, description: "Two everyday treatments in a single visit." },
-  { key: "summerReady", name: "Summer Ready", duration: "1 hr 45 min", category: "bundles", featured: true, price: 125, compareAt: 135, includes: 2, femaleOnly: true, description: "Two treatments bundled for the season." },
+  { key: "smoothEssentials", name: "Smooth Essentials", duration: "1 hr", category: "bundles", price: 85, compareAt: 90, includes: 2, femaleOnly: true, description: "Two everyday treatments in a single visit." },
+  { key: "summerReady", name: "Summer Ready", duration: "1 hr 45 min", category: "bundles", featured: true, price: 140, compareAt: 150, includes: 2, femaleOnly: true, description: "Two treatments bundled for the season." },
 
   // Face — only surfaced through the Featured tab, as on Fresha.
   { key: "upperLip", name: "Upper Lip", duration: "10 min", category: "face", featured: true, price: 12, description: "Removes unwanted hair from the upper lip for a smooth finish." },
