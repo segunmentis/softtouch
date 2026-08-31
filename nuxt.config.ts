@@ -21,8 +21,12 @@ export default defineNuxtConfig({
     // replaced them. Body and Face have no tab of their own, so they land on
     // the menu itself.
     routeRules: {
-      "/intimate-sugaring": { redirect: { to: "/services?tab=intimate", statusCode: 301 } },
-      "/mens-sugaring": { redirect: { to: "/services?tab=mens", statusCode: 301 } },
+      "/intimate-sugaring": {
+        redirect: { to: "/services?tab=intimate", statusCode: 301 },
+      },
+      "/mens-sugaring": {
+        redirect: { to: "/services?tab=mens", statusCode: 301 },
+      },
       "/body-sugaring": { redirect: { to: "/services", statusCode: 301 } },
       "/facial-sugaring": { redirect: { to: "/services", statusCode: 301 } },
     },
@@ -51,7 +55,7 @@ export default defineNuxtConfig({
       //
       // Public on purpose — the browser posts the form directly, so the address
       // is in the page source either way. Do not put secrets here.
-      contactEmail: "soniapologbo04@gmail.com",
+      contactEmail: "Softtouchaestheticsstudio@gmail.com",
     },
   },
 
@@ -69,7 +73,9 @@ export default defineNuxtConfig({
       // noscript content as raw text when scripting is on, while Vue's client
       // vdom expects an element, which produced a hydration mismatch on every
       // page.
-      noscript: [{ innerHTML: ".reveal{opacity:1!important;transform:none!important}" }],
+      noscript: [
+        { innerHTML: ".reveal{opacity:1!important;transform:none!important}" },
+      ],
       link: [
         // EB Garamond is self-hosted (app/assets/css/fonts.css). These two faces
         // carry the hero and the nav, so they are fetched in parallel with the
@@ -123,7 +129,6 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: "~/assets/css/main.css",
   },
-
 
   vite: {
     optimizeDeps: {
