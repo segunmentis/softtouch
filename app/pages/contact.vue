@@ -87,13 +87,35 @@
                 <label for="contact-name" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
                   Name
                 </label>
-                <input id="contact-name" v-model="form.name" type="text" required class="field" />
+                <input
+                  id="contact-name"
+                  v-model="form.name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  :aria-invalid="Boolean(errors.name)"
+                  :aria-describedby="errors.name ? 'contact-name-error' : undefined"
+                  :class="['field', errors.name && 'field-invalid']"
+                  @input="revalidate('name')"
+                />
+                <p v-if="errors.name" id="contact-name-error" class="err">{{ errors.name }}</p>
               </div>
               <div class="mb-4">
                 <label for="contact-email" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
                   Email
                 </label>
-                <input id="contact-email" v-model="form.email" type="email" required class="field" />
+                <input
+                  id="contact-email"
+                  v-model="form.email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  :aria-invalid="Boolean(errors.email)"
+                  :aria-describedby="errors.email ? 'contact-email-error' : undefined"
+                  :class="['field', errors.email && 'field-invalid']"
+                  @input="revalidate('email')"
+                />
+                <p v-if="errors.email" id="contact-email-error" class="err">{{ errors.email }}</p>
               </div>
               <div class="mb-4">
                 <label for="contact-phone" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
@@ -112,7 +134,17 @@
                 <label for="contact-message" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
                   Message
                 </label>
-                <textarea id="contact-message" v-model="form.message" rows="5" required class="field" />
+                <textarea
+                  id="contact-message"
+                  v-model="form.message"
+                  rows="5"
+                  required
+                  :aria-invalid="Boolean(errors.message)"
+                  :aria-describedby="errors.message ? 'contact-message-error' : undefined"
+                  :class="['field', errors.message && 'field-invalid']"
+                  @input="revalidate('message')"
+                />
+                <p v-if="errors.message" id="contact-message-error" class="err">{{ errors.message }}</p>
               </div>
 
               <button
@@ -216,11 +248,58 @@ const form = reactive({ name: "", email: "", phone: "", message: "" });
 // one, so anything non-empty here is discarded. FormSubmit honours `_honey`
 // server-side too, but bailing early saves the request.
 const honey = ref("");
+type Field = "name" | "email" | "message";
+const errors = reactive<Record<Field, string>>({ name: "", email: "", message: "" });
+
+// Deliberately loose: something@something.tld. A stricter pattern rejects valid
+// addresses (new TLDs, plus-addressing, quoted locals), and the real check is
+// whether a reply arrives — this only catches obvious typos before sending.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function errorFor(field: Field): string {
+  const value = form[field].trim();
+  if (field === "name") return value ? "" : "Please enter your name.";
+  if (field === "email") {
+    if (!value) return "Please enter your email address.";
+    return EMAIL_RE.test(value) ? "" : "That does not look like an email address.";
+  }
+  return value ? "" : "Please enter a message.";
+}
+
+// True once the visitor has tried to send. Errors are only shown after that,
+// never while a field is simply being filled in.
+const submitted = ref(false);
+
+/**
+ * Re-check one field as it is typed into, so a message clears the moment it is
+ * fixed. Deliberately NOT on blur: an error appearing as focus leaves a field
+ * grows the form by ~25px, which slides the Send button out from under a
+ * pointer already travelling towards it, and the click lands on nothing.
+ */
+function revalidate(field: Field) {
+  if (submitted.value) errors[field] = errorFor(field);
+}
+
 const status = ref<"idle" | "sending" | "sent" | "error">("idle");
 const sentName = ref("");
 
 async function submit() {
   if (honey.value) return;
+
+  // The form carries `novalidate` so the page owns its own messaging rather
+  // than showing the browser's bubbles. That means nothing is checked unless
+  // it is checked here — `required` alone blocks nothing.
+  submitted.value = true;
+  const fields: Field[] = ["name", "email", "message"];
+  for (const field of fields) errors[field] = errorFor(field);
+
+  const firstInvalid = fields.find((field) => errors[field]);
+  if (firstInvalid) {
+    status.value = "idle";
+    // Move focus to the problem rather than leaving the visitor to hunt for it.
+    document.getElementById(`contact-${firstInvalid}`)?.focus();
+    return;
+  }
 
   // Nothing configured yet: fail honestly rather than claiming it sent.
   if (!formEndpoint.value) {
@@ -260,6 +339,7 @@ async function submit() {
 
     status.value = "sent";
     Object.assign(form, { name: "", email: "", phone: "", message: "" });
+    Object.assign(errors, { name: "", email: "", message: "" });
   } catch {
     status.value = "error";
   }
@@ -275,6 +355,14 @@ async function submit() {
 }
 .map:hover {
   border-color: rgba(217, 163, 77, 0.5);
+}
+.field-invalid {
+  border-color: rgba(161, 91, 40, 0.85);
+}
+.err {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: #d08a5a;
 }
 .social {
   transition: border-color 0.22s ease, transform 0.22s ease;
