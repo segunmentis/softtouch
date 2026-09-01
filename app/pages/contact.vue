@@ -95,6 +95,19 @@
                 </label>
                 <input id="contact-email" v-model="form.email" type="email" required class="field" />
               </div>
+              <div class="mb-4">
+                <label for="contact-phone" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
+                  Phone <span class="font-medium normal-case tracking-normal text-cream/35">(optional)</span>
+                </label>
+                <input
+                  id="contact-phone"
+                  v-model="form.phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  class="field"
+                />
+              </div>
               <div class="mb-5">
                 <label for="contact-message" class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-cream/60">
                   Message
@@ -198,7 +211,7 @@ const details = computed(() =>
 // Entries without a URL are omitted rather than rendered as dead links.
 const socials = computed(() => SOCIAL_LINKS.filter((s) => s.url));
 
-const form = reactive({ name: "", email: "", message: "" });
+const form = reactive({ name: "", email: "", phone: "", message: "" });
 // Spam trap. Bots fill every field they find; a real visitor never sees this
 // one, so anything non-empty here is discarded. FormSubmit honours `_honey`
 // server-side too, but bailing early saves the request.
@@ -228,6 +241,9 @@ async function submit() {
       body: {
         name: form.name,
         email: form.email,
+        // Omitted entirely when blank — FormSubmit renders every key it is
+        // given, so sending "" would put an empty Phone row in the email.
+        ...(form.phone.trim() ? { phone: form.phone.trim() } : {}),
         message: form.message,
         // Names the studio, so the enquiry is identifiable in the inbox.
         _subject: `${STUDIO_NAME} — ${form.name}`,
@@ -243,7 +259,7 @@ async function submit() {
     if (res && String(res.success) === "false") throw new Error(res.message || "rejected");
 
     status.value = "sent";
-    Object.assign(form, { name: "", email: "", message: "" });
+    Object.assign(form, { name: "", email: "", phone: "", message: "" });
   } catch {
     status.value = "error";
   }
