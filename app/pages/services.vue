@@ -44,13 +44,6 @@
              12 of the 18 services out of the HTML entirely and invisible to
              search engines. -->
         <div v-for="tab in SERVICE_TABS" v-show="active === tab" :key="tab">
-          <p
-            v-if="tab === 'mens'"
-            class="mb-6 rounded-lg border border-cream/12 bg-[#191710] px-4 py-3 text-sm leading-relaxed text-cream/70"
-          >
-            Men's intimate sugaring (Brazilian and bikini) is not currently offered.
-          </p>
-
           <ul :id="`panel-${tab}`" role="tabpanel" :aria-labelledby="`tab-${tab}`" class="list-none p-0">
             <li v-for="service in servicesIn(tab)" :key="service.key">
             <a
@@ -72,7 +65,13 @@
                   <span v-if="service.femaleOnly">Female only</span>
                 </p>
 
-                <p class="mt-2 max-w-prose text-sm leading-relaxed text-cream/70">
+                <!-- Clamped rather than shortened: the full text stays in the
+                     DOM, so search engines and screen readers get all of it
+                     while the visible rows keep a consistent height. Fresha's
+                     own descriptions vary from one line to seven. A toggle is
+                     not an option here — the whole row is a link to Fresha, and
+                     a button inside an anchor is invalid and would navigate. -->
+                <p class="mt-2 line-clamp-3 max-w-prose text-sm leading-relaxed text-cream/70">
                   {{ service.description }}
                 </p>
               </div>

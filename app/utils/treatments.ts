@@ -46,6 +46,7 @@ export const SERVICES: Service[] = [
   { key: "bikini", name: "Bikini", duration: "20 min", category: "intimate", price: 40, description: "Removes hair visible outside a standard bikini bottom, along the bikini line and upper thigh crease. Does not include the labia, bum strip or hair further inward." },
 
   // Men's sugaring
+  { key: "mensBrazilian", name: "Men's Brazilian (Manzilian)", duration: "1 hr 15 min", category: "mens", price: 105, description: "Professional intimate sugaring for men, removing hair from the front, scrotum, perineum and between the cheeks. First time? No worries — I’ll guide you through positioning and the process throughout your appointment. Hair growth varies, so please avoid trimming immediately before your appointment. If you're unsure whether you have enough growth, leave the hair as is, and I’ll assess it when you arrive. This is a professional hair-removal service. A short intake and consent form must be completed before your appointment." },
   { key: "mensFullBack", name: "Men's Full Back", duration: "1 hr", category: "mens", price: 80, description: "The entire back — upper, middle and lower — for smooth, long-lasting results." },
   { key: "mensShoulders", name: "Men's Shoulders", duration: "20 min", category: "mens", price: 25, description: "Both shoulders, leaving the skin smooth and well groomed." },
   { key: "mensStomach", name: "Men's Stomach", duration: "20 min", category: "mens", price: 30, description: "The stomach area, for smooth, long-lasting results." },
