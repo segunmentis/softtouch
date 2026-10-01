@@ -5,12 +5,20 @@
 export const STUDIO_NAME = "Soft Touch Aesthetics Studio";
 
 export const STUDIO_ADDRESS = {
-  street: "410 Duchess Street, M2",
+  street: "432 21st Street East",
   city: "Saskatoon",
   region: "SK",
-  postalCode: "S7K 0R2",
+  /** Not yet confirmed. Empty is omitted from the display and the schema. */
+  postalCode: "",
   country: "CA",
 };
+
+/** The address on one line, for the header and the contact page's map card. */
+export const STUDIO_ADDRESS_LINE = [
+  STUDIO_ADDRESS.street,
+  STUDIO_ADDRESS.city,
+  [STUDIO_ADDRESS.region, STUDIO_ADDRESS.postalCode].filter(Boolean).join(" "),
+].join(", ");
 
 /**
  * Displayed as written; the footer's tel: link normalises it to E.164, so the

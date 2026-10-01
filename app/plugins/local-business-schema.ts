@@ -25,7 +25,7 @@ export default defineNuxtPlugin(() => {
       streetAddress: STUDIO_ADDRESS.street,
       addressLocality: STUDIO_ADDRESS.city,
       addressRegion: STUDIO_ADDRESS.region,
-      postalCode: STUDIO_ADDRESS.postalCode,
+      postalCode: STUDIO_ADDRESS.postalCode || undefined,
       addressCountry: STUDIO_ADDRESS.country,
     },
     areaServed: { "@type": "City", name: "Saskatoon" },

@@ -45,7 +45,7 @@ export const FAQS: Faq[] = [
   {
     id: "location",
     question: "Where is Soft Touch Aesthetics Studio located?",
-    answer: "We are at 410 Duchess Street, M2, in Saskatoon. The studio is private — one client at a time, with no shared waiting room.",
+    answer: "We are at 432 21st Street East, in Saskatoon. The studio is private — one client at a time, with no shared waiting room.",
   },
   {
     id: "mens-sugaring",

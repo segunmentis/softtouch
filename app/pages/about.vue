@@ -5,7 +5,7 @@
       image-alt="Citrus and water — the kind of simple, natural ingredients sugaring is built on"
       kicker="About The Studio"
       title="A gentler way to remove hair"
-      sub="Private body sugaring on Duchess Street, Saskatoon."
+      sub="Private body sugaring in Saskatoon."
     />
 
     <!-- Scattered prints -->
