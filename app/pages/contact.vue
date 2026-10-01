@@ -59,7 +59,7 @@
             rel="noopener"
             class="map flex items-center justify-between gap-3 rounded-xl border border-cream/12 bg-[#191710] p-4 no-underline"
           >
-            <span class="text-sm text-cream/85">410 Duchess Street, M2, Saskatoon, SK S7K 0R2</span>
+            <span class="text-sm text-cream/85">{{ STUDIO_ADDRESS_LINE }}</span>
             <span class="flex-shrink-0 text-[11px] font-semibold uppercase tracking-wider text-gold">
               Open in Maps →
             </span>
@@ -226,7 +226,7 @@ const formEndpoint = computed(() => useContactFormEndpoint());
 
 const details = computed(() =>
   [
-    { key: "address", icon: "◎", heading: "Studio Address", value: "410 Duchess Street, M2, Saskatoon, SK S7K 0R2", href: "" },
+    { key: "address", icon: "◎", heading: "Studio Address", value: STUDIO_ADDRESS_LINE, href: "" },
     { key: "hours", icon: "◷", heading: "Hours", value: "Mon–Fri 2–8pm · Sat 10–8pm · Sun 12–6pm", href: "" },
     contactEmail.value
       ? {

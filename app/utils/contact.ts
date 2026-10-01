@@ -9,7 +9,7 @@
 // app/composables/useContact.ts.
 
 /** Google Maps link for the studio. Empty hides the map card. */
-export const MAP_URL = "https://www.google.com/maps/search/?api=1&query=410+Duchess+Street+Saskatoon+SK+S7K+0R2";
+export const MAP_URL = "https://www.google.com/maps/search/?api=1&query=432+21st+Street+East+Saskatoon+SK";
 
 /** Social profiles. Entries without a `url` are not rendered. */
 export const SOCIAL_LINKS: { key: string; label: string; handle: string; url: string }[] = [
