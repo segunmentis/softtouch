@@ -12,7 +12,9 @@ export default defineNuxtPlugin(() => {
   const contactEmail = useContactEmail();
   const origin = siteUrl.replace(/\/$/, "");
 
-  const sameAs = SOCIAL_LINKS.filter((link) => link.url).map((link) => link.url);
+  const sameAs = SOCIAL_LINKS.filter((link) => link.url).map(
+    (link) => link.url,
+  );
 
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -57,11 +59,32 @@ export default defineNuxtPlugin(() => {
     schema.priceRange = `CA$${Math.min(...prices)}–CA$${Math.max(...prices)}`;
   }
 
+  if (SERVICES.length) {
+    schema.hasOfferCatalog = {
+      "@type": "OfferCatalog",
+      name: "Sugaring services",
+      itemListElement: SERVICES.map((service) => ({
+        "@type": "Offer",
+        price: service.price,
+        priceCurrency: "CAD",
+        url: origin ? `${origin}/services` : undefined,
+        itemOffered: {
+          "@type": "Service",
+          name: service.name,
+          serviceType: "Sugaring hair removal",
+          description: service.description,
+        },
+      })),
+    };
+  }
+
   if (STUDIO_PHONE) schema.telephone = STUDIO_PHONE;
   if (contactEmail) schema.email = contactEmail;
   if (sameAs.length) schema.sameAs = sameAs;
 
   useHead({
-    script: [{ type: "application/ld+json", innerHTML: JSON.stringify(schema) }],
+    script: [
+      { type: "application/ld+json", innerHTML: JSON.stringify(schema) },
+    ],
   });
 });
