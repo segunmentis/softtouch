@@ -2,7 +2,13 @@
   "name": "softtouch",
   "compatibility_date": "2026-08-28",
   "assets": {
-    "directory": ".output/public"
+    "directory": ".output/public",
+    // The default (auto-trailing-slash) answered /services with a 307 to
+    // /services/, while the sitemap, canonicals and nav links all use the
+    // slashless form — so every URL Google was given was a redirect. This
+    // serves /services from services/index.html directly and sends
+    // /services/ the other way.
+    "html_handling": "drop-trailing-slash"
   },
   "routes": [
     { "pattern": "softtouchaestheticsstudio.com", "custom_domain": true },

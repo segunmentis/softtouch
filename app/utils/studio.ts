@@ -8,8 +8,8 @@ export const STUDIO_ADDRESS = {
   street: "432 21st Street East",
   city: "Saskatoon",
   region: "SK",
-  /** Not yet confirmed. Empty is omitted from the display and the schema. */
-  postalCode: "",
+  /** As on the studio's Fresha listing. Empty would be omitted from the display and the schema. */
+  postalCode: "S7K 0C2",
   country: "CA",
 };
 
